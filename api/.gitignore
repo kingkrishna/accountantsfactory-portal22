@@ -1,0 +1,13 @@
+# Environment (never commit secrets)
+.env
+.env.local
+.env.*.local
+
+# Dependencies
+node_modules/
+
+# Logs
+npm-debug.log*
+*.log
+
+/src/generated/prisma

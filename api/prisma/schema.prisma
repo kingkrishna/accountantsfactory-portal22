@@ -1,0 +1,170 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "debian-openssl-1.1.x", "debian-openssl-3.0.x", "rhel-openssl-1.0.x", "rhel-openssl-3.0.x", "linux-musl"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                   String    @id @default(cuid())
+  email                String    @unique
+  password_hash        String
+  role                 String    @default("client") // admin, client, employee
+  referral_code        String?   @unique
+  status               String    @default("active") // active, inactive, blocked
+  totp_secret          String?
+  totp_enabled         Boolean   @default(false)
+  must_change_password Boolean   @default(false)
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime  @updatedAt
+
+  // Relations
+  serviceRequests      ServiceRequest[]
+  serviceOrders        ServiceOrder[]       @relation("ServiceOrderClient")
+  assignedOrders       ServiceOrder[]       @relation("ServiceOrderEmployee")
+  serviceComments      ServiceComment[]
+  workUpdates          WorkUpdate[]
+  documentsUploaded    Document[]           @relation("UserUploadedDocuments")
+  documentsOwned       Document[]           @relation("UserOwnedDocuments")
+  passwordResetTokens  PasswordResetToken[]
+  auditLogs            AuditLog[]
+  referralsMade        Referral[]           @relation("Referrer")
+}
+
+model Service {
+  id              String           @id @default(cuid())
+  name            String
+  description     String?          @db.Text
+  is_active       Boolean          @default(true)
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+
+  // Relations
+  serviceRequests ServiceRequest[]
+  serviceOrders   ServiceOrder[]
+  referrals       Referral[]
+}
+
+model ServiceOrder {
+  id              String           @id @default(cuid())
+  user_id         String
+  user            User             @relation("ServiceOrderClient", fields: [user_id], references: [id])
+  employee_id     String?
+  employee        User?            @relation("ServiceOrderEmployee", fields: [employee_id], references: [id])
+  service_id      String
+  service         Service          @relation(fields: [service_id], references: [id])
+  period          String?
+  status          String           @default("pending") // pending, in_progress, completed
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+
+  // Relations
+  comments        ServiceComment[]
+  workUpdates     WorkUpdate[]
+  documents       Document[]
+  referrals       Referral[]
+}
+
+model ServiceRequest {
+  id              String   @id @default(cuid())
+  user_id         String
+  user            User     @relation(fields: [user_id], references: [id])
+  service_id      String
+  service         Service  @relation(fields: [service_id], references: [id])
+  period          String?
+  notes           String?  @db.Text
+  status          String   @default("pending") // pending, approved, rejected
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model ServiceComment {
+  id               String       @id @default(cuid())
+  service_order_id String
+  service_order    ServiceOrder @relation(fields: [service_order_id], references: [id])
+  user_id          String
+  user             User         @relation(fields: [user_id], references: [id])
+  comment          String       @db.Text
+  created_at       DateTime     @default(now())
+}
+
+model WorkUpdate {
+  id               String       @id @default(cuid())
+  service_order_id String
+  service_order    ServiceOrder @relation(fields: [service_order_id], references: [id])
+  employee_id      String
+  employee         User         @relation(fields: [employee_id], references: [id])
+  status           String       @default("ongoing") // pending, ongoing, completed
+  comments         String?      @db.Text
+  date             DateTime     @default(now())
+}
+
+model Document {
+  id               String       @id @default(cuid())
+  user_id          String
+  user             User         @relation("UserOwnedDocuments", fields: [user_id], references: [id])
+  service_order_id String
+  service_order    ServiceOrder @relation(fields: [service_order_id], references: [id])
+  file_name        String       // Display name e.g. "GST Return Q1 2024"
+  download_url     String       @db.Text // Zoho link pasted by admin
+  embed_code       String?      @db.Text // Zoho WorkDrive embed iframe code (optional)
+  uploaded_by      String
+  uploader         User         @relation("UserUploadedDocuments", fields: [uploaded_by], references: [id])
+  uploaded_at      DateTime     @default(now())
+}
+
+model Referral {
+  id               String        @id @default(cuid())
+  referrer_user_id String
+  referrer         User          @relation("Referrer", fields: [referrer_user_id], references: [id])
+  referred_name    String?
+  referred_email   String?
+  service_id       String?
+  service          Service?      @relation(fields: [service_id], references: [id])
+  service_order_id String?
+  service_order    ServiceOrder? @relation(fields: [service_order_id], references: [id])
+  bonus_amount     Float         @default(0.00)
+  status           String        @default("pending") // pending, approved, rejected
+  reason           String?       @db.Text
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+}
+
+model PasswordResetToken {
+  id         String   @id @default(cuid())
+  user_id    String
+  user       User     @relation(fields: [user_id], references: [id])
+  token      String   @unique
+  expires_at DateTime
+  used       Boolean  @default(false)
+  created_at DateTime @default(now())
+}
+
+model AuditLog {
+  id            String   @id @default(cuid())
+  user_id       String
+  user          User     @relation(fields: [user_id], references: [id])
+  action        String
+  resource_type String?
+  resource_id   String?
+  ip_address    String?
+  user_agent    String?  @db.Text
+  created_at    DateTime @default(now())
+}
+
+model ContactMessage {
+  id         String   @id @default(cuid())
+  name       String
+  email      String
+  mobile     String
+  service    String
+  message    String?  @db.Text
+  status     String   @default("new") // new, in_progress, resolved
+  source     String   @default("website")
+  ticket_id  String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}

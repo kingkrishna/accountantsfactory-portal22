@@ -1,0 +1,10 @@
+node_modules*
+.env
+.env.*
+*.zip
+__tests__
+*.test.js
+jest.setup.js
+*.bat
+*.ps1
+README.md

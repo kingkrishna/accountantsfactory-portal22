@@ -1,0 +1,10 @@
+# Proxy /api/* to the AppSail backend so frontend and API share origin.
+# This eliminates CORS and browser-blocks of catalystappsail.in domain.
+/api/*  https://accountantsfactory-api-50040008732.development.catalystappsail.in/api/:splat  200
+
+# Portal pages map 1:1 to files
+/portal/*  /portal/:splat  200
+
+# All other unmatched routes show the 404 page
+/404      /404.html   200
+/*        /404.html   404

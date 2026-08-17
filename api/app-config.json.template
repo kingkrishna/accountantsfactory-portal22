@@ -1,0 +1,20 @@
+{
+  "command": "node startup.js",
+  "build_path": ".",
+  "stack": "node18",
+  "env_variables": {
+    "NODE_ENV": "production",
+    "JWT_SECRET": "REPLACE_WITH_JWT_SECRET",
+    "JWT_EXPIRES_IN": "7d",
+    "FRONTEND_URL": "https://accountantsfactory.com",
+    "SMTP_HOST": "smtp.zoho.in",
+    "SMTP_PORT": "465",
+    "SMTP_SECURE": "true",
+    "SMTP_USER": "nitin@accountantsfactory.com",
+    "SMTP_PASSWORD": "REPLACE_WITH_ZOHO_APP_PASSWORD",
+    "EMAIL_FROM": "nitin@accountantsfactory.com",
+    "EMAIL_FROM_NAME": "AccountantsFactory"
+  },
+  "memory": 512,
+  "scripts": {}
+}
