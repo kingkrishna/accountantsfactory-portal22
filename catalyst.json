@@ -1,0 +1,24 @@
+{
+  "project_id": "18944000000044043",
+  "project_name": "accountantsfactory1",
+  "platform_type": "1",
+  "project_directory_structure": {
+    "functions": ".",
+    "client": "web",
+    "appsail": [
+      {
+        "name": "accountantsfactory-api",
+        "source": "api"
+      }
+    ]
+  },
+  "client": {
+    "source": "web"
+  },
+  "appsail": [
+    {
+      "name": "accountantsfactory-api",
+      "source": "api"
+    }
+  ]
+}

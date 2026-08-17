@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Generator — AccountantsFactory</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta name="app-version" content="87">
+    <script src="../../js/cache-buster.js"></script>
+    <link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet">
+    <!-- DocGen's own clean stylesheet ONLY. We deliberately do NOT load the portal's
+         style-v2.css / Bootstrap here — they conflict with DocGen's layout and were
+         causing the greyed-out / broken display. -->
+    <link rel="stylesheet" href="css/styles.css?v=87">
+    <style>
+      /* Simple branded bar matching site colors, no framework needed */
+      .af-topbar { background: linear-gradient(135deg, #0c9782 0%, #0a7f6f 100%); color: #fff; padding: 12px 24px; display: flex; align-items: center; gap: 16px; font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif; }
+      .af-topbar img { height: 40px; width: auto; }
+      .af-topbar .af-title { font-weight: 700; font-size: 16px; }
+      .af-topbar a.af-back { margin-left: auto; color: #fff; text-decoration: none; background: rgba(255,255,255,.18); padding: 7px 14px; border-radius: 6px; font-size: 14px; font-weight: 600; }
+      .af-topbar a.af-back:hover { background: rgba(255,255,255,.3); }
+    </style>
+</head>
+<body>
+
+    <!-- Branded top bar (plain HTML/CSS, no Bootstrap dependency) -->
+    <div class="af-topbar">
+      <img src="/images/logo-new.png" alt="Accountants Factory">
+      <span class="af-title">Document Generator</span>
+      <a href="../dashboard.html" class="af-back"><i class="fas fa-arrow-left"></i> Back to Admin Dashboard</a>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <h1>DocGen</h1>
+        <nav class="nav-tabs">
+            <button class="nav-tab active" data-page="clients">Clients</button>
+            <button class="nav-tab" data-page="generate">Generate Documents</button>
+            <button class="nav-tab" data-page="history">History</button>
+        </nav>
+        <a href="admin.html" class="admin-link" title="DocGen Admin">&#9881; DocGen Admin</a>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+        <!-- ====== CLIENTS PAGE ====== -->
+        <div id="page-clients" class="page active">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Client Master</h2>
+                    <button class="btn btn-primary" onclick="App.showAddClient()">+ Add Client</button>
+                </div>
+                <div class="search-bar">
+                    <input type="text" id="client-search" placeholder="Search by name, company, PAN or mobile..." oninput="App.searchClients(this.value)">
+                </div>
+                <div id="client-list" class="client-list">
+                    <div class="empty-state">
+                        <h3>No clients yet</h3>
+                        <p>Click "Add Client" to get started</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====== GENERATE DOCUMENTS PAGE ====== -->
+        <div id="page-generate" class="page">
+            <div id="no-client-selected" class="card">
+                <div class="empty-state">
+                    <h3>Select a client first</h3>
+                    <p>Go to the Clients tab and click on a client, or select one below</p>
+                </div>
+                <div id="quick-client-select" style="margin-top: 16px;"></div>
+            </div>
+            <div id="generate-content" style="display:none;">
+                <div id="selected-client-banner" class="selected-client-banner">
+                    <div>
+                        <h3 id="selected-client-name"></h3>
+                        <p id="selected-client-details"></p>
+                    </div>
+                    <button class="btn btn-outline btn-sm" onclick="App.changeClient()">Change Client</button>
+                </div>
+                <div id="category-grid" class="category-grid"></div>
+                <div id="generate-bar" class="generate-bar" style="display:none;">
+                    <span class="count"><strong id="selected-count">0</strong> document(s) selected</span>
+                    <button class="btn btn-success btn-lg" onclick="App.generateSelected()">Generate & Download</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====== HISTORY PAGE ====== -->
+        <div id="page-history" class="page">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Generation History</h2>
+                </div>
+                <div id="history-content">
+                    <div class="empty-state">
+                        <h3>No documents generated yet</h3>
+                        <p>Generated documents will appear here</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ====== CLIENT FORM MODAL ====== -->
+    <div id="client-modal" class="modal-overlay">
+        <div class="modal" style="max-width: 850px;">
+            <div class="modal-header">
+                <h3 id="client-modal-title">Add New Client</h3>
+                <button class="modal-close" onclick="App.closeClientModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="client-form" onsubmit="App.saveClient(event)">
+                    <input type="hidden" id="client-id">
+
+                    <!-- STEP 1: Entity Type (always first) -->
+                    <h4 class="section-title">Step 1 — Select Entity Type</h4>
+                    <div class="entity-type-selector">
+                        <div class="entity-type-option" onclick="App.selectEntityType('Sole Proprietor')">
+                            <input type="radio" name="entityType" value="Sole Proprietor">
+                            <span class="entity-type-label">Sole Proprietor</span>
+                        </div>
+                        <div class="entity-type-option" onclick="App.selectEntityType('Partnership')">
+                            <input type="radio" name="entityType" value="Partnership">
+                            <span class="entity-type-label">Partnership</span>
+                        </div>
+                        <div class="entity-type-option" onclick="App.selectEntityType('LLP')">
+                            <input type="radio" name="entityType" value="LLP">
+                            <span class="entity-type-label">LLP</span>
+                        </div>
+                        <div class="entity-type-option" onclick="App.selectEntityType('Private Limited')">
+                            <input type="radio" name="entityType" value="Private Limited">
+                            <span class="entity-type-label">Pvt Ltd</span>
+                        </div>
+                        <div class="entity-type-option" onclick="App.selectEntityType('Others')">
+                            <input type="radio" name="entityType" value="Others">
+                            <span class="entity-type-label">Others</span>
+                            <span class="entity-type-sub">(Society, Trust, etc.)</span>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic sections shown based on entity type -->
+                    <div id="dynamic-form" style="display:none;">
+
+                        <!-- STEP 2: Entity/Firm Details -->
+                        <div id="section-entity" style="display:none;">
+                            <h4 class="section-title">Step 2 — <span id="entity-section-label">Firm</span> Details</h4>
+                            <div class="form-grid">
+                                <div class="form-group" id="grp-tradeName" style="display:none;">
+                                    <label>Trade Name / Business Name *</label>
+                                    <input type="text" id="cf-tradeName" placeholder="Name under which business is carried on">
+                                </div>
+                                <div class="form-group" id="grp-proposedName">
+                                    <label id="lbl-proposedName">Proposed Name</label>
+                                    <input type="text" id="cf-proposedCompanyName" placeholder="For new registration">
+                                </div>
+                                <div class="form-group" id="grp-registeredName">
+                                    <label id="lbl-registeredName">Registered Name</label>
+                                    <input type="text" id="cf-entityName">
+                                </div>
+                                <div class="form-group" id="grp-cin" style="display:none;">
+                                    <label>CIN</label>
+                                    <input type="text" id="cf-cin">
+                                </div>
+                                <div class="form-group" id="grp-llpin" style="display:none;">
+                                    <label>LLPIN</label>
+                                    <input type="text" id="cf-llpin">
+                                </div>
+                                <div class="form-group">
+                                    <label>GST Number</label>
+                                    <input type="text" id="cf-gstNumber" maxlength="15" style="text-transform: uppercase;">
+                                </div>
+                                <div class="form-group">
+                                    <label>PAN (Entity)</label>
+                                    <input type="text" id="cf-entityPan" maxlength="10" style="text-transform: uppercase;">
+                                </div>
+                                <div class="form-group" id="grp-dateOfIncorporation">
+                                    <label>Date of Incorporation / Registration</label>
+                                    <input type="date" id="cf-dateOfIncorporation">
+                                </div>
+                                <div class="form-group" id="grp-otherType" style="display:none;">
+                                    <label>Entity Sub-Type</label>
+                                    <input type="text" id="cf-otherEntityType" placeholder="e.g., Society, Trust, Section 8">
+                                </div>
+                                <div class="form-group" id="grp-regNumber" style="display:none;">
+                                    <label>Registration Number</label>
+                                    <input type="text" id="cf-registrationNumber">
+                                </div>
+                                <div class="form-group" id="grp-authorizedCapital">
+                                    <label>Authorized Capital</label>
+                                    <input type="text" id="cf-authorizedCapital" placeholder="e.g., 1,00,000">
+                                </div>
+                                <div class="form-group" id="grp-paidUpCapital">
+                                    <label>Paid-up Capital</label>
+                                    <input type="text" id="cf-paidUpCapital" placeholder="e.g., 1,00,000">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- STEP 2 for Sole Proprietor / STEP 3 for others: Primary Person -->
+                        <div id="section-person">
+                            <h4 class="section-title"><span id="person-section-label">Step 2 — Proprietor Details</span></h4>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label>Full Name *</label>
+                                    <input type="text" id="cf-fullName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>S/o, D/o, W/o</label>
+                                    <input type="text" id="cf-fatherName">
+                                </div>
+                                <div class="form-group">
+                                    <label>Date of Birth</label>
+                                    <input type="date" id="cf-dob">
+                                </div>
+                                <div class="form-group">
+                                    <label>Gender</label>
+                                    <select id="cf-gender">
+                                        <option value="">Select</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>PAN</label>
+                                    <input type="text" id="cf-pan" maxlength="10" style="text-transform: uppercase;">
+                                </div>
+                                <div class="form-group">
+                                    <label>Aadhar</label>
+                                    <input type="text" id="cf-aadhar" maxlength="14">
+                                </div>
+                                <div class="form-group">
+                                    <label>Mobile</label>
+                                    <input type="tel" id="cf-mobile" maxlength="10">
+                                </div>
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" id="cf-email">
+                                </div>
+                                <div class="form-group full-width">
+                                    <label>Residential Address</label>
+                                    <textarea id="cf-address" rows="2"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>City</label>
+                                    <input type="text" id="cf-city">
+                                </div>
+                                <div class="form-group">
+                                    <label>State</label>
+                                    <input type="text" id="cf-state">
+                                </div>
+                                <div class="form-group">
+                                    <label>Pincode</label>
+                                    <input type="text" id="cf-pincode" maxlength="6">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Addresses Section -->
+                        <div id="section-addresses">
+                            <h4 class="section-title"><span id="address-section-label">Addresses</span></h4>
+                            <div class="form-grid">
+                                <div class="form-group full-width">
+                                    <label>Registered Office Address *</label>
+                                    <textarea id="cf-registeredAddress" rows="2" required></textarea>
+                                </div>
+                                <div class="form-group full-width">
+                                    <label>Communication Address <small>(if different from registered)</small></label>
+                                    <textarea id="cf-communicationAddress" rows="2"></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Branch Addresses -->
+                            <div id="branch-addresses">
+                                <div class="form-grid" id="branch-1" style="display:none;">
+                                    <div class="form-group full-width">
+                                        <label>Branch Address 1</label>
+                                        <textarea id="cf-branchAddress1" rows="2"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-grid" id="branch-2" style="display:none;">
+                                    <div class="form-group full-width">
+                                        <label>Branch Address 2</label>
+                                        <textarea id="cf-branchAddress2" rows="2"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-grid" id="branch-3" style="display:none;">
+                                    <div class="form-group full-width">
+                                        <label>Branch Address 3</label>
+                                        <textarea id="cf-branchAddress3" rows="2"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-grid" id="branch-4" style="display:none;">
+                                    <div class="form-group full-width">
+                                        <label>Branch Address 4</label>
+                                        <textarea id="cf-branchAddress4" rows="2"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-outline btn-sm" style="margin-top: 4px;" onclick="App.addBranchAddress()">+ Add Branch Address</button>
+                        </div>
+
+                        <!-- Partners / Directors (hidden for Sole Proprietor) -->
+                        <div id="section-partners" style="display:none;">
+                            <h4 class="section-title"><span id="partners-section-label">Directors / Partners</span></h4>
+                            <div id="directors-container"></div>
+                            <button type="button" class="btn btn-outline btn-sm" style="margin-top: 8px;" onclick="App.addDirectorRow()">+ Add <span class="partner-label">Director/Partner</span></button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="App.closeClientModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="document.getElementById('client-form').requestSubmit()">Save Client</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ====== EXTRA FIELDS MODAL ====== -->
+    <div id="extra-fields-modal" class="modal-overlay">
+        <div class="modal" style="max-width: 750px;">
+            <div class="modal-header">
+                <h3 id="extra-modal-title">Additional Details Required</h3>
+                <button class="modal-close" onclick="App.closeExtraFieldsModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p style="font-size: 13px; color: var(--gray-500); margin-bottom: 16px;" id="extra-modal-desc"></p>
+                <form id="extra-fields-form" class="form-grid"></form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="App.closeExtraFieldsModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="App.saveExtraFields()">Save & Generate</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast" class="toast"></div>
+
+    <!-- Portal auth gate: redirect to login only if the admin clearly isn't signed in.
+         Uses the SAME storage keys as auth.js (auth_token / user_data). Lenient by
+         design — DocGen is reached only from the already-authenticated admin dashboard,
+         so we never want a key mismatch to lock the admin out of a working page. -->
+    <script src="../../js/auth.js?v=87"></script>
+    <script>
+      (function () {
+        try {
+          var token = localStorage.getItem('auth_token');
+          var raw = localStorage.getItem('user_data');
+          var user = raw ? JSON.parse(raw) : null;
+          // Only redirect when we are CERTAIN there is no admin session.
+          if (!token && !user) { window.location.replace('../../login.html'); return; }
+          if (user && user.role && user.role !== 'admin') { window.location.replace('../../login.html'); }
+        } catch (e) { /* never block the page on a parse error */ }
+      })();
+    </script>
+
+    <!-- Libraries via CDN -->
+    <script src="https://unpkg.com/docx@8.5.0/build/index.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
+    <!-- Simple branded footer (no framework) -->
+    <div style="background:#f3f4f6; border-top:1px solid #e5e7eb; padding:16px 24px; text-align:center; font-family:'Plus Jakarta Sans',-apple-system,sans-serif; font-size:13px; color:#6b7280;">
+      <i class="fas fa-copyright"></i> Accountant's Factory LLP — All rights reserved
+      &nbsp;|&nbsp; <a href="../dashboard.html" style="color:#0c9782; text-decoration:none; font-weight:600;">Back to Admin Dashboard</a>
+    </div>
+
+    <!-- App scripts -->
+    <script src="js/db.js?v=87"></script>
+    <script src="js/templates.js?v=87"></script>
+    <script src="js/block-renderer.js?v=87"></script>
+    <script src="js/generator.js?v=87"></script>
+    <script src="js/app.js?v=87"></script>
+</body>
+</html>

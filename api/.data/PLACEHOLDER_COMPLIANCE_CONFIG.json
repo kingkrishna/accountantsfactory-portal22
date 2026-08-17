@@ -1,0 +1,302 @@
+[
+  {
+    "ROWID": "1781794972997",
+    "CREATEDTIME": "2026-06-18T15:02:52.747Z",
+    "MODIFIEDTIME": "2026-06-18T15:02:52.747Z",
+    "user_id": "1781794972987",
+    "service_type": "GST",
+    "is_applicable": true,
+    "is_registered": true,
+    "registration_number": "36AABCK1234F1Z5"
+  },
+  {
+    "ROWID": "1781794972974",
+    "CREATEDTIME": "2026-06-18T15:02:52.751Z",
+    "MODIFIEDTIME": "2026-06-18T15:02:52.751Z",
+    "user_id": "1781794972987",
+    "service_type": "INCOME_TAX",
+    "is_applicable": true,
+    "is_registered": true,
+    "registration_number": "AABCK1234F"
+  },
+  {
+    "ROWID": "1781794973102",
+    "CREATEDTIME": "2026-06-18T15:02:52.753Z",
+    "MODIFIEDTIME": "2026-06-18T15:02:52.753Z",
+    "user_id": "1781794972987",
+    "service_type": "MCA",
+    "is_applicable": true,
+    "is_registered": true,
+    "registration_number": "U74999TS2020PTC123456"
+  },
+  {
+    "ROWID": "1781794973572",
+    "CREATEDTIME": "2026-06-18T15:02:52.755Z",
+    "MODIFIEDTIME": "2026-06-18T15:02:52.755Z",
+    "user_id": "1781794972987",
+    "service_type": "PT",
+    "is_applicable": true,
+    "is_registered": true,
+    "registration_number": "PT-TS-00456"
+  },
+  {
+    "ROWID": "1781794973062",
+    "CREATEDTIME": "2026-06-18T15:02:52.766Z",
+    "MODIFIEDTIME": "2026-06-18T15:02:52.766Z",
+    "user_id": "1781794972987",
+    "service_type": "PF",
+    "is_applicable": true,
+    "is_registered": true,
+    "registration_number": "APHYD1234567000"
+  },
+  {
+    "ROWID": "1781794973030",
+    "CREATEDTIME": "2026-06-18T15:02:52.769Z",
+    "MODIFIEDTIME": "2026-06-18T15:02:52.769Z",
+    "user_id": "1781794972987",
+    "service_type": "ESI",
+    "is_applicable": true,
+    "is_registered": true,
+    "registration_number": "52001234560001"
+  },
+  {
+    "ROWID": "1781794973451",
+    "CREATEDTIME": "2026-06-18T15:02:52.952Z",
+    "MODIFIEDTIME": "2026-06-18T15:02:52.952Z",
+    "user_id": "1781794973051",
+    "service_type": "GST",
+    "is_applicable": true,
+    "is_registered": true,
+    "registration_number": "36BGHPS5678K1Z3"
+  },
+  {
+    "ROWID": "1781794973204",
+    "CREATEDTIME": "2026-06-18T15:02:52.954Z",
+    "MODIFIEDTIME": "2026-06-18T15:02:52.954Z",
+    "user_id": "1781794973051",
+    "service_type": "INCOME_TAX",
+    "is_applicable": true,
+    "is_registered": true,
+    "registration_number": "BGHPS5678K"
+  },
+  {
+    "ROWID": "1781794973172",
+    "CREATEDTIME": "2026-06-18T15:02:52.956Z",
+    "MODIFIEDTIME": "2026-06-18T15:02:52.956Z",
+    "user_id": "1781794973051",
+    "service_type": "MCA",
+    "is_applicable": false,
+    "is_registered": false,
+    "registration_number": ""
+  },
+  {
+    "ROWID": "1781794973434",
+    "CREATEDTIME": "2026-06-18T15:02:52.957Z",
+    "MODIFIEDTIME": "2026-06-18T15:02:52.957Z",
+    "user_id": "1781794973051",
+    "service_type": "PT",
+    "is_applicable": false,
+    "is_registered": false,
+    "registration_number": ""
+  },
+  {
+    "ROWID": "1781794973872",
+    "CREATEDTIME": "2026-06-18T15:02:52.962Z",
+    "MODIFIEDTIME": "2026-06-18T15:02:52.962Z",
+    "user_id": "1781794973051",
+    "service_type": "PF",
+    "is_applicable": false,
+    "is_registered": false,
+    "registration_number": ""
+  },
+  {
+    "ROWID": "1781794973533",
+    "CREATEDTIME": "2026-06-18T15:02:52.965Z",
+    "MODIFIEDTIME": "2026-06-18T15:02:52.965Z",
+    "user_id": "1781794973051",
+    "service_type": "ESI",
+    "is_applicable": false,
+    "is_registered": false,
+    "registration_number": ""
+  },
+  {
+    "ROWID": "1781794973888",
+    "CREATEDTIME": "2026-06-18T15:02:53.101Z",
+    "MODIFIEDTIME": "2026-06-18T15:02:53.101Z",
+    "user_id": "1781794973439",
+    "service_type": "GST",
+    "is_applicable": true,
+    "is_registered": true,
+    "registration_number": "36AAFR2345M1Z8"
+  },
+  {
+    "ROWID": "1781794973537",
+    "CREATEDTIME": "2026-06-18T15:02:53.103Z",
+    "MODIFIEDTIME": "2026-06-18T15:02:53.103Z",
+    "user_id": "1781794973439",
+    "service_type": "INCOME_TAX",
+    "is_applicable": true,
+    "is_registered": true,
+    "registration_number": "AAFR2345M"
+  },
+  {
+    "ROWID": "1781794973810",
+    "CREATEDTIME": "2026-06-18T15:02:53.106Z",
+    "MODIFIEDTIME": "2026-06-18T15:02:53.106Z",
+    "user_id": "1781794973439",
+    "service_type": "MCA",
+    "is_applicable": true,
+    "is_registered": true,
+    "registration_number": "AAR-1234"
+  },
+  {
+    "ROWID": "1781794973160",
+    "CREATEDTIME": "2026-06-18T15:02:53.110Z",
+    "MODIFIEDTIME": "2026-06-18T15:02:53.110Z",
+    "user_id": "1781794973439",
+    "service_type": "PT",
+    "is_applicable": true,
+    "is_registered": true,
+    "registration_number": "PT-TS-00789"
+  },
+  {
+    "ROWID": "1781794973732",
+    "CREATEDTIME": "2026-06-18T15:02:53.112Z",
+    "MODIFIEDTIME": "2026-06-18T15:02:53.112Z",
+    "user_id": "1781794973439",
+    "service_type": "PF",
+    "is_applicable": false,
+    "is_registered": false,
+    "registration_number": ""
+  },
+  {
+    "ROWID": "1781794973987",
+    "CREATEDTIME": "2026-06-18T15:02:53.114Z",
+    "MODIFIEDTIME": "2026-06-18T15:02:53.114Z",
+    "user_id": "1781794973439",
+    "service_type": "ESI",
+    "is_applicable": false,
+    "is_registered": false,
+    "registration_number": ""
+  },
+  {
+    "ROWID": "1781794973315",
+    "CREATEDTIME": "2026-06-18T15:02:53.241Z",
+    "MODIFIEDTIME": "2026-06-18T15:02:53.241Z",
+    "user_id": "1781794973587",
+    "service_type": "GST",
+    "is_applicable": true,
+    "is_registered": true,
+    "registration_number": "36AALFL9012N1Z1"
+  },
+  {
+    "ROWID": "1781794973275",
+    "CREATEDTIME": "2026-06-18T15:02:53.247Z",
+    "MODIFIEDTIME": "2026-06-18T15:02:53.247Z",
+    "user_id": "1781794973587",
+    "service_type": "INCOME_TAX",
+    "is_applicable": true,
+    "is_registered": true,
+    "registration_number": "AALFL9012N"
+  },
+  {
+    "ROWID": "1781794973733",
+    "CREATEDTIME": "2026-06-18T15:02:53.251Z",
+    "MODIFIEDTIME": "2026-06-18T15:02:53.251Z",
+    "user_id": "1781794973587",
+    "service_type": "MCA",
+    "is_applicable": false,
+    "is_registered": false,
+    "registration_number": ""
+  },
+  {
+    "ROWID": "1781794974045",
+    "CREATEDTIME": "2026-06-18T15:02:53.253Z",
+    "MODIFIEDTIME": "2026-06-18T15:02:53.253Z",
+    "user_id": "1781794973587",
+    "service_type": "PT",
+    "is_applicable": true,
+    "is_registered": false,
+    "registration_number": ""
+  },
+  {
+    "ROWID": "1781794973931",
+    "CREATEDTIME": "2026-06-18T15:02:53.255Z",
+    "MODIFIEDTIME": "2026-06-18T15:02:53.255Z",
+    "user_id": "1781794973587",
+    "service_type": "PF",
+    "is_applicable": true,
+    "is_registered": true,
+    "registration_number": "APHYD9876543000"
+  },
+  {
+    "ROWID": "1781794973993",
+    "CREATEDTIME": "2026-06-18T15:02:53.257Z",
+    "MODIFIEDTIME": "2026-06-18T15:02:53.257Z",
+    "user_id": "1781794973587",
+    "service_type": "ESI",
+    "is_applicable": true,
+    "is_registered": true,
+    "registration_number": "52009876540001"
+  },
+  {
+    "ROWID": "1781794973426",
+    "CREATEDTIME": "2026-06-18T15:02:53.384Z",
+    "MODIFIEDTIME": "2026-06-18T15:02:53.384Z",
+    "user_id": "1781794974184",
+    "service_type": "GST",
+    "is_applicable": true,
+    "is_registered": true,
+    "registration_number": "36AABCV3456P1Z7"
+  },
+  {
+    "ROWID": "1781794974185",
+    "CREATEDTIME": "2026-06-18T15:02:53.386Z",
+    "MODIFIEDTIME": "2026-06-18T15:02:53.386Z",
+    "user_id": "1781794974184",
+    "service_type": "INCOME_TAX",
+    "is_applicable": true,
+    "is_registered": true,
+    "registration_number": "AABCV3456P"
+  },
+  {
+    "ROWID": "1781794974342",
+    "CREATEDTIME": "2026-06-18T15:02:53.387Z",
+    "MODIFIEDTIME": "2026-06-18T15:02:53.387Z",
+    "user_id": "1781794974184",
+    "service_type": "MCA",
+    "is_applicable": true,
+    "is_registered": true,
+    "registration_number": "U72200TS2024OPC789012"
+  },
+  {
+    "ROWID": "1781794973394",
+    "CREATEDTIME": "2026-06-18T15:02:53.389Z",
+    "MODIFIEDTIME": "2026-06-18T15:02:53.389Z",
+    "user_id": "1781794974184",
+    "service_type": "PT",
+    "is_applicable": false,
+    "is_registered": false,
+    "registration_number": ""
+  },
+  {
+    "ROWID": "1781794974209",
+    "CREATEDTIME": "2026-06-18T15:02:53.392Z",
+    "MODIFIEDTIME": "2026-06-18T15:02:53.392Z",
+    "user_id": "1781794974184",
+    "service_type": "PF",
+    "is_applicable": false,
+    "is_registered": false,
+    "registration_number": ""
+  },
+  {
+    "ROWID": "1781794974042",
+    "CREATEDTIME": "2026-06-18T15:02:53.397Z",
+    "MODIFIEDTIME": "2026-06-18T15:02:53.397Z",
+    "user_id": "1781794974184",
+    "service_type": "ESI",
+    "is_applicable": false,
+    "is_registered": false,
+    "registration_number": ""
+  }
+]

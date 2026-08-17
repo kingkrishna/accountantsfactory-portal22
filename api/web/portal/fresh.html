@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loading Portal...</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <style>
+    body { font-family: -apple-system, Arial, sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; background: #f7f9fa; }
+    .loader { text-align: center; }
+    .spinner { width: 40px; height: 40px; border: 4px solid #e0e0e0; border-top-color: #0c9782; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 16px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    p { color: #555; }
+  </style>
+</head>
+<body>
+<div class="loader">
+  <div class="spinner"></div>
+  <p>Clearing cache and redirecting to login...</p>
+</div>
+<script>
+// Aggressive cache-bust: force a fresh load of login.html, then strip the query.
+(function () {
+  // Clear any service workers
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then(regs => regs.forEach(r => r.unregister())).catch(() => {});
+  }
+  // Clear localStorage version markers
+  try { localStorage.removeItem('af-portal-version'); } catch (e) {}
+  // Redirect to login with a timestamp to bust cache
+  var bust = Date.now();
+  window.location.replace('login.html?_cb=' + bust);
+})();
+</script>
+</body>
+</html>

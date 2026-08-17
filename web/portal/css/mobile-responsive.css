@@ -1,0 +1,557 @@
+/* ========================================
+   Mobile Responsive Enhancements
+   For Admin Dashboard & Portal
+   ======================================== */
+
+:root {
+  --mobile-padding: 10px;
+  --tablet-padding: 15px;
+  --desktop-padding: 20px;
+}
+
+/* ========================================
+   HAMBURGER TOGGLE BUTTON
+   ======================================== */
+.sidebar-toggle-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 8px;
+  padding: 8px 10px;
+  cursor: pointer;
+  flex-shrink: 0;
+  min-width: 40px;
+  min-height: 40px;
+  transition: background 0.2s;
+}
+
+.sidebar-toggle-btn:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+.tog-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.sidebar-toggle-btn.is-open .tog-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.sidebar-toggle-btn.is-open .tog-bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.sidebar-toggle-btn.is-open .tog-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ========================================
+   MOBILE FIRST DESIGN (< 576px)
+   ======================================== */
+
+/* Hamburger visible on mobile/tablet */
+@media (max-width: 767.98px) {
+  .sidebar-toggle-btn {
+    display: flex !important;
+  }
+
+  /* Sidebar hidden by default on mobile */
+  #admin-sidebar {
+    display: none;
+    width: 100% !important;
+    margin-bottom: 16px !important;
+  }
+
+  /* Show sidebar when toggled */
+  #admin-sidebar.sidebar-open {
+    display: block !important;
+    animation: slideDown 0.25s ease;
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Sidebar nav as clean vertical list when open */
+  #admin-sidebar.sidebar-open .sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  #admin-sidebar.sidebar-open .sidebar-nav li a {
+    padding: 12px 14px;
+    font-size: 14px;
+    text-align: left;
+  }
+
+  #admin-sidebar.sidebar-open .sidebar-nav i {
+    display: inline;
+    margin-right: 10px;
+    margin-bottom: 0;
+  }
+
+  /* Main content always full width on mobile */
+  .col-md-9 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+
+  .col-md-3 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  /* Hide desktop-only elements */
+  .show-desktop-only {
+    display: none !important;
+  }
+
+  /* Card responsive */
+  .dashboard-card {
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 10px;
+  }
+
+  .dashboard-card h3,
+  .dashboard-card h4 {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  /* Grid cards in overview */
+  .col-md-4 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Table scrolling — keep as horizontal scroll (not card layout) */
+  .table-responsive, .table-responsive-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .table {
+    min-width: 500px;
+  }
+
+  .service-table {
+    min-width: 500px;
+  }
+
+  /* Modal on mobile */
+  .modal-dialog {
+    width: 95vw !important;
+    margin: 5vh auto !important;
+    max-height: 90vh;
+  }
+
+  .modal-content {
+    max-height: 85vh;
+    overflow-y: auto;
+  }
+
+  .modal-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .modal-footer {
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
+  }
+
+  /* Quick action buttons */
+  .quick-links {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  .quick-link-btn {
+    width: 100% !important;
+    padding: 10px !important;
+    margin-bottom: 8px !important;
+    font-size: 13px !important;
+  }
+
+  /* Employee updates cards */
+  .emp-update-card {
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .emp-update-card .card-header {
+    padding: 10px;
+  }
+
+  .emp-task-item {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .emp-task-item .row {
+    flex-direction: column;
+  }
+
+  .emp-task-item [class*="col-"] {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 8px;
+  }
+
+  /* Action buttons stacking */
+  .action-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .action-btns .btn {
+    width: 100%;
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+
+  /* Search inputs */
+  #clients-search,
+  #orders-search,
+  #emp-updates-search {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 10px;
+  }
+
+  /* Button groups on mobile */
+  .btn-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .btn-group .btn {
+    margin-bottom: 4px;
+  }
+
+  /* Form layout */
+  .form-row {
+    flex-direction: column;
+  }
+
+  .form-row .form-group {
+    margin-bottom: 12px;
+  }
+
+  /* Status badge sizing */
+  .status-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+
+  /* Better spacing for small devices */
+  .mb-3,
+  .mb-4 {
+    margin-bottom: 12px !important;
+  }
+
+  .mt-3,
+  .mt-4 {
+    margin-top: 12px !important;
+  }
+
+  .p-3,
+  .p-4 {
+    padding: 12px !important;
+  }
+
+  /* Text adjustments */
+  small {
+    font-size: 11px;
+  }
+
+  .text-muted {
+    font-size: 12px;
+  }
+
+  /* Progress bars */
+  .progress {
+    height: 20px;
+  }
+
+  .progress-bar {
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  /* Spinner adjustment */
+  .spinner-border {
+    width: 40px;
+    height: 40px;
+    border-width: 4px;
+  }
+}
+
+/* ========================================
+   TABLET DEVICES (576px - 768px)
+   ======================================== */
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .col-md-4 {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+  }
+
+  .action-btns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+  }
+
+  .quick-links {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+  }
+
+  .modal-dialog {
+    max-width: 90vw;
+  }
+}
+
+/* ========================================
+   SMALL DESKTOP (768px - 992px)
+   ======================================== */
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .sidebar-nav {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .col-md-3 {
+    flex: 0 0 25% !important;
+    max-width: 25% !important;
+  }
+
+  .action-btns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .quick-links {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+/* ========================================
+   LARGE DESKTOP (992px+)
+   ======================================== */
+
+@media (min-width: 992px) {
+  .show-mobile-only {
+    display: none !important;
+  }
+
+  .sidebar-nav {
+    display: block;
+  }
+
+  .action-btns {
+    display: flex;
+    gap: 8px;
+  }
+
+  .quick-links {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+}
+
+/* ========================================
+   EXTRA LARGE DESKTOP (1200px+)
+   ======================================== */
+
+@media (min-width: 1200px) {
+  .container-fluid {
+    padding: 0 30px !important;
+  }
+
+  .dashboard-card {
+    padding: 25px;
+  }
+
+  .quick-links {
+    display: grid !important;
+    grid-template-columns: repeat(5, 1fr) !important;
+  }
+}
+
+/* ========================================
+   LANDSCAPE ORIENTATION
+   ======================================== */
+
+@media (orientation: landscape) and (max-height: 600px) {
+  /* Sidebar already hidden by default on mobile; let user toggle */
+  .col-md-3 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+
+  .col-md-9 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+
+  .dashboard-header h1 {
+    font-size: 18px;
+  }
+
+  .dashboard-card {
+    padding: 10px;
+    margin-bottom: 8px;
+  }
+
+  .btn, .button1, .button2 {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+}
+
+/* ========================================
+   TOUCH DEVICE OPTIMIZATIONS
+   ======================================== */
+
+@media (hover: none) and (pointer: coarse) {
+  /* Increase touch target sizes to at least 44x44px */
+  .btn, .btn-admin, a.btn {
+    min-height: 44px;
+    padding: 10px 12px;
+  }
+
+  .sidebar-nav a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Reduce animation jankiness */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Improve scrolling performance */
+  .table, .modal-body, .dashboard-section {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Remove hover effects that don't apply to touch */
+  .btn:hover, .btn-admin:hover {
+    transform: none !important;
+  }
+}
+
+/* ========================================
+   HIGH DPI / RETINA DISPLAY
+   ======================================== */
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  img {
+    image-rendering: -webkit-optimize-contrast;
+  }
+}
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+
+@media print {
+  nav, header, footer, .sidebar, .btn, .button1, .button2 {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  .dashboard-card {
+    page-break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+
+  .dashboard-section {
+    page-break-after: always;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  .service-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .service-table tr {
+    page-break-inside: avoid;
+  }
+}
+
+/* ========================================
+   ACCESSIBILITY IMPROVEMENTS
+   ======================================== */
+
+/* Focus visible for keyboard navigation */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #0a8574;
+  outline-offset: 2px;
+}
+
+/* Reduced motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: more) {
+  body {
+    color: #000;
+    background: #fff;
+  }
+
+  .dashboard-card {
+    border: 2px solid #000;
+  }
+
+  .btn {
+    border: 2px solid #000;
+  }
+}

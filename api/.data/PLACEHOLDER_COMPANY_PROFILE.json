@@ -1,0 +1,57 @@
+[
+  {
+    "ROWID": "1781794972965",
+    "CREATEDTIME": "2026-06-18T15:02:52.740Z",
+    "MODIFIEDTIME": "2026-06-18T15:02:52.740Z",
+    "user_id": "1781794972987",
+    "company_name": "Kumar Enterprises Pvt Ltd",
+    "pan_number": "AABCK1234F",
+    "company_category": "Private Limited",
+    "group_code": "FACT00001",
+    "franchise_code": ""
+  },
+  {
+    "ROWID": "1781794973790",
+    "CREATEDTIME": "2026-06-18T15:02:52.949Z",
+    "MODIFIEDTIME": "2026-06-18T15:02:52.949Z",
+    "user_id": "1781794973051",
+    "company_name": "Priya Sharma (Individual)",
+    "pan_number": "BGHPS5678K",
+    "company_category": "Individual",
+    "group_code": "FACT00002",
+    "franchise_code": ""
+  },
+  {
+    "ROWID": "1781794973750",
+    "CREATEDTIME": "2026-06-18T15:02:53.099Z",
+    "MODIFIEDTIME": "2026-06-18T15:02:53.099Z",
+    "user_id": "1781794973439",
+    "company_name": "Reddy & Associates LLP",
+    "pan_number": "AAFR2345M",
+    "company_category": "LLP",
+    "group_code": "FACT00003",
+    "franchise_code": ""
+  },
+  {
+    "ROWID": "1781794973410",
+    "CREATEDTIME": "2026-06-18T15:02:53.239Z",
+    "MODIFIEDTIME": "2026-06-18T15:02:53.239Z",
+    "user_id": "1781794973587",
+    "company_name": "Lakshmi Foods Partnership",
+    "pan_number": "AALFL9012N",
+    "company_category": "Partnership",
+    "group_code": "FACT00004",
+    "franchise_code": "AF0001"
+  },
+  {
+    "ROWID": "1781794973442",
+    "CREATEDTIME": "2026-06-18T15:02:53.381Z",
+    "MODIFIEDTIME": "2026-06-18T15:02:53.381Z",
+    "user_id": "1781794974184",
+    "company_name": "Vijay Tech Solutions OPC Pvt Ltd",
+    "pan_number": "AABCV3456P",
+    "company_category": "OPC",
+    "group_code": "FACT00005",
+    "franchise_code": ""
+  }
+]

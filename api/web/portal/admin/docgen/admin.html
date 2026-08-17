@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocGen — Admin Dashboard</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta name="app-version" content="87">
+    <script src="../../js/cache-buster.js"></script>
+    <link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css?v=87">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #dbeafe;
+            --success: #16a34a;
+            --danger: #dc2626;
+            --warning: #f59e0b;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --radius: 8px;
+            --shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.06);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--gray-50); color: var(--gray-800); line-height: 1.5; }
+
+        /* Header */
+        .header { background: var(--gray-900); color: white; padding: 0 24px; display: flex; align-items: center; height: 56px; }
+        .header h1 { font-size: 18px; font-weight: 700; }
+        .header h1 span { color: var(--warning); font-size: 12px; margin-left: 8px; font-weight: 400; }
+        .header-right { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+        .header-right a { color: var(--gray-400); text-decoration: none; font-size: 13px; }
+        .header-right a:hover { color: white; }
+
+        /* Login */
+        .login-overlay { position: fixed; inset: 0; background: var(--gray-50); z-index: 9999; display: flex; align-items: center; justify-content: center; }
+        .login-box { background: white; padding: 40px; border-radius: 12px; box-shadow: var(--shadow-md); text-align: center; width: 360px; }
+        .login-box h2 { margin-bottom: 8px; font-size: 20px; }
+        .login-box p { color: var(--gray-500); font-size: 14px; margin-bottom: 24px; }
+        .login-box input { width: 100%; padding: 10px 14px; border: 1px solid var(--gray-300); border-radius: 6px; font-size: 14px; margin-bottom: 16px; }
+        .login-box input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-light); }
+        .login-box .error { color: var(--danger); font-size: 13px; margin-bottom: 12px; display: none; }
+
+        /* Layout */
+        .admin-layout { display: flex; min-height: calc(100vh - 56px); }
+        .sidebar { width: 240px; background: white; border-right: 1px solid var(--gray-200); padding: 16px 0; flex-shrink: 0; }
+        .sidebar-title { font-size: 11px; font-weight: 700; color: var(--gray-400); text-transform: uppercase; letter-spacing: 1px; padding: 8px 16px; }
+        .sidebar-item { padding: 10px 16px; font-size: 14px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.15s; border-left: 3px solid transparent; }
+        .sidebar-item:hover { background: var(--gray-50); }
+        .sidebar-item.active { background: var(--primary-light); border-left-color: var(--primary); color: var(--primary-dark); font-weight: 600; }
+        .sidebar-item .count { font-size: 12px; color: var(--gray-400); background: var(--gray-100); padding: 1px 8px; border-radius: 10px; }
+        .sidebar-item .cat-dot { width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; display: inline-block; flex-shrink: 0; }
+        .sidebar-add { padding: 12px 16px; }
+
+        /* Main area */
+        .main-area { flex: 1; padding: 24px; overflow-y: auto; }
+        .main-area h2 { font-size: 18px; font-weight: 600; margin-bottom: 16px; }
+
+        /* Template cards */
+        .template-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+        .tpl-card { background: white; border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 16px; transition: all 0.15s; }
+        .tpl-card:hover { box-shadow: var(--shadow-md); border-color: var(--gray-300); }
+        .tpl-card h3 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+        .tpl-card p { font-size: 12px; color: var(--gray-500); margin-bottom: 12px; }
+        .tpl-card .tpl-actions { display: flex; gap: 6px; }
+        .tpl-card .badge { display: inline-block; font-size: 10px; padding: 2px 6px; border-radius: 8px; font-weight: 600; }
+        .tpl-card .badge-builtin { background: var(--gray-100); color: var(--gray-500); }
+        .tpl-card .badge-custom { background: #dcfce7; color: #166534; }
+        .add-card { border: 2px dashed var(--gray-300); display: flex; align-items: center; justify-content: center; cursor: pointer; min-height: 120px; color: var(--gray-400); font-size: 14px; font-weight: 500; }
+        .add-card:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-light); }
+
+        /* Buttons */
+        .btn { padding: 7px 14px; border-radius: 6px; font-size: 13px; font-weight: 500; cursor: pointer; border: 1px solid transparent; transition: all 0.15s; display: inline-flex; align-items: center; gap: 4px; }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-primary:hover { background: var(--primary-dark); }
+        .btn-outline { background: white; color: var(--gray-700); border-color: var(--gray-300); }
+        .btn-outline:hover { background: var(--gray-50); }
+        .btn-danger { background: var(--danger); color: white; }
+        .btn-danger:hover { background: #b91c1c; }
+        .btn-success { background: var(--success); color: white; }
+        .btn-success:hover { background: #15803d; }
+        .btn-sm { padding: 4px 10px; font-size: 12px; }
+
+        /* Editor overlay */
+        .editor-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 500; display: none; align-items: flex-start; justify-content: center; padding: 24px; overflow-y: auto; }
+        .editor-overlay.active { display: flex; }
+        .editor-panel { background: white; border-radius: 12px; width: 100%; max-width: 900px; box-shadow: var(--shadow-md); margin: auto; }
+        .editor-header { padding: 16px 20px; border-bottom: 1px solid var(--gray-200); display: flex; justify-content: space-between; align-items: center; }
+        .editor-header h3 { font-size: 16px; font-weight: 600; }
+        .editor-body { padding: 20px; max-height: 70vh; overflow-y: auto; }
+        .editor-footer { padding: 12px 20px; border-top: 1px solid var(--gray-200); display: flex; justify-content: flex-end; gap: 8px; }
+
+        /* Form */
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+        .form-row.full { grid-template-columns: 1fr; }
+        .form-group { display: flex; flex-direction: column; }
+        .form-group label { font-size: 12px; font-weight: 600; color: var(--gray-600); text-transform: uppercase; letter-spacing: 0.3px; margin-bottom: 4px; }
+        .form-group input, .form-group select, .form-group textarea { padding: 8px 12px; border: 1px solid var(--gray-300); border-radius: 6px; font-size: 14px; }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-light); }
+
+        /* Section titles in editor */
+        .section-label { font-size: 12px; font-weight: 700; color: var(--gray-400); text-transform: uppercase; letter-spacing: 1px; margin: 20px 0 8px; padding-bottom: 6px; border-bottom: 1px solid var(--gray-200); }
+
+        /* Extra fields manager */
+        .ef-row { display: flex; gap: 8px; align-items: center; margin-bottom: 6px; padding: 6px 8px; background: var(--gray-50); border-radius: 6px; }
+        .ef-row input, .ef-row select { padding: 5px 8px; border: 1px solid var(--gray-300); border-radius: 4px; font-size: 13px; }
+        .ef-row .ef-key { width: 120px; }
+        .ef-row .ef-label { flex: 1; }
+        .ef-row .ef-type { width: 90px; }
+        .ef-row .ef-prefill { width: 24px; height: 24px; accent-color: var(--primary); }
+        .ef-remove { background: none; border: none; color: var(--danger); cursor: pointer; font-size: 16px; padding: 2px 6px; }
+
+        /* Block editor */
+        .block-item { border: 1px solid var(--gray-200); border-radius: var(--radius); margin-bottom: 8px; background: white; }
+        .block-item.dragging { opacity: 0.4; }
+        .block-header { display: flex; align-items: center; gap: 8px; padding: 8px 10px; background: var(--gray-50); border-bottom: 1px solid var(--gray-200); border-radius: var(--radius) var(--radius) 0 0; font-size: 13px; }
+        .block-header .drag-handle { cursor: grab; color: var(--gray-400); font-size: 16px; user-select: none; }
+        .block-header select { padding: 3px 6px; border: 1px solid var(--gray-300); border-radius: 4px; font-size: 12px; }
+        .block-header .block-actions { margin-left: auto; display: flex; gap: 4px; }
+        .block-body { padding: 10px; }
+        .block-body textarea { width: 100%; border: 1px solid var(--gray-200); border-radius: 4px; padding: 8px; font-size: 13px; font-family: 'Consolas', 'Courier New', monospace; resize: vertical; min-height: 50px; }
+        .block-body textarea:focus { outline: none; border-color: var(--primary); }
+        .style-bar { display: flex; gap: 4px; margin-top: 6px; align-items: center; }
+        .style-bar button { width: 28px; height: 28px; border: 1px solid var(--gray-300); border-radius: 4px; background: white; cursor: pointer; font-size: 13px; display: flex; align-items: center; justify-content: center; }
+        .style-bar button.active { background: var(--primary); color: white; border-color: var(--primary); }
+        .style-bar select { padding: 3px 6px; border: 1px solid var(--gray-300); border-radius: 4px; font-size: 12px; }
+        .style-bar label { font-size: 11px; color: var(--gray-500); margin-left: 8px; }
+        .spacing-input { width: 60px; padding: 4px 8px; border: 1px solid var(--gray-300); border-radius: 4px; font-size: 13px; }
+        .sig-lines { display: flex; flex-direction: column; gap: 4px; }
+        .sig-line-row { display: flex; gap: 4px; align-items: center; }
+        .sig-line-row input { flex: 1; padding: 5px 8px; border: 1px solid var(--gray-200); border-radius: 4px; font-size: 13px; font-family: 'Consolas', monospace; }
+
+        /* Placeholders reference */
+        .placeholder-ref { background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 10px; margin-bottom: 12px; font-size: 12px; }
+        .placeholder-ref summary { cursor: pointer; font-weight: 600; color: var(--gray-600); }
+        .placeholder-ref .ph-list { margin-top: 6px; display: flex; flex-wrap: wrap; gap: 4px; }
+        .placeholder-ref .ph-tag { background: white; border: 1px solid var(--gray-200); padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 11px; cursor: pointer; }
+        .placeholder-ref .ph-tag:hover { background: var(--primary-light); border-color: var(--primary); }
+
+        /* Preview */
+        .preview-box { background: white; border: 1px solid var(--gray-300); border-radius: var(--radius); padding: 40px; min-height: 400px; font-family: 'Times New Roman', Times, serif; font-size: 12pt; line-height: 1.6; }
+
+        /* Toast */
+        .toast { position: fixed; bottom: 24px; right: 24px; padding: 12px 20px; border-radius: var(--radius); color: white; font-size: 14px; font-weight: 500; z-index: 2000; transform: translateY(100px); opacity: 0; transition: all 0.3s; }
+        .toast.show { transform: translateY(0); opacity: 1; }
+        .toast.success { background: var(--success); }
+        .toast.error { background: var(--danger); }
+
+        /* New category modal */
+        .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 600; display: none; align-items: center; justify-content: center; }
+        .modal-overlay.active { display: flex; }
+        .modal-box { background: white; border-radius: 12px; padding: 24px; width: 380px; box-shadow: var(--shadow-md); }
+        .modal-box h3 { margin-bottom: 16px; }
+
+        @media (max-width: 768px) {
+            .sidebar { width: 180px; }
+            .form-row { grid-template-columns: 1fr; }
+            .template-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+    <meta name="app-version" content="87">
+    <script src="../../js/cache-buster.js"></script>
+    <link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet">
+    <style>
+      /* Branded top bar (no Bootstrap / portal CSS — they conflict with DocGen's own layout) */
+      .af-topbar { background: linear-gradient(135deg, #0c9782 0%, #0a7f6f 100%); color: #fff; padding: 12px 24px; display: flex; align-items: center; gap: 16px; font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif; }
+      .af-topbar img { height: 40px; width: auto; }
+      .af-topbar .af-title { font-weight: 700; font-size: 16px; }
+      .af-topbar a.af-back { margin-left: auto; color: #fff; text-decoration: none; background: rgba(255,255,255,.18); padding: 7px 14px; border-radius: 6px; font-size: 14px; font-weight: 600; }
+      .af-topbar a.af-back:hover { background: rgba(255,255,255,.3); }
+    </style>
+</head>
+<body>
+
+    <!-- Branded top bar (plain HTML/CSS, no Bootstrap dependency) -->
+    <div class="af-topbar">
+      <img src="/images/logo-new.png" alt="Accountants Factory">
+      <span class="af-title">Document Generator — Admin</span>
+      <a href="index.html" class="af-back" style="margin-left:auto;">DocGen Home</a>
+      <a href="../dashboard.html" class="af-back"><i class="fas fa-arrow-left"></i> Back to Admin Dashboard</a>
+    </div>
+
+    <!-- Auth Gate (portal JWT). Real authorization happens server-side. -->
+    <div id="login-overlay" class="login-overlay" style="display:none;">
+        <div class="login-box">
+            <h2>Admin Access Required</h2>
+            <p>Please log in to the portal as an admin to use the Document Generator.</p>
+            <p style="margin-top:16px;"><a href="../../login.html" class="btn btn-primary" style="display:inline-block;text-decoration:none;color:#fff;padding:8px 16px;">Go to Portal Login</a></p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <h1>DocGen <span>ADMIN</span></h1>
+        <div class="header-right">
+            <a href="index.html">&#8592; Back to DocGen</a>
+            <a href="#" onclick="Admin.logout(); return false;">Logout</a>
+        </div>
+    </header>
+
+    <!-- Main Layout -->
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-title">Categories</div>
+            <div id="category-list"></div>
+            <div class="sidebar-add">
+                <button class="btn btn-outline btn-sm" style="width:100%;" onclick="Admin.showNewCategoryModal()">+ New Category</button>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-area" id="main-area">
+            <div style="text-align:center; padding:60px; color:var(--gray-400);">
+                <h3>Select a category from the sidebar</h3>
+                <p>Or create a new category to get started</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Template Editor Overlay -->
+    <div id="editor-overlay" class="editor-overlay">
+        <div class="editor-panel">
+            <div class="editor-header">
+                <h3 id="editor-title">New Template</h3>
+                <button class="btn btn-outline btn-sm" onclick="Admin.closeEditor()">&#10005; Close</button>
+            </div>
+            <div class="editor-body" id="editor-body">
+                <!-- Template metadata -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Template Name *</label>
+                        <input type="text" id="ed-name" placeholder="e.g., GST Authorization Letter">
+                    </div>
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select id="ed-category"></select>
+                    </div>
+                </div>
+
+                <!-- Extra Fields -->
+                <div class="section-label">Extra Fields (popup fields when generating)</div>
+                <div id="ed-extra-fields"></div>
+                <button class="btn btn-outline btn-sm" style="margin-top:6px;" onclick="Admin.addExtraField()">+ Add Field</button>
+
+                <!-- Placeholder Reference -->
+                <div class="section-label">Document Content</div>
+                <details class="placeholder-ref">
+                    <summary>Available Placeholders (click to copy)</summary>
+                    <div class="ph-list" id="ph-list">
+                        <span class="ph-tag" onclick="Admin.copyPH('{{fullName}}')">{{fullName}}</span>
+                        <span class="ph-tag" onclick="Admin.copyPH('{{fatherName}}')">{{fatherName}}</span>
+                        <span class="ph-tag" onclick="Admin.copyPH('{{pan}}')">{{pan}}</span>
+                        <span class="ph-tag" onclick="Admin.copyPH('{{aadhar}}')">{{aadhar}}</span>
+                        <span class="ph-tag" onclick="Admin.copyPH('{{mobile}}')">{{mobile}}</span>
+                        <span class="ph-tag" onclick="Admin.copyPH('{{email}}')">{{email}}</span>
+                        <span class="ph-tag" onclick="Admin.copyPH('{{entityName}}')">{{entityName}}</span>
+                        <span class="ph-tag" onclick="Admin.copyPH('{{entityType}}')">{{entityType}}</span>
+                        <span class="ph-tag" onclick="Admin.copyPH('{{tradeName}}')">{{tradeName}}</span>
+                        <span class="ph-tag" onclick="Admin.copyPH('{{proposedCompanyName}}')">{{proposedCompanyName}}</span>
+                        <span class="ph-tag" onclick="Admin.copyPH('{{cin}}')">{{cin}}</span>
+                        <span class="ph-tag" onclick="Admin.copyPH('{{llpin}}')">{{llpin}}</span>
+                        <span class="ph-tag" onclick="Admin.copyPH('{{gstNumber}}')">{{gstNumber}}</span>
+                        <span class="ph-tag" onclick="Admin.copyPH('{{entityPan}}')">{{entityPan}}</span>
+                        <span class="ph-tag" onclick="Admin.copyPH('{{registeredAddress}}')">{{registeredAddress}}</span>
+                        <span class="ph-tag" onclick="Admin.copyPH('{{communicationAddress}}')">{{communicationAddress}}</span>
+                        <span class="ph-tag" onclick="Admin.copyPH('{{address}}')">{{address}}</span>
+                        <span class="ph-tag" onclick="Admin.copyPH('{{city}}')">{{city}}</span>
+                        <span class="ph-tag" onclick="Admin.copyPH('{{state}}')">{{state}}</span>
+                        <span class="ph-tag" onclick="Admin.copyPH('{{pincode}}')">{{pincode}}</span>
+                        <span class="ph-tag" onclick="Admin.copyPH('{{authorizedCapital}}')">{{authorizedCapital}}</span>
+                        <span class="ph-tag" onclick="Admin.copyPH('{{paidUpCapital}}')">{{paidUpCapital}}</span>
+                        <span class="ph-tag" onclick="Admin.copyPH('{{directors[0].name}}')">{{directors[0].name}}</span>
+                        <span class="ph-tag" onclick="Admin.copyPH('{{directors[0].din}}')">{{directors[0].din}}</span>
+                    </div>
+                    <p style="margin-top:6px;font-size:11px;color:var(--gray-400);">Formatters: <code>{{field|date}}</code> <code>{{field|words}}</code> <code>{{field|upper}}</code></p>
+                </details>
+
+                <!-- Blocks -->
+                <div id="ed-blocks"></div>
+                <div style="margin-top:8px; display:flex; gap:6px;">
+                    <button class="btn btn-outline btn-sm" onclick="Admin.addBlock('heading')">+ Heading</button>
+                    <button class="btn btn-outline btn-sm" onclick="Admin.addBlock('text')">+ Text</button>
+                    <button class="btn btn-outline btn-sm" onclick="Admin.addBlock('blank')">+ Blank Space</button>
+                    <button class="btn btn-outline btn-sm" onclick="Admin.addBlock('signatureBlock')">+ Signature Block</button>
+                </div>
+            </div>
+            <div class="editor-footer">
+                <button class="btn btn-outline" onclick="Admin.previewTemplate()">Preview</button>
+                <button class="btn btn-outline" onclick="Admin.closeEditor()">Cancel</button>
+                <button class="btn btn-success" onclick="Admin.saveTemplate()">Save Template</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Preview Overlay -->
+    <div id="preview-overlay" class="editor-overlay">
+        <div class="editor-panel" style="max-width:700px;">
+            <div class="editor-header">
+                <h3>Document Preview</h3>
+                <button class="btn btn-outline btn-sm" onclick="document.getElementById('preview-overlay').classList.remove('active')">&#10005; Close</button>
+            </div>
+            <div class="editor-body">
+                <div id="preview-content" class="preview-box"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Category Modal -->
+    <div id="cat-modal" class="modal-overlay">
+        <div class="modal-box">
+            <h3>New Category</h3>
+            <div class="form-group" style="margin-bottom:12px;">
+                <label>Category Name</label>
+                <input type="text" id="cat-name" placeholder="e.g., Tax Documents">
+            </div>
+            <div class="form-group" style="margin-bottom:16px;">
+                <label>Color</label>
+                <input type="color" id="cat-color" value="#8e44ad" style="height:36px; width:80px;">
+            </div>
+            <div style="display:flex; gap:8px; justify-content:flex-end;">
+                <button class="btn btn-outline" onclick="Admin.closeNewCategoryModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="Admin.saveNewCategory()">Create</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast" class="toast"></div>
+
+    <!-- Libraries -->
+    <!-- Portal auth (clientAuth) — must load before DocGen scripts. Uses the SAME
+         storage keys as auth.js (auth_token / user_data). Lenient: only redirects
+         when there is clearly no admin session, so a key mismatch never locks the
+         admin out of a working page. -->
+    <script src="../../js/auth.js?v=87"></script>
+    <script>
+      (function () {
+        try {
+          var token = localStorage.getItem('auth_token');
+          var raw = localStorage.getItem('user_data');
+          var user = raw ? JSON.parse(raw) : null;
+          if (!token && !user) { window.location.replace('../../login.html'); return; }
+          if (user && user.role && user.role !== 'admin') { window.location.replace('../../login.html'); }
+        } catch (e) { /* never block the page on a parse error */ }
+      })();
+    </script>
+    <script src="https://unpkg.com/docx@8.5.0/build/index.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="js/db.js"></script>
+    <script src="js/templates.js"></script>
+    <script src="js/block-renderer.js"></script>
+    <script src="js/builtin-blocks.js?v=87"></script>
+    <script src="js/admin.js?v=87"></script>
+
+    <!-- Simple branded footer (no framework) -->
+    <div style="background:#f3f4f6; border-top:1px solid #e5e7eb; padding:16px 24px; text-align:center; font-family:'Segoe UI',system-ui,sans-serif; font-size:13px; color:#6b7280;">
+      <i class="fas fa-copyright"></i> Accountant's Factory LLP — All rights reserved
+      &nbsp;|&nbsp; <a href="../dashboard.html" style="color:#0c9782; text-decoration:none; font-weight:600;">Back to Admin Dashboard</a>
+    </div>
+</body>
+</html>

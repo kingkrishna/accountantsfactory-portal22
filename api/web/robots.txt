@@ -1,0 +1,38 @@
+# robots.txt for https://accountantsfactory.com
+# Generated April 2026
+
+User-agent: *
+Allow: /
+Disallow: /portal/admin/
+Disallow: /portal/client/
+Disallow: /portal/employee/
+Disallow: /portal/forgot-password.html
+Disallow: /portal/reset-password.html
+Disallow: /portal/set-initial-password.html
+Disallow: /portal/login.html
+Disallow: /portal/
+
+# Allow major search engines explicitly
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Block aggressive scrapers that don't respect crawl rates
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Disallow: /
+
+Sitemap: https://accountantsfactory.com/sitemap.xml

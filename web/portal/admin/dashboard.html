@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - AccountantsFactory</title>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta name="app-version" content="87">
+  <script src="../js/cache-buster.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/style-v2.css?v=87">
+  <link rel="stylesheet" href="../css/portal.css?v=87">
+  <link rel="stylesheet" href="../css/mobile-responsive.css">
+</head>
+
+<body>
+  <div id="header-container"></div>
+
+  <div class="container-fluid dashboard-container">
+    <div class="container">
+      <!-- Admin Header -->
+      <div class="dashboard-header">
+        <div class="row align-items-center">
+          <div class="col-8 col-md-8 d-flex align-items-center">
+            <button id="sidebar-toggle" class="sidebar-toggle-btn d-md-none mr-3" onclick="toggleAdminSidebar()" aria-label="Toggle menu">
+              <span class="tog-bar"></span>
+              <span class="tog-bar"></span>
+              <span class="tog-bar"></span>
+            </button>
+            <div>
+              <h1><i class="fas fa-shield-alt"></i> Admin Dashboard</h1>
+              <p>Manage clients, services, and system settings</p>
+            </div>
+          </div>
+          <div class="col-4 col-md-4 text-right">
+            <span class="notification-bell"></span>
+            <span class="user-avatar" style="margin-right:10px;vertical-align:middle;"></span>
+            <button class="btn btn-light" onclick="clientAuth.logout()">
+              <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Sidebar -->
+        <div class="col-md-3">
+          <div class="sidebar" id="admin-sidebar">
+            <ul class="sidebar-nav">
+              <li><a href="#" class="active" data-section="overview"><i class="fas fa-chart-line"></i> Overview</a></li>
+              <li><a href="#" data-section="analytics"><i class="fas fa-chart-pie"></i> Analytics</a></li>
+              <li><a href="#" data-section="clients"><i class="fas fa-users"></i> Clients</a></li>
+              <li><a href="#" data-section="compliance-mgmt"><i class="fas fa-clipboard-check"></i> Compliance</a></li>
+              <li><a href="#" data-section="flip-portal"><i class="fas fa-eye"></i> Flip Portal</a></li>
+              <li><a href="#" data-section="manage-services"><i class="fas fa-cog"></i> Manage Services</a></li>
+              <li><a href="#" data-section="services"><i class="fas fa-briefcase"></i> Service Orders</a></li>
+              <li><a href="#" data-section="employees"><i class="fas fa-id-badge"></i> Employees</a></li>
+              <li><a href="#" data-section="employee-updates"><i class="fas fa-tasks"></i> Employee Updates</a></li>
+              <li><a href="#" data-section="referrals"><i class="fas fa-user-friends"></i> Referrals</a></li>
+              <li id="nav-franchise-apps" style="display:none;"><a href="#" data-section="franchise-apps"><i class="fas fa-store-alt"></i> Franchise Applications <span id="franchise-apps-badge" class="notif-badge" style="display:none;">0</span></a></li>
+              <li><a href="docgen/index.html" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-alt"></i> Document Generator</a></li>
+            </ul>
+            <div class="sidebar-footer">
+              <a href="../../index.html" class="sidebar-link-back"><i class="fas fa-external-link-alt"></i> Back to
+                Website</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="col-md-9">
+          <!-- Overview Section -->
+          <div id="overview-section" class="dashboard-section">
+            <!-- Franchise banner (only shown to sub_admins; populated by admin-dashboard.js) -->
+            <div id="franchise-banner" class="franchise-banner mb-3" style="display:none;">
+              <div class="franchise-banner-inner">
+                <div class="franchise-banner-left">
+                  <div class="franchise-banner-icon"><i class="fas fa-store"></i></div>
+                  <div>
+                    <div class="franchise-banner-title">Franchise: <span id="franchise-banner-code">-</span></div>
+                    <div class="franchise-banner-sub">Sub-Admin: <span id="franchise-banner-email">-</span></div>
+                  </div>
+                </div>
+                <div class="franchise-banner-right">
+                  <div class="franchise-metric">
+                    <div class="franchise-metric-value" id="franchise-my-clients">-</div>
+                    <div class="franchise-metric-label">My Clients</div>
+                  </div>
+                  <div class="franchise-metric">
+                    <div class="franchise-metric-value" id="franchise-my-orders">-</div>
+                    <div class="franchise-metric-label">My Orders</div>
+                  </div>
+                  <div class="franchise-metric">
+                    <div class="franchise-metric-value" id="franchise-my-employees">-</div>
+                    <div class="franchise-metric-label">My Team</div>
+                  </div>
+                  <div class="franchise-metric">
+                    <div class="franchise-metric-value" id="franchise-my-referrals">-</div>
+                    <div class="franchise-metric-label">Referrals</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-4">
+                <div class="dashboard-card text-center">
+                  <h3><i class="fas fa-users text-primary"></i></h3>
+                  <h2 id="total-clients">-</h2>
+                  <p>Total Clients</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="dashboard-card text-center">
+                  <h3><i class="fas fa-briefcase text-success"></i></h3>
+                  <h2 id="total-orders">-</h2>
+                  <p>Active Orders</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="dashboard-card text-center">
+                  <h3><i class="fas fa-clock text-warning"></i></h3>
+                  <h2 id="pending-referrals">-</h2>
+                  <p>Pending Referrals</p>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-12">
+                <div class="dashboard-card">
+                  <h4><i class="fas fa-bolt"></i> Quick Actions</h4>
+                  <div class="quick-links mb-3">
+                    <button type="button" class="quick-link-btn" data-toggle="modal" data-target="#create-client-modal">
+                      <i class="fas fa-user-plus"></i> Create Client
+                    </button>
+                    <a href="mailto:nitin@accountantsfactory.com?subject=Admin%20Support%20-%20AccountantsFactory&body=Hi%2C%20I%20need%20admin%20support%20for%20AccountantsFactory."
+                      class="quick-link-btn quick-link-whatsapp"><i
+                        class="fas fa-envelope"></i> Email Support</a>
+                    <a href="../../index.html" class="quick-link-btn"><i class="fas fa-home"></i> Back to Website</a>
+                  </div>
+                  <div class="announcements-inline mt-3 pt-3 border-top">
+                    <h5 class="mb-2"><i class="fas fa-bullhorn"></i> Announcements</h5>
+                    <ul class="announcements-list small mb-0">
+                      <li>Review and approve <strong>pending referrals</strong> from the Referrals section.</li>
+                      <li>Use <strong>Test email config</strong> below to verify SMTP before sending reset links.</li>
+                      <li>Upload documents per order in <strong>Documents</strong> for client access.</li>
+                    </ul>
+                  </div>
+                  <h5 class="mb-2 mt-4"><i class="fas fa-cog"></i> Utilities</h5>
+                  <button type="button" class="btn btn-outline-secondary btn-sm" id="test-email-btn"
+                    title="Verify email service configuration">
+                    <i class="fas fa-envelope"></i> Test email config
+                  </button>
+                  <span id="test-email-result" class="ml-2 small"></span>
+                  <h5 class="mb-2 mt-4"><i class="fas fa-shield-alt"></i> Security (2FA)</h5>
+                  <p class="text-muted small mb-2">Use an authenticator app for an extra layer of security on your admin
+                    account.</p>
+                  <p id="profile-2fa-status" class="mb-2"></p>
+                  <button type="button" class="btn btn-outline-primary btn-sm" id="profile-2fa-enable"
+                    style="display: none;">Enable 2FA</button>
+                  <button type="button" class="btn btn-outline-danger btn-sm" id="profile-2fa-disable"
+                    style="display: none;">Disable 2FA</button>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="dashboard-card">
+                  <h4><i class="fas fa-history"></i> Recent Activity</h4>
+                  <div id="recent-activity-loading" class="loading-spinner py-3" style="display: none;">
+                    <div class="spinner-border spinner-border-sm" role="status"><span class="sr-only">Loading...</span>
+                    </div>
+                  </div>
+                  <div id="recent-activity-empty" class="text-muted small py-2" style="display: none;">No recent
+                    activity.</div>
+                  <div id="recent-activity-list" style="display: none;">
+                    <table class="service-table">
+                      <thead>
+                        <tr>
+                          <th>Client</th>
+                          <th>Service</th>
+                          <th>Date</th>
+                        </tr>
+                      </thead>
+                      <tbody id="recent-activity-tbody"></tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Analytics Section (Feature F) -->
+          <div id="analytics-section" class="dashboard-section" style="display: none;">
+            <div class="dashboard-card">
+              <div class="d-flex justify-content-between align-items-center flex-wrap mb-3">
+                <h3 class="mb-0"><i class="fas fa-chart-pie"></i> Analytics</h3>
+                <select id="analytics-range" class="form-control form-control-sm" style="max-width: 180px;">
+                  <option value="30">Last 30 days</option>
+                  <option value="90" selected>Last 90 days</option>
+                  <option value="180">Last 6 months</option>
+                  <option value="365">Last year</option>
+                  <option value="all">All time</option>
+                </select>
+              </div>
+              <div id="analytics-loading" class="loading-spinner py-3">
+                <div class="spinner-border spinner-border-sm" role="status"><span class="sr-only">Loading...</span></div>
+              </div>
+              <div id="analytics-content" style="display:none;">
+                <!-- KPI row -->
+                <div class="row analytics-kpi-row">
+                  <div class="col-md-3 col-6"><div class="analytics-kpi"><div class="analytics-kpi-value" id="an-kpi-clients">-</div><div class="analytics-kpi-label">Clients (in range)</div></div></div>
+                  <div class="col-md-3 col-6"><div class="analytics-kpi"><div class="analytics-kpi-value" id="an-kpi-orders">-</div><div class="analytics-kpi-label">Orders (in range)</div></div></div>
+                  <div class="col-md-3 col-6"><div class="analytics-kpi"><div class="analytics-kpi-value" id="an-kpi-completed">-</div><div class="analytics-kpi-label">Completion %</div></div></div>
+                  <div class="col-md-3 col-6"><div class="analytics-kpi"><div class="analytics-kpi-value" id="an-kpi-approved-refs">-</div><div class="analytics-kpi-label">Approved Referrals</div></div></div>
+                </div>
+
+                <!-- Charts -->
+                <div class="row mt-3">
+                  <div class="col-md-6 mb-3">
+                    <div class="analytics-chart-card">
+                      <h5><i class="fas fa-user-plus"></i> Client Growth Over Time</h5>
+                      <div id="chart-client-growth" class="analytics-chart"></div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <div class="analytics-chart-card">
+                      <h5><i class="fas fa-briefcase"></i> Orders by Status</h5>
+                      <div id="chart-orders-status" class="analytics-chart"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-8 mb-3">
+                    <div class="analytics-chart-card">
+                      <h5><i class="fas fa-cog"></i> Top Services by Order Count</h5>
+                      <div id="chart-top-services" class="analytics-chart"></div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <div class="analytics-chart-card">
+                      <h5><i class="fas fa-store"></i> Franchise Comparison</h5>
+                      <div id="chart-franchise-compare" class="analytics-chart"></div>
+                      <div class="text-muted small mt-2" id="franchise-compare-note"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Clients Section -->
+          <div id="clients-section" class="dashboard-section" style="display: none;">
+            <div class="dashboard-card">
+              <div class="d-flex justify-content-between align-items-center flex-wrap mb-3 gap-2">
+                <h3 class="mb-0"><i class="fas fa-users"></i> Client Management</h3>
+                <div class="d-flex align-items-center flex-wrap gap-2">
+                  <input type="text" id="clients-search" class="form-control form-control-sm clients-search-input"
+                    placeholder="Search by email..." style="max-width: 240px;">
+                  <button type="button" class="btn btn-outline-secondary btn-sm" id="export-clients-btn"><i
+                      class="fas fa-download"></i> Export CSV</button>
+                  <button type="button" class="btn btn-outline-success btn-sm" id="import-from-file-btn" title="Import 530+ clients from credentials file">
+                    <i class="fas fa-file-upload"></i> Import File
+                  </button>
+                  <button type="button" class="btn btn-outline-info btn-sm" data-toggle="modal" data-target="#bulk-import-modal">
+                    <i class="fas fa-file-import"></i> Bulk Import
+                  </button>
+                  <button class="btn-admin" data-toggle="modal" data-target="#create-client-modal">
+                    <i class="fas fa-plus"></i> Create Client
+                  </button>
+                </div>
+              </div>
+              <div id="clients-loading" class="loading-spinner">
+                <div class="spinner-border" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>
+              </div>
+              <div id="clients-table-container" style="display: none;">
+                <div class="table-responsive-wrapper">
+                <table class="service-table">
+                  <thead>
+                    <tr>
+                      <th>Email</th>
+                      <th>Status</th>
+                      <th>Referral Code</th>
+                      <th>Created</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="clients-tbody">
+                    <!-- Clients will be loaded here -->
+                  </tbody>
+                </table>
+                </div>
+                <div id="clients-pagination" class="mt-3"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Employees Section -->
+          <div id="employees-section" class="dashboard-section" style="display: none;">
+            <div class="dashboard-card">
+              <div class="d-flex justify-content-between align-items-center flex-wrap mb-3 gap-2">
+                <h3 class="mb-0"><i class="fas fa-id-badge"></i> Employee Management</h3>
+                <div class="d-flex align-items-center flex-wrap gap-2">
+                  <button class="btn-admin" data-toggle="modal" data-target="#create-employee-modal">
+                    <i class="fas fa-plus"></i> Create Employee
+                  </button>
+                </div>
+              </div>
+              <div id="employees-loading" class="loading-spinner">
+                <div class="spinner-border" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>
+              </div>
+              <div id="employees-table-container" style="display: none;">
+                <table class="service-table">
+                  <thead>
+                    <tr>
+                      <th>Email</th>
+                      <th>Role</th>
+                      <th>Branch Code</th>
+                      <th>Status</th>
+                      <th>Created</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="employees-tbody">
+                    <!-- Employees will be loaded here -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Compliance Management Section (Admin) -->
+          <div id="compliance-mgmt-section" class="dashboard-section" style="display: none;">
+            <div id="compliance-management-content">
+              <!-- Overview Stats -->
+              <div id="compliance-overview-stats"></div>
+
+              <!-- Client Selector -->
+              <div id="compliance-client-selector">
+                <div class="dashboard-card glass-effect">
+                  <h3><i class="fas fa-clipboard-check"></i> Compliance Management</h3>
+                  <p class="text-muted">Search for a client to manage their compliance configuration and filing records.</p>
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="compliance-client-search"
+                      placeholder="Search by client name or email..." oninput="onComplianceClientSearch(event)">
+                  </div>
+                  <div id="compliance-client-results" class="list-group" style="max-height:300px;overflow-y:auto;">
+                    <p class="text-muted small">Type at least 2 characters to search...</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Client Detail View -->
+              <div id="compliance-client-detail" style="display: none;">
+                <div class="mb-3">
+                  <button class="btn btn-sm btn-outline-secondary" onclick="backToComplianceSearch()">
+                    <i class="fas fa-arrow-left"></i> Back to Search
+                  </button>
+                  <strong class="ml-2" id="compliance-selected-client-email"></strong>
+                </div>
+
+                <!-- Company Profile -->
+                <div class="dashboard-card glass-effect mb-3">
+                  <h4><i class="fas fa-building"></i> Company Profile</h4>
+                  <div id="company-profile-form-container">
+                    <div class="spinner-border spinner-border-sm"></div> Loading...
+                  </div>
+                </div>
+
+                <!-- Compliance Config -->
+                <div class="dashboard-card glass-effect mb-3">
+                  <h4><i class="fas fa-cogs"></i> Applicable Services</h4>
+                  <p class="text-muted small">Toggle which compliance services apply to this client.</p>
+                  <div id="compliance-config-container">
+                    <div class="spinner-border spinner-border-sm"></div> Loading...
+                  </div>
+                </div>
+
+                <!-- Filing Records -->
+                <div class="dashboard-card glass-effect mb-3">
+                  <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="mb-0"><i class="fas fa-file-alt"></i> Filing Records</h4>
+                    <div class="d-flex align-items-center" style="gap:8px;">
+                      <select class="form-control form-control-sm" id="admin-compliance-year" style="width:auto;"
+                        onchange="if(_selectedComplianceClientId) loadClientComplianceFilings(_selectedComplianceClientId)">
+                        <option value="">All Years</option>
+                      </select>
+                      <select class="form-control form-control-sm" id="admin-compliance-type-filter" style="width:auto;"
+                        onchange="if(_selectedComplianceClientId) loadClientComplianceFilings(_selectedComplianceClientId)">
+                        <option value="">All Types</option>
+                        <option value="GST">GST</option>
+                        <option value="INCOME_TAX">Income Tax</option>
+                        <option value="MCA">MCA</option>
+                        <option value="PT">PT</option>
+                        <option value="PF">PF</option>
+                        <option value="ESI">ESI</option>
+                      </select>
+                      <button class="btn btn-primary btn-sm" onclick="openAddFilingModal()">
+                        <i class="fas fa-plus"></i> Add Filing
+                      </button>
+                    </div>
+                  </div>
+                  <div id="compliance-filings-container">
+                    <div class="spinner-border spinner-border-sm"></div> Loading...
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Add Filing Modal -->
+          <div class="modal fade" id="add-filing-modal" tabindex="-1" role="dialog" aria-modal="true">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title"><i class="fas fa-plus-circle"></i> Add Filing Record</h5>
+                  <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                </div>
+                <div class="modal-body">
+                  <form id="add-filing-form" onsubmit="submitAddFiling(event)">
+                    <div class="row">
+                      <div class="col-md-4 form-group">
+                        <label>Service Type <span class="text-danger">*</span></label>
+                        <select class="form-control" id="filing-service-type" required></select>
+                      </div>
+                      <div class="col-md-4 form-group">
+                        <label>Financial Year <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="filing-financial-year" required placeholder="2025-26">
+                      </div>
+                      <div class="col-md-4 form-group">
+                        <label>Period <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="filing-period" required placeholder="e.g. Apr-2025, Q1, Annual">
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4 form-group">
+                        <label>Due Date</label>
+                        <input type="date" class="form-control" id="filing-due-date">
+                      </div>
+                      <div class="col-md-4 form-group">
+                        <label>Filing Status</label>
+                        <select class="form-control" id="filing-status">
+                          <option value="pending">Pending</option>
+                          <option value="completed">Completed</option>
+                          <option value="nil_filed">Nil Filed</option>
+                        </select>
+                      </div>
+                      <div class="col-md-4 form-group">
+                        <label>Filing Date</label>
+                        <input type="date" class="form-control" id="filing-date">
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4 form-group">
+                        <label>Payment Status</label>
+                        <select class="form-control" id="filing-payment-status">
+                          <option value="pending">Pending</option>
+                          <option value="completed">Completed</option>
+                        </select>
+                      </div>
+                      <div class="col-md-4 form-group">
+                        <label>Payment Date</label>
+                        <input type="date" class="form-control" id="filing-payment-date">
+                      </div>
+                      <div class="col-md-4 form-group">
+                        <label>Notes</label>
+                        <input type="text" class="form-control" id="filing-notes" placeholder="Optional notes">
+                      </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Save Filing</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Flip the Portal: Admin views client's live portal -->
+          <div id="flip-portal-section" class="dashboard-section" style="display: none;">
+            <div class="dashboard-card glass-effect">
+              <h3><i class="fas fa-eye"></i> Flip the Portal — Client View</h3>
+              <p class="text-muted">Search for a client and view their compliance dashboard exactly as they see it.</p>
+              <div class="form-group">
+                <input type="text" class="form-control" id="flip-portal-client-search"
+                  placeholder="Search client by name or email..." oninput="onFlipPortalSearch(event)">
+              </div>
+              <div id="flip-portal-results" class="list-group mb-3" style="max-height:200px;overflow-y:auto;">
+                <p class="text-muted small">Type to search...</p>
+              </div>
+            </div>
+            <div id="flip-portal-preview" style="display:none;">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <h5 class="mb-0"><i class="fas fa-user"></i> Viewing as: <span id="flip-portal-client-name"></span></h5>
+                <button class="btn btn-sm btn-outline-secondary" onclick="closeFlipPortal()"><i class="fas fa-times"></i> Close Preview</button>
+              </div>
+              <div id="flip-portal-content" class="border rounded p-3" style="background:#f8fafc;min-height:400px;"></div>
+            </div>
+          </div>
+
+          <!-- Manage Services Section (Admin can create/toggle services) -->
+          <div id="manage-services-section" class="dashboard-section" style="display: none;">
+            <div class="dashboard-card">
+              <div class="d-flex justify-content-between align-items-center flex-wrap mb-3">
+                <h3 class="mb-0"><i class="fas fa-cog"></i> Manage Service Catalog</h3>
+              </div>
+              <p class="text-muted small">Add new services that clients can request. Toggle active/inactive to control
+                visibility.</p>
+
+              <button type="button" class="btn btn-outline-success btn-sm mb-3" id="load-services-btn" title="Load all 17 default services">
+                <i class="fas fa-download"></i> Load All Services
+              </button>
+
+              <!-- Add Service Form -->
+              <div class="card mb-4" style="border:1px solid #dee2e6; border-radius:8px; padding:20px;">
+                <h5><i class="fas fa-plus-circle text-primary"></i> Add New Service</h5>
+                <div class="form-row">
+                  <div class="form-group col-md-5">
+                    <label for="new-service-name">Service Name <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="new-service-name" placeholder="e.g., GST Registration"
+                      maxlength="200">
+                  </div>
+                  <div class="form-group col-md-5">
+                    <label for="new-service-desc">Description</label>
+                    <input type="text" class="form-control" id="new-service-desc" placeholder="Short description..."
+                      maxlength="500">
+                  </div>
+                  <div class="form-group col-md-2 d-flex align-items-end">
+                    <button type="button" class="btn btn-primary w-100" onclick="createServiceCatalog()">
+                      <i class="fas fa-plus"></i> Add Service
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Services Table -->
+              <table class="service-table">
+                <thead>
+                  <tr>
+                    <th>Service Name</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="service-catalog-tbody">
+                  <tr>
+                    <td colspan="4" class="text-center">Loading...</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Services Section -->
+          <div id="services-section" class="dashboard-section" style="display: none;">
+            <div class="dashboard-card">
+              <div class="d-flex justify-content-between align-items-center flex-wrap mb-3 gap-2">
+                <h3 class="mb-0"><i class="fas fa-briefcase"></i> Service Orders</h3>
+                <div class="d-flex align-items-center gap-2">
+                  <input type="text" id="orders-search" class="form-control form-control-sm orders-search-input"
+                    placeholder="Search client or service..." style="max-width: 240px;">
+                  <button type="button" class="btn btn-primary btn-sm" id="add-order-btn"
+                    data-toggle="modal" data-target="#add-order-modal"><i
+                      class="fas fa-plus"></i> Add Order</button>
+                  <button type="button" class="btn btn-outline-secondary btn-sm" id="export-orders-btn"><i
+                      class="fas fa-download"></i> Export CSV</button>
+                </div>
+              </div>
+              <div id="orders-loading" class="loading-spinner">
+                <div class="spinner-border" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>
+              </div>
+              <div id="orders-table-container" style="display: none;">
+                <div class="table-responsive-wrapper">
+                <table class="service-table">
+                  <thead>
+                    <tr>
+                      <th>Client</th>
+                      <th>Service</th>
+                      <th>Period</th>
+                      <th>Assigned Employee</th>
+                      <th>Status</th>
+                      <th>Date</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="orders-tbody">
+                    <!-- Orders will be loaded here -->
+                  </tbody>
+                </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Employee Updates Section -->
+          <div id="employee-updates-section" class="dashboard-section" style="display: none;">
+            <div class="dashboard-card">
+              <div class="d-flex justify-content-between align-items-center flex-wrap mb-3 gap-2">
+                <h3 class="mb-0"><i class="fas fa-tasks"></i> Employee Task Updates</h3>
+                <div class="d-flex align-items-center flex-wrap gap-2">
+                  <input type="text" id="emp-updates-search" class="form-control form-control-sm emp-updates-search-input"
+                    placeholder="Search by employee or client..." style="max-width: 280px;">
+                </div>
+              </div>
+              <div id="emp-updates-loading" class="loading-spinner">
+                <div class="spinner-border" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>
+              </div>
+              <div id="emp-updates-container" style="display: none;">
+                <div id="emp-updates-empty" class="text-muted text-center py-4" style="display: none;">
+                  No employee tasks found.
+                </div>
+                <div id="emp-updates-list" style="display: none;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Franchise Applications Section (Feature E) -->
+          <div id="franchise-apps-section" class="dashboard-section" style="display: none;">
+            <div class="dashboard-card">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h3 class="mb-0"><i class="fas fa-store-alt"></i> Franchise Applications</h3>
+                <button type="button" class="btn btn-sm btn-outline-secondary" id="franchise-apps-refresh"><i class="fas fa-sync"></i> Refresh</button>
+              </div>
+              <p class="text-muted small">Applicants who filled the /franchise-signup.html form. Approving auto-provisions a sub_admin account.</p>
+              <div id="franchise-apps-loading" class="loading-spinner py-3"><div class="spinner-border spinner-border-sm" role="status"><span class="sr-only">Loading...</span></div></div>
+              <div id="franchise-apps-empty" class="text-muted small py-3" style="display:none;">No pending applications.</div>
+              <div id="franchise-apps-list" style="display:none;"></div>
+            </div>
+          </div>
+
+          <!-- Referrals Section -->
+          <div id="referrals-section" class="dashboard-section" style="display: none;">
+            <div class="dashboard-card">
+              <h3><i class="fas fa-user-friends"></i> Referral Management</h3>
+              <div id="referrals-loading" class="loading-spinner">
+                <div class="spinner-border" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>
+              </div>
+              <div id="referrals-table-container" style="display: none;">
+                <div class="table-responsive">
+                  <table class="service-table" style="min-width:700px;">
+                    <thead>
+                      <tr>
+                        <th>Referrer</th>
+                        <th>Referred Client</th>
+                        <th>Service</th>
+                        <th>Status</th>
+                        <th>Bonus</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody id="referrals-tbody">
+                      <!-- Referrals will be loaded here -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Order Work Progress Modal -->
+  <div class="modal fade" id="order-progress-modal" tabindex="-1" role="dialog" aria-labelledby="order-progress-title"
+    aria-modal="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="order-progress-title"><i class="fas fa-tasks"></i> Employee Work Progress</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <div id="order-progress-loading" class="text-center py-4">
+            <div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div>
+          </div>
+          <div id="order-progress-list" style="display: none;"></div>
+          <div id="order-progress-empty" class="text-muted text-center py-4" style="display: none;">No EOD updates for this order yet.</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Document Link Modal -->
+  <div class="modal fade" id="add-doc-link-modal" tabindex="-1" role="dialog" aria-labelledby="add-doc-link-title"
+    aria-modal="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="add-doc-link-title"><i class="fas fa-link"></i> Add Document Link</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" id="doc-link-order-id">
+          <div class="form-group">
+            <label for="doc-link-name">Document Name <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="doc-link-name" placeholder="e.g., GST Return Q1 2024"
+              maxlength="200">
+          </div>
+          <div class="form-group">
+            <label for="doc-link-url">Zoho Download URL <span class="text-danger">*</span></label>
+            <input type="url" class="form-control" id="doc-link-url" placeholder="https://workdrive.zoho.in/file/...">
+            <small class="form-text text-muted">Paste the Zoho WorkDrive download/share link for the file.</small>
+          </div>
+          <div class="form-group">
+            <label for="doc-link-embed">Zoho WorkDrive Embed Code <small class="text-muted">(optional — for inline
+                preview)</small></label>
+            <textarea class="form-control" id="doc-link-embed" rows="4"
+              placeholder='Paste the embed code from Zoho WorkDrive here (iframe code)...'></textarea>
+            <small class="form-text text-muted">
+              To get embed code: Open file in Zoho WorkDrive → Share → Embed → Copy the embed code.
+              <a href="https://help.zoho.com/portal/en/kb/workdrive/share/articles/create-embed-codes-for-files-and-folders"
+                target="_blank" rel="noopener">Learn more</a>
+            </small>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" id="doc-link-submit"><i class="fas fa-plus"></i> Add
+            Document</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Create Client Modal -->
+  <div class="modal fade" id="create-client-modal" tabindex="-1" role="dialog"
+    aria-labelledby="create-client-modal-title" aria-modal="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="create-client-modal-title">Create New Client</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="create-client-form">
+            <div class="form-group">
+              <label for="client-email">Email Address <span class="text-danger">*</span></label>
+              <input type="email" class="form-control" id="client-email" required>
+            </div>
+            <div class="form-group">
+              <label for="client-password">Initial Password <span class="text-danger">*</span></label>
+              <input type="password" class="form-control" id="client-password" required minlength="8">
+              <small class="form-text text-muted">Client should change this on first login</small>
+            </div>
+            <div class="form-group">
+              <label for="client-service">Assign Service (Optional)</label>
+              <select class="form-control" id="client-service">
+                <option value="">No service assigned</option>
+                <!-- Services will be loaded here -->
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="client-period">Service Period (if service selected)</label>
+              <input type="text" class="form-control" id="client-period" placeholder="e.g., Monthly, Quarterly">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" onclick="createClient()">Create Client</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bulk Import Clients Modal -->
+  <div class="modal fade" id="bulk-import-modal" tabindex="-1" role="dialog"
+    aria-labelledby="bulk-import-modal-title" aria-modal="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="bulk-import-modal-title">Bulk Import Clients</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p class="text-muted">Paste client data in table format (Email | Password) or upload a markdown file with client credentials.</p>
+          <div class="form-group">
+            <label for="bulk-import-text">Paste Client Data (Markdown table format) <span class="text-danger">*</span></label>
+            <textarea class="form-control" id="bulk-import-text" rows="10" placeholder="| Email | Password |
+|---|---|
+| client1@example.com | password123 |
+| client2@example.com | password456 |"></textarea>
+            <small class="form-text text-muted">Expected format: Email and Password separated by pipe (|) character.</small>
+          </div>
+          <div id="bulk-import-progress" style="display: none;">
+            <div class="progress">
+              <div id="bulk-import-progress-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%"></div>
+            </div>
+            <p id="bulk-import-status" class="small text-muted mt-2">Processing...</p>
+          </div>
+          <div id="bulk-import-result" style="display: none;" class="alert mt-3">
+            <h6>Import Results</h6>
+            <p id="bulk-import-summary" class="small mb-2"></p>
+            <div id="bulk-import-errors" style="display: none;">
+              <strong>Errors (first 10):</strong>
+              <ul id="bulk-import-error-list" class="small"></ul>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="bulk-import-submit">
+            <i class="fas fa-upload"></i> Import Clients
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Create Employee Modal -->
+  <div class="modal fade" id="create-employee-modal" tabindex="-1" role="dialog"
+    aria-labelledby="create-employee-modal-title" aria-modal="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="create-employee-modal-title">Create New Employee</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="create-employee-form">
+            <div class="form-group">
+              <label for="employee-email">Email Address <span class="text-danger">*</span></label>
+              <input type="email" class="form-control" id="employee-email" required>
+            </div>
+            <div class="form-group">
+              <label for="employee-password">Initial Password <span class="text-danger">*</span></label>
+              <input type="password" class="form-control" id="employee-password" required minlength="8">
+              <small class="form-text text-muted">Employee must change this on first login</small>
+            </div>
+            <div class="form-group">
+              <label for="employee-role">Role <span class="text-danger">*</span></label>
+              <select class="form-control" id="employee-role" onchange="document.getElementById('employee-branch-group').style.display = this.value === 'sub_admin' ? 'block' : 'none'">
+                <option value="employee">Standard Employee</option>
+                <option value="sub_admin">Franchise / Sub-Admin</option>
+              </select>
+            </div>
+            <div class="form-group" id="employee-branch-group" style="display: none;">
+              <label for="employee-branch">Branch Code</label>
+              <input type="text" class="form-control" id="employee-branch" placeholder="e.g. VIJAYAWADA">
+              <small class="form-text text-muted">The code used to tag clients to this branch.</small>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" onclick="createEmployee()">Create Employee</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Update Status Modal -->
+  <div class="modal fade" id="update-status-modal" tabindex="-1" role="dialog"
+    aria-labelledby="update-status-modal-title" aria-modal="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="update-status-modal-title">Update Service Status</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="update-status-form">
+            <input type="hidden" id="status-order-id">
+            <div class="form-group">
+              <label for="status-select">New Status <span class="text-danger">*</span></label>
+              <select class="form-control" id="status-select" required>
+                <option value="pending">Pending</option>
+                <option value="in_progress">In Progress</option>
+                <option value="completed">Completed</option>
+              </select>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" onclick="updateServiceStatus()">Update Status</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Service Order Modal -->
+  <div class="modal fade" id="add-order-modal" tabindex="-1" role="dialog"
+    aria-labelledby="add-order-modal-title" aria-modal="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="add-order-modal-title"><i class="fas fa-plus"></i> Add Service Order</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="add-order-error" class="alert alert-danger" style="display:none;"></div>
+          <div id="add-order-success" class="alert alert-success" style="display:none;"></div>
+          <div class="form-group">
+            <label for="add-order-client">Client <span class="text-danger">*</span></label>
+            <input type="text" class="form-control mb-1" id="add-order-client-search" placeholder="Type to search clients by email or name..." autocomplete="off">
+            <select class="form-control" id="add-order-client" required size="6" style="height:auto;">
+              <option value="">— Type above to search clients —</option>
+            </select>
+            <small class="form-text text-muted">Start typing to filter the list, then click a client to select.</small>
+          </div>
+          <div class="form-group">
+            <label for="add-order-service">Service <span class="text-danger">*</span></label>
+            <select class="form-control" id="add-order-service" required>
+              <option value="">Loading services...</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="add-order-period">Period (optional)</label>
+            <input type="text" class="form-control" id="add-order-period" placeholder="e.g. Jan 2026, Q1 2026, FY 2025-26, or notes" maxlength="500">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" id="add-order-submit">
+            <i class="fas fa-plus"></i> Create Order
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Assign Employee Modal -->
+  <div class="modal fade" id="assign-employee-modal" tabindex="-1" role="dialog"
+    aria-labelledby="assign-employee-modal-title" aria-modal="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="assign-employee-modal-title">Assign Employee to Service Order</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="assign-employee-form">
+            <input type="hidden" id="assign-order-id">
+            <p class="text-muted small mb-3" id="assign-order-client"></p>
+            <div class="form-group">
+              <label for="assign-employee-select">Employee</label>
+              <select class="form-control" id="assign-employee-select">
+                <option value="">Unassigned</option>
+              </select>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" id="assign-employee-submit">Save Assignment</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- View Documents Modal -->
+  <div class="modal fade" id="view-documents-modal" tabindex="-1" role="dialog" aria-labelledby="view-documents-title"
+    aria-modal="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="view-documents-title">Documents</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+              aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <div id="view-documents-loading" class="text-center py-4">
+            <div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div>
+          </div>
+          <div id="view-documents-list" style="display: none;"></div>
+          <div id="view-documents-empty" class="text-muted text-center py-4" style="display: none;">No documents for
+            this order.</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Approve Referral Modal -->
+  <div class="modal fade" id="approve-referral-modal" tabindex="-1" role="dialog"
+    aria-labelledby="approve-referral-modal-title" aria-modal="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="approve-referral-modal-title">Review Referral</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="approve-referral-form">
+            <input type="hidden" id="referral-id-input">
+            <div class="form-group">
+              <label>Decision <span class="text-danger">*</span></label>
+              <select class="form-control" id="referral-decision" required>
+                <option value="">Select decision...</option>
+                <option value="approved">Approve</option>
+                <option value="rejected">Reject</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="referral-reason">Reason (Optional)</label>
+              <textarea class="form-control" id="referral-reason" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="referral-bonus">Bonus Amount (if approved)</label>
+              <input type="number" class="form-control" id="referral-bonus" min="0" step="0.01">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" onclick="processReferral()">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2FA Setup Modal -->
+  <div class="modal fade" id="2fa-setup-modal" tabindex="-1" role="dialog" aria-labelledby="2fa-setup-modal-title"
+    aria-modal="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="2fa-setup-modal-title">Enable Two-Factor Authentication</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+              aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <p class="small text-muted">Scan the QR code with your authenticator app, then enter the 6-digit code below.
+          </p>
+          <div class="text-center mb-3"><img id="2fa-qr-img" alt="QR code" style="max-width: 200px;"></div>
+          <div class="form-group">
+            <label for="2fa-setup-code">Verification code</label>
+            <input type="text" class="form-control" id="2fa-setup-code" placeholder="000000" maxlength="8"
+              inputmode="numeric">
+          </div>
+          <div id="2fa-setup-error" class="alert alert-danger small py-2" style="display: none;"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" id="2fa-setup-verify">Verify &amp; Enable</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2FA Disable Modal -->
+  <div class="modal fade" id="2fa-disable-modal" tabindex="-1" role="dialog" aria-labelledby="2fa-disable-modal-title"
+    aria-modal="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="2fa-disable-modal-title">Disable Two-Factor Authentication</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+              aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <p class="small text-muted">Enter your password and a current code from your authenticator app.</p>
+
+          <div class="form-group">
+            <label for="2fa-disable-password">Password</label>
+            <input type="password" class="form-control" id="2fa-disable-password">
+          </div>
+          <div class="form-group">
+            <label for="2fa-disable-code">Authenticator code</label>
+            <input type="text" class="form-control" id="2fa-disable-code" placeholder="000000" maxlength="8"
+              inputmode="numeric">
+          </div>
+          <div id="2fa-disable-error" class="alert alert-danger small py-2" style="display: none;"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-danger" id="2fa-disable-submit">Disable 2FA</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer-container"></div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <script src="../../js/components.js?v=87"></script>
+  <script src="../js/api-url.js?v=87"></script>
+  <script src="../js/config.js?v=87"></script>
+  <script src="../js/utils.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/admin-dashboard-utils.js"></script>
+  <script src="../js/admin-clients.js?v=87"></script>
+  <script src="../js/admin-orders.js?v=87"></script>
+  <script src="../js/admin-employees.js?v=87"></script>
+  <script src="../js/admin-services.js?v=87"></script>
+  <script src="../js/admin-referrals.js?v=87"></script>
+  <script src="../js/admin-documents.js?v=87"></script>
+  <script src="../js/admin-compliance.js"></script>
+  <script src="../js/admin-analytics.js?v=87"></script>
+  <script src="../js/admin-franchise-apps.js?v=87"></script>
+  <script src="../js/admin-dashboard.js?v=87"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const assignEmployeeSubmitBtn = document.getElementById('assign-employee-submit');
+      if (assignEmployeeSubmitBtn) {
+        assignEmployeeSubmitBtn.addEventListener('click', assignEmployeeSubmit);
+      }
+      // Close sidebar when a nav item is clicked on mobile
+      document.querySelectorAll('.sidebar-nav a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          if (window.innerWidth < 768) {
+            var sidebar = document.getElementById('admin-sidebar');
+            if (sidebar) sidebar.classList.remove('sidebar-open');
+          }
+        });
+      });
+    });
+
+    function toggleAdminSidebar() {
+      var sidebar = document.getElementById('admin-sidebar');
+      var btn = document.getElementById('sidebar-toggle');
+      if (sidebar) {
+        sidebar.classList.toggle('sidebar-open');
+        btn.classList.toggle('is-open');
+      }
+    }
+  </script>
+  <script src="../js/avatar.js?v=87"></script>
+  <script src="../js/login-activity.js?v=87"></script>
+  <script src="../js/admin-2fa-nag.js?v=87"></script>
+  <script src="../js/notifications.js?v=87"></script>
+  <script src="../js/comments-widget.js?v=87"></script>
+</body>
+
+</html>

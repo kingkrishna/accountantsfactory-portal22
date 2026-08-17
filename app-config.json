@@ -1,0 +1,21 @@
+{
+  "command": "node startup.js",
+  "build_path": "api",
+  "stack": "node18",
+  "env_variables": {
+    "CATALYST_CONFIG": "{\"project_id\":\"18944000000044043\",\"project_key\":\"50040008732\",\"environment\":\"development\"}",
+    "JWT_SECRET": "accountantsfactory_super_secret_jwt_2024",
+    "NODE_ENV": "production",
+    "AF_CLIENT_ID": "1004.NMUISG5YKILERY9G29LJHZWIY9II7Y",
+    "AF_CLIENT_SECRET": "ee359029dc211b37c797d3584c59953f2bd6aa1adc",
+    "AF_REFRESH_TOKEN": "1004.a629ef92d515bdfb6bde31ea00e91d0c.a4b0763ebc1045d905de6255398bb906",
+    "ZOHO_CLIENT_ID": "1000.FM9VMBUCYRM7HR4XJUE1V2M7O3XIUH",
+    "ZOHO_CLIENT_SECRET": "f4f28b1044ada116072ad6a144d711bc5f3d4436d9",
+    "ZOHO_REFRESH_TOKEN": "1000.bc0b9882b2557431e57b8027cb4244d1.93b0948f176cfa919b8f73cb2ff249d0",
+    "RECOVERY_SECRET": "af-recover-2026-nitin",
+    "EMERGENCY_ADMIN_EMAIL": "nitin@accountantsfactory.com",
+    "EMERGENCY_ADMIN_PASSWORD": "AF-Emergency-2026-Nitin!"
+  },
+  "memory": 1024,
+  "scripts": {}
+}

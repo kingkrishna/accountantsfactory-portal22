@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Login</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; background: linear-gradient(135deg, #e0f2f1 0%, #fff 50%, #e0f2f1 100%); min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
+    .card { background: #fff; border-radius: 16px; padding: 36px 32px; box-shadow: 0 20px 60px rgba(0,0,0,.1); width: 100%; max-width: 400px; }
+    h1 { color: #0c9782; font-size: 24px; font-weight: 700; text-align: center; margin-bottom: 6px; }
+    .subtitle { color: #666; font-size: 14px; text-align: center; margin-bottom: 24px; }
+    label { display: block; color: #333; font-size: 14px; font-weight: 600; margin-bottom: 6px; margin-top: 14px; }
+    input[type=email], input[type=password], input[type=text] { width: 100%; padding: 12px 14px; border: 1px solid #d9d9d9; border-radius: 8px; font-size: 15px; transition: border-color .2s; }
+    input:focus { outline: none; border-color: #0c9782; }
+    button { width: 100%; padding: 13px; background: #0c9782; color: #fff; border: none; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; margin-top: 20px; transition: background .2s; }
+    button:hover:not(:disabled) { background: #0a7f6f; }
+    button:disabled { background: #9ac; cursor: not-allowed; }
+    .err { background: #fee; color: #c33; padding: 10px 14px; border-radius: 8px; font-size: 13px; margin-bottom: 16px; display: none; }
+    .ok { background: #efe; color: #080; padding: 10px 14px; border-radius: 8px; font-size: 13px; margin-bottom: 16px; display: none; }
+    .links { text-align: center; font-size: 13px; margin-top: 16px; color: #666; }
+    .links a { color: #0c9782; text-decoration: none; }
+  </style>
+</head>
+<body>
+<div class="card">
+  <h1>🔒 Portal Login</h1>
+  <p class="subtitle">Accountants Factory LLP</p>
+  <div class="err" id="err"></div>
+  <div class="ok" id="ok"></div>
+  <form id="f" onsubmit="return false;">
+    <label>Email</label>
+    <input type="email" id="e" required autocomplete="username" placeholder="admin@accountantsfactory.com">
+    <label>Password</label>
+    <input type="password" id="p" required autocomplete="current-password">
+    <button type="submit" id="b">Login</button>
+  </form>
+  <div class="links" style="margin-top: 20px;">
+    <a href="https://accountantsfactory.com">← Back to website</a>
+  </div>
+</div>
+<script>
+// Standalone login — ZERO dependencies, hardcoded backend URL.
+// Works on any host, bypasses all cached JS/config files.
+var API = 'https://accountantsfactory-api-50040008732.development.catalystappsail.in/api';
+
+var form = document.getElementById('f');
+var errDiv = document.getElementById('err');
+var okDiv = document.getElementById('ok');
+var btn = document.getElementById('b');
+
+function showErr(m) { errDiv.textContent = m; errDiv.style.display = 'block'; okDiv.style.display = 'none'; }
+function showOk(m) { okDiv.textContent = m; okDiv.style.display = 'block'; errDiv.style.display = 'none'; }
+
+form.addEventListener('submit', async function (e) {
+  e.preventDefault();
+  errDiv.style.display = 'none';
+  okDiv.style.display = 'none';
+  var email = document.getElementById('e').value.trim().toLowerCase();
+  var password = document.getElementById('p').value;
+  if (!email || !password) { showErr('Please enter email and password'); return; }
+  btn.disabled = true; btn.textContent = 'Logging in...';
+  try {
+    var r = await fetch(API + '/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email, password: password })
+    });
+    var data = await r.json();
+    if (!r.ok || !data.success) { showErr(data.message || 'Login failed'); btn.disabled = false; btn.textContent = 'Login'; return; }
+    if (data.requires2FA) { showErr('2FA required — use the main login page'); btn.disabled = false; btn.textContent = 'Login'; return; }
+    // Store auth
+    try {
+      localStorage.setItem('auth_token', data.token);
+      localStorage.setItem('user_data', JSON.stringify(data.user));
+    } catch (_) {}
+    showOk('Login successful! Redirecting to dashboard...');
+    // Redirect to the appropriate dashboard on the AppSail host
+    var base = 'https://accountantsfactory-api-50040008732.development.catalystappsail.in/portal';
+    setTimeout(function () {
+      if (data.user.must_change_password) {
+        window.location.href = base + '/set-initial-password.html';
+      } else if (data.user.role === 'admin') {
+        window.location.href = base + '/admin/dashboard.html';
+      } else if (data.user.role === 'employee') {
+        window.location.href = base + '/employee/dashboard.html';
+      } else {
+        window.location.href = base + '/client/dashboard.html';
+      }
+    }, 800);
+  } catch (err) {
+    console.error(err);
+    showErr('Network error. Try on phone mobile data or disable ad-blocker/VPN, then reload.');
+    btn.disabled = false;
+    btn.textContent = 'Login';
+  }
+});
+</script>
+</body>
+</html>

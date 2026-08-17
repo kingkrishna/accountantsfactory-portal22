@@ -1,0 +1,25 @@
+[
+  {
+    "ROWID": "1781800182802",
+    "CREATEDTIME": "2026-06-18T16:29:41.864Z",
+    "MODIFIEDTIME": "2026-06-18T17:05:31.419Z",
+    "email": "admin@accountantsfactory.com",
+    "password_hash": "$2a$10$5bMPyazfoaIEDOSCLlyaSue00MlSTMvZ8AuMoQLBiiggqawwo2BAK",
+    "role": "admin",
+    "status": "active",
+    "name": "System Admin",
+    "last_login_at": "2026-06-18 17:05:31",
+    "last_login_ip": "::1"
+  },
+  {
+    "ROWID": "1781971924140",
+    "CREATEDTIME": "2026-06-20T16:12:03.514Z",
+    "MODIFIEDTIME": "2026-06-20T16:12:03.515Z",
+    "email": "vijayawada@accountantsfactory.com",
+    "password_hash": "$2a$10$NK37zdx7g5ZrxBdmFQf4ZOIaze7L1tBGtHi7PuZgfEkuWV7dGkVL6",
+    "role": "sub_admin",
+    "status": "active",
+    "referral_code": "VIJAYAWADA",
+    "must_change_password": false
+  }
+]
