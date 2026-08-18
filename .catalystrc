@@ -1,0 +1,56 @@
+{
+  "defaults": {
+    "project": 1,
+    "env": 1
+  },
+  "actives": {
+    "project": 2,
+    "env": 1
+  },
+  "projects": [
+    {
+      "idx": 2,
+      "id": "18944000000044043",
+      "name": "accountantsfactory1",
+      "domain": {
+        "id": "50040008732",
+        "name": "accountantsfactory1-60063314772.development"
+      },
+      "timezone": "Asia/Kolkata",
+      "env": [
+        {
+          "idx": 1,
+          "id": "60063314772",
+          "name": "Development",
+          "type": 3,
+          "env_status": "Active",
+          "project_details": {
+            "project_name": "accountantsfactory1",
+            "id": "18944000000044043",
+            "project_type": "Live"
+          },
+          "is_default": true,
+          "action_required": false
+        }
+      ]
+    },
+    {
+      "idx": 1,
+      "id": "18944000000011031",
+      "name": "Project-Rainfall",
+      "domain": {
+        "id": "50037697382",
+        "name": "project-rainfall-60063314772.development"
+      },
+      "timezone": "Asia/Kolkata",
+      "env": [
+        {
+          "idx": 1,
+          "id": "60063314772",
+          "name": "Development",
+          "type": 3
+        }
+      ]
+    }
+  ]
+}
