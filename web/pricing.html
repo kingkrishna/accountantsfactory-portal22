@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact Us | Accountants Factory</title>
-<meta name="description" content="Get in touch with Accountants Factory LLP. Offices in Tirupati, Andhra Pradesh. Free consultations for startup registration, accounting, and Zoho implementations.">
+<title>Transparent Rate Cards &amp; Pricing | Accountants Factory</title>
+<meta name="description" content="Transparent, predictable pricing for company registration, accounting packages, Zoho implementations, and Virtual CFO retainers. No hidden fees.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -81,18 +81,28 @@ nav{position:sticky;top:0;z-index:80;background:rgba(255,255,255,.94);backdrop-f
 .page-hero h1{font-size:clamp(2.2rem,4.5vw,3.4rem);max-width:860px;margin:0 auto 16px}
 .page-hero p{font-size:1.08rem;max-width:640px;margin:0 auto 28px}
 
-/* Contact Grid */
-.contact-sec{padding:64px 0 88px;background:var(--soft)}
-.c-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:36px}
-.c-info{background:#fff;border-radius:var(--r);padding:42px 34px;box-shadow:var(--sh);display:flex;flex-direction:column;gap:24px}
-.c-item{display:flex;gap:16px;align-items:flex-start}
-.c-icon{width:48px;height:48px;border-radius:18px;background:var(--tint);color:var(--teal);display:grid;place-items:center;font-size:1.1rem;flex:0 0 48px}
-.c-form{background:#fff;border-radius:var(--r);padding:42px 36px;box-shadow:var(--sh)}
-.f-group{margin-bottom:20px}
-.f-group label{display:block;font-size:.86rem;font-weight:700;color:var(--ink);margin-bottom:6px}
-.f-group input,.f-group select,.f-group textarea{width:100%;padding:13px 18px;border-radius:14px;border:1.5px solid var(--line);font-family:inherit;font-size:.92rem;transition:.2s}
-.f-group input:focus,.f-group select:focus,.f-group textarea:focus{border-color:var(--teal);outline:none;box-shadow:0 0 0 3px rgba(1,111,105,.12)}
-@media(max-width:880px){.c-grid{grid-template-columns:1fr}}
+/* Pricing Cards */
+.pricing-sec{padding:64px 0 88px;background:var(--soft)}
+.p-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.p-card{background:#fff;border-radius:var(--r);padding:38px 30px;box-shadow:var(--sh);border:2px solid transparent;transition:.25s;display:flex;flex-direction:column;position:relative}
+.p-card.featured{border-color:var(--teal);background:linear-gradient(180deg,#fff 0%,#FAFEFD 100%)}
+.p-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--gold);color:#2B2B2B;font-size:.75rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:5px 16px;border-radius:999px}
+.p-card h3{font-size:1.4rem;margin-bottom:6px}
+.p-card .p-desc{font-size:.9rem;color:var(--grey);margin-bottom:20px;min-height:44px}
+.p-price{font-size:2.3rem;font-weight:800;color:var(--ink);margin-bottom:4px;letter-spacing:-.03em}
+.p-price span{font-size:.9rem;font-weight:600;color:var(--grey)}
+.p-card ul{list-style:none;padding:0;margin:24px 0;font-size:.88rem}
+.p-card li{padding:8px 0 8px 24px;position:relative}
+.p-card li:before{content:"\f058";font-family:"Font Awesome 5 Free";font-weight:900;position:absolute;left:0;color:var(--teal);font-size:.85rem;top:8px}
+.p-card .p-btn{margin-top:auto;width:100%;justify-content:center}
+@media(max-width:960px){.p-grid{grid-template-columns:1fr;max-width:440px;margin:0 auto}}
+
+/* cta */
+.cta{background:linear-gradient(140deg,var(--teal-deep),var(--teal) 140%);color:#CDE3E1;text-align:center;padding:78px 0;border-radius:var(--r) var(--r) 0 0}
+.cta h2{color:#fff;font-size:clamp(1.7rem,3.2vw,2.4rem)}
+.cta .hand{color:var(--gold);font-size:1.5rem;display:block;margin-bottom:4px}
+.cta p{max-width:540px;margin:0 auto 26px}
+.cta-b{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 
 footer{background:#0D1A17;color:#8CA29E;font-size:.88rem;padding:54px 0 24px}
 .fg{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:32px}
@@ -160,7 +170,7 @@ footer a:hover{color:var(--gold)}
           <a href="virtual-cfo.html"><i class="fas fa-university"></i> CMA / DPR for funding</a>
         </div>
       </div>
-      <div class="mi"><a href="pricing.html">Pricing</a></div>
+      <div class="mi"><a href="pricing.html" style="color:var(--teal)">Pricing</a></div>
     </div>
 
     <div style="display:flex;gap:10px;align-items:center">
@@ -213,98 +223,73 @@ footer a:hover{color:var(--gold)}
 <!-- HERO -->
 <header class="page-hero">
   <div class="wrap">
-    <span class="hand">let's talk</span>
-    <h1>Book a Free Consultation with a Chartered Accountant</h1>
-    <p>Get direct answers regarding company incorporation, Zoho implementations, tax optimization, and outsourced bookkeeping.</p>
+    <span class="hand">transparent &amp; simple</span>
+    <h1>Honest Pricing with Zero Surprises</h1>
+    <p>Predictable monthly retainers and upfront incorporation packages. All fees are professional fees.</p>
   </div>
 </header>
 
-<!-- CONTACT SECTION -->
-<section class="contact-sec">
+<!-- PRICING GRID -->
+<section class="pricing-sec">
   <div class="wrap">
-    <div class="c-grid">
+    <div class="p-grid">
       
-      <div class="c-info">
-        <h3>Office Headquarters</h3>
-        <p>Drop by our offices or reach us directly via phone, WhatsApp, or email.</p>
-        
-        <div class="c-item">
-          <div class="c-icon"><i class="fas fa-map-marker-alt"></i></div>
-          <div>
-            <strong style="color:var(--ink);display:block;margin-bottom:4px">Tirupati Office</strong>
-            <span style="font-size:.9rem">Ground Floor, K S R Nilayam, Near Master Minds College, Hathiramji Colony, Annamayya Circle, Tirupati, AP 517501</span>
-          </div>
-        </div>
-
-        <div class="c-item">
-          <div class="c-icon"><i class="fas fa-phone-alt"></i></div>
-          <div>
-            <strong style="color:var(--ink);display:block;margin-bottom:4px">Phone &amp; WhatsApp</strong>
-            <a href="tel:+919176671206" style="font-size:.95rem;font-weight:700;display:block">+91 91766 71206</a>
-            <span style="font-size:.84rem;color:var(--grey)">Mon &ndash; Sat: 9:30 AM &ndash; 7:00 PM IST</span>
-          </div>
-        </div>
-
-        <div class="c-item">
-          <div class="c-icon"><i class="fas fa-envelope"></i></div>
-          <div>
-            <strong style="color:var(--ink);display:block;margin-bottom:4px">Direct Email</strong>
-            <a href="mailto:reachus@accountantsfactory.com" style="font-size:.92rem;font-weight:700">reachus@accountantsfactory.com</a>
-          </div>
-        </div>
-
-        <div class="c-item">
-          <div class="c-icon"><i class="fas fa-user-lock"></i></div>
-          <div>
-            <strong style="color:var(--ink);display:block;margin-bottom:4px">Existing Client?</strong>
-            <a href="portal/login.html" class="btn btn-ghost btn-sm" style="margin-top:6px"><i class="fas fa-sign-in-alt"></i> Go to Client Portal</a>
-          </div>
-        </div>
+      <div class="p-card">
+        <h3>Startup Launch</h3>
+        <div class="p-desc">Pvt Ltd incorporation + PAN/TAN + Bank account + GST Registration.</div>
+        <div class="p-price">₹9,999 <span>/ all-inclusive</span></div>
+        <ul>
+          <li>2 DSCs + 2 DINs + SPICe+ MCA filing</li>
+          <li>MoA &amp; AoA drafting</li>
+          <li>Certificate of Incorporation (COI)</li>
+          <li>PAN, TAN &amp; EPFO/ESIC registrations</li>
+          <li>Free 1-hour post-incorporation CA consultation</li>
+        </ul>
+        <a href="contact.html" class="btn btn-ghost p-btn">Incorporate Now</a>
       </div>
 
-      <div class="c-form">
-        <h3>Send us a Message</h3>
-        <p style="font-size:.9rem;color:var(--grey);margin-bottom:24px">Our senior partners will respond within 2 business hours.</p>
-        
-        <form id="contact-form" onsubmit="event.preventDefault(); alert('Thank you! A senior Chartered Accountant will contact you within 2 hours.');">
-          <div class="f-group">
-            <label for="name">Your Name *</label>
-            <input type="text" id="name" required placeholder="e.g. Rajesh Kumar">
-          </div>
-          
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px" class="f-group">
-            <div>
-              <label for="phone">Phone / WhatsApp *</label>
-              <input type="tel" id="phone" required placeholder="e.g. 98765 43210">
-            </div>
-            <div>
-              <label for="email">Work Email *</label>
-              <input type="email" id="email" required placeholder="e.g. rajesh@company.com">
-            </div>
-          </div>
-
-          <div class="f-group">
-            <label for="service">Service Required *</label>
-            <select id="service" required>
-              <option value="">Select Service...</option>
-              <option value="Start a Business (Pvt Ltd / LLP)">Start a Business (Pvt Ltd / LLP)</option>
-              <option value="Outsourced Bookkeeping & GST">Outsourced Bookkeeping &amp; GST</option>
-              <option value="Zoho Suite Implementation">Zoho Suite Implementation</option>
-              <option value="Virtual CFO Retainer">Virtual CFO Retainer</option>
-              <option value="Tally to Zoho Migration">Tally to Zoho Migration</option>
-              <option value="Other Consultation">Other Consultation</option>
-            </select>
-          </div>
-
-          <div class="f-group">
-            <label for="msg">Message / Requirements</label>
-            <textarea id="msg" rows="4" placeholder="Briefly describe your company, turnover, or requirements..."></textarea>
-          </div>
-
-          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Submit Inquiry</button>
-        </form>
+      <div class="p-card featured">
+        <div class="p-badge">Most Popular</div>
+        <h3>Accounting &amp; Compliance</h3>
+        <div class="p-desc">Complete bookkeeping, monthly GST, TDS, payroll, and statutory year-end ITR.</div>
+        <div class="p-price">₹2,500 <span>/ month (billed annually)</span></div>
+        <ul>
+          <li>Daily / Monthly cloud bookkeeping in Zoho Books</li>
+          <li>GSTR-1, GSTR-3B &amp; GSTR-2B Input Tax reconciliation</li>
+          <li>Monthly payroll, pay-slips &amp; TDS challans</li>
+          <li>Annual statutory Balance Sheet &amp; P&amp;L</li>
+          <li>Corporate / LLP Income Tax return filing</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary p-btn">Get Started</a>
       </div>
 
+      <div class="p-card">
+        <h3>Virtual CFO Retainer</h3>
+        <div class="p-desc">High-touch strategic steering, MIS dashboards, and investor / bank readiness.</div>
+        <div class="p-price">₹35,000 <span>/ month</span></div>
+        <ul>
+          <li>Dedicated senior Chartered Accountant CFO</li>
+          <li>Weekly 13-week rolling cash flow runway</li>
+          <li>Executive MIS dashboards in Zoho Analytics</li>
+          <li>Bank CMA data &amp; term loan preparation</li>
+          <li>Monthly Board review participation</li>
+        </ul>
+        <a href="contact.html" class="btn btn-ghost p-btn">Retain CFO</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap">
+    <span class="hand">custom package?</span>
+    <h2>Need a customized proposal for your business?</h2>
+    <p>Contact our partners directly for a fast custom quote based on your transaction volume.</p>
+    <div class="cta-b">
+      <a href="tel:+919176671206" class="btn btn-gold"><i class="fas fa-phone-alt"></i> Call 91766 71206</a>
+      <a href="https://wa.me/919176671206" class="btn btn-outline-light"><i class="fab fa-whatsapp"></i> WhatsApp us</a>
     </div>
   </div>
 </section>

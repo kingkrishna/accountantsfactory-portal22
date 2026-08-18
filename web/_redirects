@@ -1,36 +1,35 @@
 # API Proxy
 /api/*  https://accountantsfactory-api.onrender.com/api/:splat  200!
 
-# Clean Navigation Aliases
-/start-a-business.html              /startup-services.html              200
-/private-limited-registration.html  /startup-services.html              200
-/llp-registration.html              /startup-services.html              200
-/opc-registration.html              /startup-services.html              200
-/section-8-ngo.html                 /startup-services.html              200
-/startup-india-dpiit.html           /startup-services.html              200
-/registrations.html                 /startup-services.html              200
+# Clean Navigation Direct Routes
+/private-limited-registration.html  /start-a-business.html      200
+/llp-registration.html              /start-a-business.html      200
+/opc-registration.html              /start-a-business.html      200
+/section-8-ngo.html                 /start-a-business.html      200
+/startup-india-dpiit.html           /start-a-business.html      200
+/registrations.html                 /start-a-business.html      200
+/startup-services.html              /start-a-business.html      200
 
-/accounting-services.html           /outsourced-accounting.html         200
-/outsourced-bookkeeping.html        /outsourced-accounting.html         200
-/gst-filing.html                    /outsourced-accounting.html         200
-/tds-payroll.html                   /outsourced-accounting.html         200
-/year-end-itr.html                  /outsourced-accounting.html         200
-/roc-compliance.html                /outsourced-accounting.html         200
+/outsourced-bookkeeping.html        /accounting-services.html   200
+/gst-filing.html                    /accounting-services.html   200
+/tds-payroll.html                   /accounting-services.html   200
+/year-end-itr.html                  /accounting-services.html   200
+/roc-compliance.html                /accounting-services.html   200
+/outsourced-accounting.html         /accounting-services.html   200
 
-/zoho.html                          /zoho-books-ecosystem.html          200
-/zoho-books.html                    /zoho-books-ecosystem.html          200
-/zoho-crm.html                      /zoho-books-ecosystem.html          200
-/zoho-people.html                   /zoho-books-ecosystem.html          200
-/zoho-erp.html                      /zoho-books-ecosystem.html          200
-/tally-to-zoho.html                 /zoho-books-ecosystem.html          200
-/zoho-training.html                 /zoho-books-ecosystem.html          200
+/zoho-books.html                    /zoho.html                  200
+/zoho-crm.html                      /zoho.html                  200
+/zoho-people.html                   /zoho.html                  200
+/zoho-erp.html                      /zoho.html                  200
+/tally-to-zoho.html                 /zoho.html                  200
+/zoho-training.html                 /zoho.html                  200
+/zoho-books-ecosystem.html          /zoho.html                  200
 
-/virtual-cfo.html                   /virtual-cfo-services-in-india.html 200
-/mis-dashboards.html                /virtual-cfo-services-in-india.html 200
-/cash-flow.html                     /virtual-cfo-services-in-india.html 200
-/bank-funding.html                  /virtual-cfo-services-in-india.html 200
+/mis-dashboards.html                /virtual-cfo.html           200
+/cash-flow.html                     /virtual-cfo.html           200
+/bank-funding.html                  /virtual-cfo.html           200
+/virtual-cfo-services-in-india.html /virtual-cfo.html           200
 
-/pricing.html                       /index.html                         200
-/tools.html                         /index.html                         200
-/training.html                      /zoho-books-ecosystem.html          200
-/global.html                        /outsourced-accounting.html         200
+/tools.html                         /index.html                 200
+/training.html                      /zoho.html                  200
+/global.html                        /accounting-services.html   200

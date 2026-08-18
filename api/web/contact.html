@@ -1,102 +1,364 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us | Accountants Factory LLP | Schedule a Consultation</title>
-  <meta name="description" content="Get in touch with Accountants Factory LLP. Speak to our Zoho implementation experts and Chartered Accountants in Tirupati, AP. Call +91 91766 71206.">
-  <meta name="keywords" content="contact accountants factory, zoho partner consultation, ca firm tirupati contact">
-  
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/style-v2.css?v=89">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | Accountants Factory</title>
+<meta name="description" content="Get in touch with Accountants Factory LLP. Offices in Tirupati, Andhra Pradesh. Free consultations for startup registration, accounting, and Zoho implementations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet">
+<style>
+:root{
+  --teal:#016F69; --teal-dark:#015C57; --teal-deep:#01423F;
+  --tint:#E9F2F1; --line:#CFE2E0; --gold:#C79A2E;
+  --ink:#132420; --body:#4A5B57; --grey:#6E807C;
+  --cream:#FBF7EF; --soft:#F4F8F7;
+  --r:46px; --r-md:34px; --r-sm:22px;
+  --sh:0 4px 10px rgba(19,36,32,.04), 0 20px 46px rgba(19,36,32,.09);
+  --sh-lg:0 10px 22px rgba(19,36,32,.07), 0 34px 70px rgba(19,36,32,.14);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--body);background:#fff;line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{color:var(--ink);margin:0 0 .5em;letter-spacing:-.03em;font-weight:800;line-height:1.15}
+p{margin:0 0 1em}
+a{color:var(--teal);text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 22px}
+.hand{font-family:'Caveat',cursive;font-weight:700}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:8px}
+
+.btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:.94rem;padding:15px 30px;border-radius:999px;border:1.5px solid transparent;cursor:pointer;transition:.22s;font-family:inherit}
+.btn-primary{background:var(--teal);color:#fff;box-shadow:0 10px 26px rgba(1,111,105,.3)}
+.btn-primary:hover{background:var(--teal-dark);transform:translateY(-2px);color:#fff}
+.btn-ghost{background:#fff;color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--teal);color:var(--teal)}
+.btn-gold{background:var(--gold);color:#2B2B2B}
+.btn-gold:hover{transform:translateY(-2px)}
+.btn-outline-light{background:transparent;color:#fff;border-color:rgba(255,255,255,.45)}
+.btn-outline-light:hover{background:rgba(255,255,255,.14)}
+.btn-sm{padding:11px 22px;font-size:.85rem}
+
+/* strip + nav */
+.strip{background:var(--teal-deep);color:#CFE4E2;font-size:.79rem;padding:9px 0}
+.strip .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.strip a{color:#fff;font-weight:600}.strip i{color:var(--gold)}
+nav{position:sticky;top:0;z-index:80;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid #EAF1F0}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 0}
+.logo{font-weight:800;font-size:1.18rem;color:var(--ink);letter-spacing:-.03em}
+.logo b{color:var(--teal)}
+.logo span{display:block;font-size:.6rem;font-weight:700;color:var(--grey);letter-spacing:.14em;text-transform:uppercase}
+.menu{display:flex;gap:6px;align-items:center}
+.mi{position:relative}
+.mi>a{display:flex;align-items:center;gap:6px;color:var(--ink);font-weight:600;font-size:.9rem;padding:10px 14px;border-radius:999px;transition:.2s}
+.mi>a:hover{background:var(--tint);color:var(--teal)}
+.mi>a i{font-size:.58rem;opacity:.55}
+.drop{position:absolute;top:calc(100% + 10px);left:0;min-width:266px;background:#fff;border:1px solid #E7EFEE;border-radius:var(--r-sm);box-shadow:var(--sh);padding:10px;opacity:0;visibility:hidden;transform:translateY(-6px);transition:.2s}
+.mi:hover .drop,.mi:focus-within .drop{opacity:1;visibility:visible;transform:none}
+.drop a{display:flex;gap:11px;align-items:center;padding:10px 12px;border-radius:16px;color:var(--body);font-size:.87rem;font-weight:600;transition:.15s}
+.drop a:hover{background:var(--soft);color:var(--teal)}
+.drop a i{width:28px;height:28px;border-radius:10px;background:var(--tint);color:var(--teal);display:grid;place-items:center;font-size:.72rem;flex:0 0 26px}
+.burger{display:none;background:none;border:0;font-size:1.3rem;color:var(--ink);cursor:pointer}
+@media(max-width:1080px){.menu{display:none}.burger{display:block}}
+
+/* mobile drawer */
+.mnav{display:none;background:#fff;border-bottom:1px solid #E8EFEE;padding:10px 22px 20px;position:sticky;top:66px;z-index:70;max-height:76vh;overflow-y:auto}
+.mnav.open{display:block}
+.mnav details{border-bottom:1px solid #EEF4F3}
+.mnav summary{list-style:none;cursor:pointer;padding:15px 2px;font-weight:700;color:var(--ink);font-size:.98rem;display:flex;justify-content:space-between;align-items:center}
+.mnav summary::-webkit-details-marker{display:none}
+.mnav summary i{color:var(--teal);font-size:.75rem;transition:.25s}
+.mnav details[open] summary i{transform:rotate(180deg)}
+.mnav details a{display:block;padding:11px 2px 11px 16px;font-size:.9rem;color:var(--body);border-left:2px solid var(--tint);margin-left:2px}
+.mnav .m-flat{display:block;padding:15px 2px;font-weight:700;color:var(--ink);font-size:.98rem;border-bottom:1px solid #EEF4F3}
+.mnav .m-cta{display:flex;gap:10px;flex-wrap:wrap;padding-top:16px}
+@media(min-width:1081px){.mnav{display:none!important}}
+
+/* Hero */
+.page-hero{background:linear-gradient(180deg,#fff 0%,var(--soft) 100%);padding:64px 0 54px;text-align:center;position:relative}
+.page-hero .hand{font-size:1.6rem;color:var(--teal);display:block;margin-bottom:6px}
+.page-hero h1{font-size:clamp(2.2rem,4.5vw,3.4rem);max-width:860px;margin:0 auto 16px}
+.page-hero p{font-size:1.08rem;max-width:640px;margin:0 auto 28px}
+
+/* Contact Grid */
+.contact-sec{padding:64px 0 88px;background:var(--soft)}
+.c-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:36px}
+.c-info{background:#fff;border-radius:var(--r);padding:42px 34px;box-shadow:var(--sh);display:flex;flex-direction:column;gap:24px}
+.c-item{display:flex;gap:16px;align-items:flex-start}
+.c-icon{width:48px;height:48px;border-radius:18px;background:var(--tint);color:var(--teal);display:grid;place-items:center;font-size:1.1rem;flex:0 0 48px}
+.c-form{background:#fff;border-radius:var(--r);padding:42px 36px;box-shadow:var(--sh)}
+.f-group{margin-bottom:20px}
+.f-group label{display:block;font-size:.86rem;font-weight:700;color:var(--ink);margin-bottom:6px}
+.f-group input,.f-group select,.f-group textarea{width:100%;padding:13px 18px;border-radius:14px;border:1.5px solid var(--line);font-family:inherit;font-size:.92rem;transition:.2s}
+.f-group input:focus,.f-group select:focus,.f-group textarea:focus{border-color:var(--teal);outline:none;box-shadow:0 0 0 3px rgba(1,111,105,.12)}
+@media(max-width:880px){.c-grid{grid-template-columns:1fr}}
+
+footer{background:#0D1A17;color:#8CA29E;font-size:.88rem;padding:54px 0 24px}
+.fg{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:32px}
+footer h5{color:#fff;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;margin:0 0 14px}
+footer a{color:#8CA29E;display:block;padding:5px 0}
+footer a:hover{color:var(--gold)}
+.fbot{border-top:1px solid rgba(255,255,255,.09);margin-top:34px;padding-top:18px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.79rem}
+.disc{font-size:.75rem;color:#6B807C;margin-top:12px}
+@media(max-width:880px){.fg{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.fg{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 
-  <div id="header-container"></div>
-  <div id="mobilemenu-container"></div>
-  <div class="clearfix"></div>
+<div class="strip">
+  <div class="wrap">
+    <span><i class="fas fa-certificate"></i> Zoho Authorized Partner &amp; Certified Trainer &middot; Tirupati, Andhra Pradesh</span>
+    <span><i class="fas fa-phone-alt"></i> <a href="tel:+919176671206">91766 71206</a></span>
+  </div>
+</div>
 
-  <!-- Hero Section -->
-  <section class="hero-modern py-5">
-    <div class="container" style="max-width: 1320px;">
-      <div class="row align-items-center">
-        <div class="col-lg-6 mb-4 mb-lg-0">
-          <div class="hero-badge-pill">
-            <i class="fas fa-headset"></i> Get In Touch
-          </div>
-          <h1 class="hero-title-modern">
-            Let's Discuss Your <span class="text-highlight">Business Goals</span>
-          </h1>
-          <p class="hero-subtitle-modern">
-            Whether you need a full Zoho Suite implementation, startup company incorporation, Virtual CFO advisory, or outsourced bookkeeping — our senior team is here to assist you.
-          </p>
+<nav>
+  <div class="wrap nav-in">
+    <a href="index.html" class="logo">Accountants <b>Factory</b><span>Tech-driven accounting services</span></a>
 
-          <!-- Contact Information Cards -->
-          <div class="mt-4">
-            <div class="d-flex align-items-start mb-3 p-3 bg-white rounded border shadow-sm">
-              <div class="mr-3 text-success" style="font-size: 1.5rem;"><i class="fas fa-phone-alt"></i></div>
-              <div>
-                <h6 class="font-weight-bold text-dark mb-1">Call Us Directly</h6>
-                <a href="tel:+919176671206" class="text-success font-weight-bold text-decoration-none">+91 91766 71206</a>
-                <span class="text-muted small d-block">Monday to Saturday, 9:30 AM – 6:30 PM IST</span>
-              </div>
-            </div>
+    <div class="menu">
+      <div class="mi">
+        <a href="start-a-business.html">Start a Business <i class="fas fa-chevron-down"></i></a>
+        <div class="drop">
+          <a href="start-a-business.html"><i class="fas fa-building"></i> Private Limited Company</a>
+          <a href="start-a-business.html"><i class="fas fa-handshake"></i> LLP Registration</a>
+          <a href="start-a-business.html"><i class="fas fa-user"></i> OPC &amp; Proprietorship</a>
+          <a href="start-a-business.html"><i class="fas fa-hand-holding-heart"></i> Section 8 / NGO</a>
+          <a href="start-a-business.html"><i class="fas fa-rocket"></i> Startup India (DPIIT)</a>
+          <a href="start-a-business.html"><i class="fas fa-file-signature"></i> GST, MSME, IEC, Trademark</a>
+        </div>
+      </div>
+      <div class="mi">
+        <a href="accounting-services.html">Accounting <i class="fas fa-chevron-down"></i></a>
+        <div class="drop">
+          <a href="accounting-services.html"><i class="fas fa-book"></i> Outsourced bookkeeping</a>
+          <a href="accounting-services.html"><i class="fas fa-receipt"></i> GST returns &amp; reconciliation</a>
+          <a href="accounting-services.html"><i class="fas fa-users"></i> TDS &amp; payroll</a>
+          <a href="accounting-services.html"><i class="fas fa-calendar-check"></i> Year-end &amp; income tax</a>
+          <a href="accounting-services.html"><i class="fas fa-stamp"></i> Annual ROC compliance</a>
+        </div>
+      </div>
+      <div class="mi">
+        <a href="zoho.html">Zoho Solutions <i class="fas fa-chevron-down"></i></a>
+        <div class="drop">
+          <a href="zoho.html"><i class="fas fa-calculator"></i> Zoho Books &amp; GST</a>
+          <a href="zoho.html"><i class="fas fa-bullseye"></i> Zoho CRM</a>
+          <a href="zoho.html"><i class="fas fa-user-tie"></i> Zoho People &amp; Payroll</a>
+          <a href="zoho.html"><i class="fas fa-cogs"></i> Zoho Creator &amp; ERP</a>
+          <a href="zoho.html"><i class="fas fa-exchange-alt"></i> Tally to Zoho migration</a>
+          <a href="zoho.html"><i class="fas fa-chalkboard-teacher"></i> Zoho training</a>
+        </div>
+      </div>
+      <div class="mi">
+        <a href="virtual-cfo.html">Virtual CFO <i class="fas fa-chevron-down"></i></a>
+        <div class="drop">
+          <a href="virtual-cfo.html"><i class="fas fa-chart-line"></i> Virtual CFO retainer</a>
+          <a href="virtual-cfo.html"><i class="fas fa-tachometer-alt"></i> MIS &amp; dashboards</a>
+          <a href="virtual-cfo.html"><i class="fas fa-water"></i> Cash flow &amp; budgeting</a>
+          <a href="virtual-cfo.html"><i class="fas fa-university"></i> CMA / DPR for funding</a>
+        </div>
+      </div>
+      <div class="mi"><a href="pricing.html">Pricing</a></div>
+    </div>
 
-            <div class="d-flex align-items-start mb-3 p-3 bg-white rounded border shadow-sm">
-              <div class="mr-3 text-success" style="font-size: 1.5rem;"><i class="fas fa-envelope"></i></div>
-              <div>
-                <h6 class="font-weight-bold text-dark mb-1">Email Inquiries</h6>
-                <a href="mailto:reachus@accountantsfactory.com" class="text-success font-weight-bold text-decoration-none">reachus@accountantsfactory.com</a>
-                <span class="text-muted small d-block">We respond within 4 business hours</span>
-              </div>
-            </div>
+    <div style="display:flex;gap:10px;align-items:center">
+      <a href="portal/login.html" class="btn btn-ghost btn-sm" style="border:1.5px solid var(--line);"><i class="fas fa-user-lock"></i> Client Portal</a>
+      <a href="contact.html" class="btn btn-primary btn-sm">Book a free call</a>
+      <button class="burger" aria-label="Menu"><i class="fas fa-bars"></i></button>
+    </div>
+  </div>
+</nav>
 
-            <div class="d-flex align-items-start p-3 bg-white rounded border shadow-sm">
-              <div class="mr-3 text-success" style="font-size: 1.5rem;"><i class="fas fa-map-marker-alt"></i></div>
-              <div>
-                <h6 class="font-weight-bold text-dark mb-1">Office Address</h6>
-                <p class="text-muted mb-0 small" style="line-height: 1.5;">
-                  Ground Floor, K S R Nilayam, Hathiramji Colony, Opp. Unlimited Showroom, Annamayya Circle, Tirupati, Andhra Pradesh &ndash; 517501, India
-                </p>
-              </div>
-            </div>
+<!-- mobile drawer -->
+<div class="mnav" id="mnav">
+  <details><summary>Start a Business <i class="fas fa-chevron-down"></i></summary>
+    <a href="start-a-business.html">Private Limited Company</a>
+    <a href="start-a-business.html">LLP Registration</a>
+    <a href="start-a-business.html">OPC &amp; Proprietorship</a>
+    <a href="start-a-business.html">Section 8 / NGO</a>
+    <a href="start-a-business.html">Startup India (DPIIT)</a>
+    <a href="start-a-business.html">GST, MSME, IEC, Trademark</a>
+  </details>
+  <details><summary>Accounting <i class="fas fa-chevron-down"></i></summary>
+    <a href="accounting-services.html">Outsourced bookkeeping</a>
+    <a href="accounting-services.html">GST returns &amp; reconciliation</a>
+    <a href="accounting-services.html">TDS &amp; payroll</a>
+    <a href="accounting-services.html">Year-end &amp; income tax</a>
+    <a href="accounting-services.html">Annual ROC compliance</a>
+  </details>
+  <details><summary>Zoho Solutions <i class="fas fa-chevron-down"></i></summary>
+    <a href="zoho.html">Zoho Books &amp; GST</a>
+    <a href="zoho.html">Zoho CRM</a>
+    <a href="zoho.html">Zoho People &amp; Payroll</a>
+    <a href="zoho.html">Zoho Creator &amp; ERP</a>
+    <a href="zoho.html">Tally to Zoho migration</a>
+    <a href="zoho.html">Zoho training</a>
+  </details>
+  <details><summary>Virtual CFO <i class="fas fa-chevron-down"></i></summary>
+    <a href="virtual-cfo.html">Virtual CFO retainer</a>
+    <a href="virtual-cfo.html">MIS &amp; dashboards</a>
+    <a href="virtual-cfo.html">Cash flow &amp; budgeting</a>
+    <a href="virtual-cfo.html">CMA / DPR for funding</a>
+  </details>
+  <a class="m-flat" href="portal/login.html"><i class="fas fa-user-lock"></i> Client Portal Login</a>
+  <a class="m-flat" href="pricing.html">Pricing</a>
+  <div class="m-cta">
+    <a href="tel:+919176671206" class="btn btn-primary btn-sm"><i class="fas fa-phone-alt"></i> 91766 71206</a>
+    <a href="https://wa.me/919176671206" class="btn btn-ghost btn-sm"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="page-hero">
+  <div class="wrap">
+    <span class="hand">let's talk</span>
+    <h1>Book a Free Consultation with a Chartered Accountant</h1>
+    <p>Get direct answers regarding company incorporation, Zoho implementations, tax optimization, and outsourced bookkeeping.</p>
+  </div>
+</header>
+
+<!-- CONTACT SECTION -->
+<section class="contact-sec">
+  <div class="wrap">
+    <div class="c-grid">
+      
+      <div class="c-info">
+        <h3>Office Headquarters</h3>
+        <p>Drop by our offices or reach us directly via phone, WhatsApp, or email.</p>
+        
+        <div class="c-item">
+          <div class="c-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div>
+            <strong style="color:var(--ink);display:block;margin-bottom:4px">Tirupati Office</strong>
+            <span style="font-size:.9rem">Ground Floor, K S R Nilayam, Near Master Minds College, Hathiramji Colony, Annamayya Circle, Tirupati, AP 517501</span>
           </div>
         </div>
 
-        <div class="col-lg-6">
-          <div id="form-container"></div>
+        <div class="c-item">
+          <div class="c-icon"><i class="fas fa-phone-alt"></i></div>
+          <div>
+            <strong style="color:var(--ink);display:block;margin-bottom:4px">Phone &amp; WhatsApp</strong>
+            <a href="tel:+919176671206" style="font-size:.95rem;font-weight:700;display:block">+91 91766 71206</a>
+            <span style="font-size:.84rem;color:var(--grey)">Mon &ndash; Sat: 9:30 AM &ndash; 7:00 PM IST</span>
+          </div>
+        </div>
+
+        <div class="c-item">
+          <div class="c-icon"><i class="fas fa-envelope"></i></div>
+          <div>
+            <strong style="color:var(--ink);display:block;margin-bottom:4px">Direct Email</strong>
+            <a href="mailto:reachus@accountantsfactory.com" style="font-size:.92rem;font-weight:700">reachus@accountantsfactory.com</a>
+          </div>
+        </div>
+
+        <div class="c-item">
+          <div class="c-icon"><i class="fas fa-user-lock"></i></div>
+          <div>
+            <strong style="color:var(--ink);display:block;margin-bottom:4px">Existing Client?</strong>
+            <a href="portal/login.html" class="btn btn-ghost btn-sm" style="margin-top:6px"><i class="fas fa-sign-in-alt"></i> Go to Client Portal</a>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Google Map & Location -->
-  <section class="section-modern bg-white">
-    <div class="container" style="max-width: 1320px;">
-      <div class="section-header-modern">
-        <span class="section-tag">Visit Our Office</span>
-        <h2 class="section-title-modern">Conveniently Located in Tirupati</h2>
+      <div class="c-form">
+        <h3>Send us a Message</h3>
+        <p style="font-size:.9rem;color:var(--grey);margin-bottom:24px">Our senior partners will respond within 2 business hours.</p>
+        
+        <form id="contact-form" onsubmit="event.preventDefault(); alert('Thank you! A senior Chartered Accountant will contact you within 2 hours.');">
+          <div class="f-group">
+            <label for="name">Your Name *</label>
+            <input type="text" id="name" required placeholder="e.g. Rajesh Kumar">
+          </div>
+          
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px" class="f-group">
+            <div>
+              <label for="phone">Phone / WhatsApp *</label>
+              <input type="tel" id="phone" required placeholder="e.g. 98765 43210">
+            </div>
+            <div>
+              <label for="email">Work Email *</label>
+              <input type="email" id="email" required placeholder="e.g. rajesh@company.com">
+            </div>
+          </div>
+
+          <div class="f-group">
+            <label for="service">Service Required *</label>
+            <select id="service" required>
+              <option value="">Select Service...</option>
+              <option value="Start a Business (Pvt Ltd / LLP)">Start a Business (Pvt Ltd / LLP)</option>
+              <option value="Outsourced Bookkeeping & GST">Outsourced Bookkeeping &amp; GST</option>
+              <option value="Zoho Suite Implementation">Zoho Suite Implementation</option>
+              <option value="Virtual CFO Retainer">Virtual CFO Retainer</option>
+              <option value="Tally to Zoho Migration">Tally to Zoho Migration</option>
+              <option value="Other Consultation">Other Consultation</option>
+            </select>
+          </div>
+
+          <div class="f-group">
+            <label for="msg">Message / Requirements</label>
+            <textarea id="msg" rows="4" placeholder="Briefly describe your company, turnover, or requirements..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Submit Inquiry</button>
+        </form>
       </div>
-      <div class="rounded overflow-hidden shadow-sm border" style="height: 380px;">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3877.378775463765!2d79.4196163!3d13.6346765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4d4b1a4f000001%3A0x6b8f36c561b36bb0!2sAccountants%20Factory%20LLP!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
-          width="100%" 
-          height="100%" 
-          style="border:0;" 
-          allowfullscreen="" 
-          loading="lazy">
-        </iframe>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fg">
+      <div>
+        <div class="logo" style="color:#fff">Accountants <b style="color:var(--gold)">Factory</b><span style="color:#8CA29E">Tech-driven accounting services</span></div>
+        <p style="margin-top:14px">Ground Floor, K S R Nilayam, Near Master Minds College, Hathiramji Colony, Annamayya Circle, Tirupati, Andhra Pradesh 517501</p>
+        <p><a href="tel:+919176671206" style="display:inline">91766 71206</a> &middot; <a href="mailto:reachus@accountantsfactory.com" style="display:inline">reachus@accountantsfactory.com</a></p>
+      </div>
+      <div>
+        <h5>Start</h5>
+        <a href="start-a-business.html">Private Limited</a>
+        <a href="start-a-business.html">LLP</a>
+        <a href="start-a-business.html">OPC</a>
+        <a href="start-a-business.html">Registrations</a>
+      </div>
+      <div>
+        <h5>Run</h5>
+        <a href="accounting-services.html">Bookkeeping</a>
+        <a href="accounting-services.html">GST filing</a>
+        <a href="accounting-services.html">Payroll</a>
+        <a href="zoho.html">Zoho Books</a>
+      </div>
+      <div>
+        <h5>Scale</h5>
+        <a href="virtual-cfo.html">Virtual CFO</a>
+        <a href="zoho.html">Zoho ERP</a>
+        <a href="zoho.html">Tally migration</a>
+        <a href="virtual-cfo.html">Bank funding</a>
       </div>
     </div>
-  </section>
+    <p class="disc">Fees shown are professional fees, exclusive of government charges, stamp duty and applicable GST. Content on this site is general information and does not constitute legal or tax advice under the Income Tax Act, 1961.</p>
+    <div class="fbot">
+      <span>&copy; 2026 Accountants Factory LLP</span>
+      <span>Zoho Authorized Partner &middot; Certified Zoho &amp; Tally Trainer &middot; <a href="portal/login.html" style="color:#8CA29E">Client Portal</a></span>
+    </div>
+  </div>
+</footer>
 
-  <div id="footer-container"></div>
-
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-  <script src="js/components.js?v=89"></script>
+<script>
+(function(){
+  var b=document.querySelector('.burger'), m=document.getElementById('mnav');
+  if(!b||!m)return;
+  b.setAttribute('aria-expanded','false');
+  b.addEventListener('click',function(){
+    var on=m.classList.toggle('open');
+    b.setAttribute('aria-expanded',on?'true':'false');
+    b.innerHTML='<i class="fas fa-'+(on?'times':'bars')+'"></i>';
+  });
+  m.addEventListener('click',function(e){ if(e.target.closest('a')){m.classList.remove('open');b.innerHTML='<i class="fas fa-bars"></i>';} });
+})();
+</script>
 </body>
 </html>
