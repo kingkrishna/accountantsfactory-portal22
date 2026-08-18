@@ -1,282 +1,182 @@
-// Components system for loading header, footer, and other reusable components
-// All components are embedded as strings for better performance
+// Components system for loading unified header, footer, and mobile navigation
+// All components are embedded as strings for performance and consistency
 
 const Components = {
-    header: `<nav class="navbar navbar-expand-xl navbar-light bg-white border-bottom shadow-sm">
-  <div class="container" style="max-width: 1320px; padding: 0 15px;">
-    <a class="navbar-brand py-2" href="index.html">
-      <img data-logo="logo-new.png" src="images/logo-new.png" alt="Accountants Factory — Tech-Driven Accounting Services" class="site-logo" style="height: 54px; width: auto; display: block;">
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-      <ul class="navbar-nav align-items-center">
-        <!-- Home -->
-        <li class="nav-item">
-          <a class="nav-link" href="index.html">Home</a>
-        </li>
+    header: `<div class="strip">
+  <div class="wrap">
+    <span><i class="fas fa-certificate"></i> Zoho Authorized Partner &amp; Certified Trainer &middot; Tirupati, Andhra Pradesh</span>
+    <span><i class="fas fa-phone-alt"></i> <a href="tel:+919176671206">91766 71206</a></span>
+  </div>
+</div>
 
-        <!-- Zoho Implementations (Prime Highlight) -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle font-weight-bold" href="zoho-books-ecosystem.html" id="zohoDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #0a8574;">
-            <i class="fas fa-cubes mr-1" style="color:#0a8574;"></i> Zoho Suite
-          </a>
-          <div class="dropdown-menu shadow-lg border-0" aria-labelledby="zohoDropdown" style="border-radius: 10px; min-width: 240px; padding: 10px 0;">
-            <a class="dropdown-item py-2" href="zoho-books-ecosystem.html"><i class="fas fa-book mr-2 text-success"></i> Zoho Books & GST</a>
-            <a class="dropdown-item py-2" href="zoho-books-ecosystem.html#zoho-crm"><i class="fas fa-users-cog mr-2 text-primary"></i> Zoho CRM</a>
-            <a class="dropdown-item py-2" href="zoho-books-ecosystem.html#zoho-people"><i class="fas fa-user-tie mr-2 text-warning"></i> Zoho People & Payroll</a>
-            <a class="dropdown-item py-2" href="zoho-books-ecosystem.html#zoho-erp"><i class="fas fa-layer-group mr-2 text-info"></i> Zoho Creator & Custom ERP</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item py-2" href="zoho-books-ecosystem.html#migration"><i class="fas fa-exchange-alt mr-2 text-muted"></i> Tally to Zoho Migration</a>
-            <a class="dropdown-item py-2" href="zoho-books-ecosystem.html#training"><i class="fas fa-graduation-cap mr-2 text-success"></i> Certified Training</a>
-          </div>
-        </li>
+<nav>
+  <div class="wrap nav-in">
+    <a href="index.html" class="logo">Accountants <b>Factory</b><span>Tech-driven accounting services</span></a>
 
-        <!-- Startup Services -->
-        <li class="nav-item">
-          <a class="nav-link" href="startup-services.html">Startup Services</a>
-        </li>
+    <div class="menu">
+      <div class="mi">
+        <a href="startup-services.html">Start a Business <i class="fas fa-chevron-down"></i></a>
+        <div class="drop">
+          <a href="startup-services.html"><i class="fas fa-building"></i> Private Limited Company</a>
+          <a href="startup-services.html"><i class="fas fa-handshake"></i> LLP Registration</a>
+          <a href="startup-services.html"><i class="fas fa-user"></i> OPC &amp; Proprietorship</a>
+          <a href="startup-services.html"><i class="fas fa-hand-holding-heart"></i> Section 8 / NGO</a>
+          <a href="startup-services.html"><i class="fas fa-rocket"></i> Startup India (DPIIT)</a>
+          <a href="startup-services.html"><i class="fas fa-file-signature"></i> GST, MSME, IEC, Trademark</a>
+        </div>
+      </div>
+      <div class="mi">
+        <a href="outsourced-accounting.html">Accounting <i class="fas fa-chevron-down"></i></a>
+        <div class="drop">
+          <a href="outsourced-accounting.html"><i class="fas fa-book"></i> Outsourced bookkeeping</a>
+          <a href="outsourced-accounting.html"><i class="fas fa-receipt"></i> GST returns &amp; reconciliation</a>
+          <a href="outsourced-accounting.html"><i class="fas fa-users"></i> TDS &amp; payroll</a>
+          <a href="outsourced-accounting.html"><i class="fas fa-calendar-check"></i> Year-end &amp; income tax</a>
+          <a href="outsourced-accounting.html"><i class="fas fa-stamp"></i> Annual ROC compliance</a>
+        </div>
+      </div>
+      <div class="mi">
+        <a href="zoho-books-ecosystem.html">Zoho Solutions <i class="fas fa-chevron-down"></i></a>
+        <div class="drop">
+          <a href="zoho-books-ecosystem.html"><i class="fas fa-calculator"></i> Zoho Books &amp; GST</a>
+          <a href="zoho-books-ecosystem.html#zoho-crm"><i class="fas fa-bullseye"></i> Zoho CRM</a>
+          <a href="zoho-books-ecosystem.html#zoho-people"><i class="fas fa-user-tie"></i> Zoho People &amp; Payroll</a>
+          <a href="zoho-books-ecosystem.html#zoho-erp"><i class="fas fa-cogs"></i> Zoho Creator &amp; ERP</a>
+          <a href="zoho-books-ecosystem.html"><i class="fas fa-exchange-alt"></i> Tally to Zoho migration</a>
+          <a href="zoho-books-ecosystem.html"><i class="fas fa-chalkboard-teacher"></i> Zoho training</a>
+        </div>
+      </div>
+      <div class="mi">
+        <a href="virtual-cfo-services-in-india.html">Virtual CFO <i class="fas fa-chevron-down"></i></a>
+        <div class="drop">
+          <a href="virtual-cfo-services-in-india.html"><i class="fas fa-chart-line"></i> Virtual CFO retainer</a>
+          <a href="virtual-cfo-services-in-india.html"><i class="fas fa-tachometer-alt"></i> MIS &amp; dashboards</a>
+          <a href="virtual-cfo-services-in-india.html"><i class="fas fa-water"></i> Cash flow &amp; budgeting</a>
+          <a href="virtual-cfo-services-in-india.html"><i class="fas fa-university"></i> CMA / DPR for funding</a>
+        </div>
+      </div>
+      <div class="mi"><a href="index.html#deck">Pricing</a></div>
+    </div>
 
-        <!-- Virtual CFO -->
-        <li class="nav-item">
-          <a class="nav-link" href="virtual-cfo-services-in-india.html">Virtual CFO</a>
-        </li>
-
-        <!-- Outsourced Accounting -->
-        <li class="nav-item">
-          <a class="nav-link" href="outsourced-accounting.html">Outsourced Accounting</a>
-        </li>
-
-        <!-- About Us -->
-        <li class="nav-item">
-          <a class="nav-link" href="about.html">About Us</a>
-        </li>
-
-        <!-- Contact Us -->
-        <li class="nav-item">
-          <a class="nav-link" href="contact.html">Contact</a>
-        </li>
-             
-        <!-- Client Portal Button (Untouched) -->
-        <li class="nav-item ml-xl-2">
-          <a class="btn btn-outline-primary client-portal-btn" href="portal/login.html" style="border-radius: 8px; font-weight: 700; padding: 8px 18px;">
-            <i class="fas fa-user-circle mr-1"></i> Client Portal
-          </a>
-        </li>
-             
-        <!-- Consult Now Button -->
-        <li class="nav-item ml-xl-2">
-          <a class="btn btn-primary" href="contact.html" style="border-radius: 8px; font-weight: 700; padding: 9px 20px;">
-            Consult Now
-          </a>
-        </li>
-      </ul>
+    <div style="display:flex;gap:10px;align-items:center">
+      <a href="portal/login.html" class="btn btn-ghost btn-sm" style="border:1.5px solid var(--line);"><i class="fas fa-user-lock"></i> Client Portal</a>
+      <a href="contact.html" class="btn btn-primary btn-sm">Book a free call</a>
+      <button class="burger" aria-label="Menu"><i class="fas fa-bars"></i></button>
     </div>
   </div>
-</nav>`,
+</nav>
 
-    footer: `<footer class="bg-dark text-white footer" style="position: relative; background-color: #0f172a !important;" itemscope itemtype="https://schema.org/ProfessionalService">
-    <div class="container" style="max-width: 1320px; padding: 60px 15px 30px;">
-        <div class="row">
-            <!-- Column 1: Company Details -->
-            <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-                <h5 class="text-white font-weight-bold mb-3" style="font-size: 1.25rem;">
-                  <span itemprop="name">Accountants Factory LLP</span>
-                </h5>
-                <p class="text-muted" style="font-size: 14px; line-height: 1.7; color: #94a3b8 !important;">
-                  Official Zoho Certified Partner and premier financial advisory firm. Providing end-to-end Zoho Suite implementations, company registrations, Virtual CFO leadership, and outsourced bookkeeping across India and globally.
-                </p>
-                <address style="font-style: normal; font-size: 14px; line-height: 1.6; color: #cbd5e1;"
-                         itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-                  <i class="fas fa-map-marker-alt text-success mr-2"></i>
-                  <span itemprop="streetAddress">Ground Floor, K S R Nilayam, Hathiramji Colony, Annamayya Circle</span>,<br>
-                  <span itemprop="addressLocality">Tirupati</span>,
-                  <span itemprop="addressRegion">Andhra Pradesh</span> - 
-                  <span itemprop="postalCode">517501</span>,
-                  <span itemprop="addressCountry">India</span>
-                </address>
-                <p style="margin-top: 12px; font-size: 14px; line-height: 1.8; color: #cbd5e1;">
-                  <i class="fas fa-phone text-success mr-2"></i>
-                  <a href="tel:+919176671206" itemprop="telephone" class="text-white text-decoration-none">+91 91766 71206</a><br>
-                  <i class="fas fa-envelope text-success mr-2"></i>
-                  <a href="mailto:reachus@accountantsfactory.com" itemprop="email" class="text-white text-decoration-none">reachus@accountantsfactory.com</a>
-                </p>
-            </div>
-
-            <!-- Column 2: Solutions -->
-            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-                <h5 class="text-white font-weight-bold mb-3" style="font-size: 1.1rem;">Core Solutions</h5>
-                <ul style="list-style: none; padding: 0; font-size: 14px; line-height: 2.2;">
-                    <li><a href="zoho-books-ecosystem.html" class="text-muted text-decoration-none" style="color: #94a3b8 !important;"><i class="fas fa-angle-right mr-2 text-success"></i>Zoho Books & GST</a></li>
-                    <li><a href="zoho-books-ecosystem.html#zoho-crm" class="text-muted text-decoration-none" style="color: #94a3b8 !important;"><i class="fas fa-angle-right mr-2 text-success"></i>Zoho CRM Implementation</a></li>
-                    <li><a href="zoho-books-ecosystem.html#zoho-people" class="text-muted text-decoration-none" style="color: #94a3b8 !important;"><i class="fas fa-angle-right mr-2 text-success"></i>Zoho People & Payroll</a></li>
-                    <li><a href="zoho-books-ecosystem.html#zoho-erp" class="text-muted text-decoration-none" style="color: #94a3b8 !important;"><i class="fas fa-angle-right mr-2 text-success"></i>Zoho Creator & ERP</a></li>
-                    <li><a href="startup-services.html" class="text-muted text-decoration-none" style="color: #94a3b8 !important;"><i class="fas fa-angle-right mr-2 text-success"></i>Startup Incorporation</a></li>
-                    <li><a href="virtual-cfo-services-in-india.html" class="text-muted text-decoration-none" style="color: #94a3b8 !important;"><i class="fas fa-angle-right mr-2 text-success"></i>Virtual CFO Advisory</a></li>
-                    <li><a href="outsourced-accounting.html" class="text-muted text-decoration-none" style="color: #94a3b8 !important;"><i class="fas fa-angle-right mr-2 text-success"></i>Outsourced Bookkeeping</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 3: Quick Links & Portal -->
-            <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
-                <h5 class="text-white font-weight-bold mb-3" style="font-size: 1.1rem;">Quick Links</h5>
-                <ul style="list-style: none; padding: 0; font-size: 14px; line-height: 2.2;">
-                    <li><a href="about.html" class="text-muted text-decoration-none" style="color: #94a3b8 !important;"><i class="fas fa-angle-right mr-2 text-success"></i>About Us</a></li>
-                    <li><a href="contact.html" class="text-muted text-decoration-none" style="color: #94a3b8 !important;"><i class="fas fa-angle-right mr-2 text-success"></i>Contact Us</a></li>
-                    <li><a href="portal/login.html" class="text-muted text-decoration-none" style="color: #94a3b8 !important;"><i class="fas fa-angle-right mr-2 text-success"></i>Client Portal</a></li>
-                    <li><a href="terms.html" class="text-muted text-decoration-none" style="color: #94a3b8 !important;"><i class="fas fa-angle-right mr-2 text-success"></i>Terms of Service</a></li>
-                    <li><a href="privacy.html" class="text-muted text-decoration-none" style="color: #94a3b8 !important;"><i class="fas fa-angle-right mr-2 text-success"></i>Privacy Policy</a></li>
-                    <li><a href="cookie.html" class="text-muted text-decoration-none" style="color: #94a3b8 !important;"><i class="fas fa-angle-right mr-2 text-success"></i>Cookies Policy</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 4: Certifications & Social -->
-            <div class="col-lg-3 col-md-6">
-                <h5 class="text-white font-weight-bold mb-3" style="font-size: 1.1rem;">Connect With Us</h5>
-                <p style="font-size: 14px; color: #94a3b8;">
-                  Follow our insights on tax laws, Zoho automations, and startup finance strategies.
-                </p>
-                <div class="d-flex gap-2 mt-3">
-                  <a href="https://www.linkedin.com/company/accountantsfactory" target="_blank" rel="noopener" class="btn btn-outline-light btn-sm mr-2" style="border-radius: 50%; width: 38px; height: 38px; display: inline-flex; align-items: center; justify-content: center;"><i class="fab fa-linkedin-in"></i></a>
-                  <a href="https://www.instagram.com/accountantsfactory/" target="_blank" rel="noopener" class="btn btn-outline-light btn-sm mr-2" style="border-radius: 50%; width: 38px; height: 38px; display: inline-flex; align-items: center; justify-content: center;"><i class="fab fa-instagram"></i></a>
-                  <a href="https://www.facebook.com/accountantsfactory/" target="_blank" rel="noopener" class="btn btn-outline-light btn-sm mr-2" style="border-radius: 50%; width: 38px; height: 38px; display: inline-flex; align-items: center; justify-content: center;"><i class="fab fa-facebook-f"></i></a>
-                  <a href="https://twitter.com/Accntantfactory" target="_blank" rel="noopener" class="btn btn-outline-light btn-sm" style="border-radius: 50%; width: 38px; height: 38px; display: inline-flex; align-items: center; justify-content: center;"><i class="fab fa-twitter"></i></a>
-                </div>
-                <div class="mt-4 p-3 rounded" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
-                  <div style="font-size: 13px; font-weight: 700; color: #34d399;"><i class="fas fa-check-circle mr-1"></i> Zoho Certified Partner</div>
-                  <div style="font-size: 12px; color: #94a3b8;">Official Personal Trainer & Training Institute</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="border-top mt-5 pt-4 text-center" style="border-color: rgba(255,255,255,0.1) !important;">
-          <p style="color: #64748b; font-size: 13px; margin-bottom: 0;">
-            &copy; 2026 Accountants Factory LLP. All rights reserved. | Official Zoho Partner & Tech-Driven Financial Advisors.
-          </p>
-        </div>
-    </div>
-</footer>`,
-
-    whatsapp: `<div class="d-flex flex-wrap gap-2 my-3">
-  <a href="mailto:reachus@accountantsfactory.com?subject=Inquiry%20via%20Website" class="btn-modern-primary mr-2 mb-2"><i class="fas fa-envelope"></i> Email Us</a>
-  <a href="tel:+919176671206" class="btn-modern-secondary mb-2"><i class="fas fa-phone"></i> +91 91766 71206</a>
+<!-- mobile drawer -->
+<div class="mnav" id="mnav">
+  <details><summary>Start a Business <i class="fas fa-chevron-down"></i></summary>
+    <a href="startup-services.html">Private Limited Company</a>
+    <a href="startup-services.html">LLP Registration</a>
+    <a href="startup-services.html">OPC &amp; Proprietorship</a>
+    <a href="startup-services.html">Section 8 / NGO</a>
+    <a href="startup-services.html">Startup India (DPIIT)</a>
+    <a href="startup-services.html">GST, MSME, IEC, Trademark</a>
+  </details>
+  <details><summary>Accounting <i class="fas fa-chevron-down"></i></summary>
+    <a href="outsourced-accounting.html">Outsourced bookkeeping</a>
+    <a href="outsourced-accounting.html">GST returns &amp; reconciliation</a>
+    <a href="outsourced-accounting.html">TDS &amp; payroll</a>
+    <a href="outsourced-accounting.html">Year-end &amp; income tax</a>
+    <a href="outsourced-accounting.html">Annual ROC compliance</a>
+  </details>
+  <details><summary>Zoho Solutions <i class="fas fa-chevron-down"></i></summary>
+    <a href="zoho-books-ecosystem.html">Zoho Books &amp; GST</a>
+    <a href="zoho-books-ecosystem.html#zoho-crm">Zoho CRM</a>
+    <a href="zoho-books-ecosystem.html#zoho-people">Zoho People &amp; Payroll</a>
+    <a href="zoho-books-ecosystem.html#zoho-erp">Zoho Creator &amp; ERP</a>
+    <a href="zoho-books-ecosystem.html">Tally to Zoho migration</a>
+    <a href="zoho-books-ecosystem.html">Zoho training</a>
+  </details>
+  <details><summary>Virtual CFO <i class="fas fa-chevron-down"></i></summary>
+    <a href="virtual-cfo-services-in-india.html">Virtual CFO retainer</a>
+    <a href="virtual-cfo-services-in-india.html">MIS &amp; dashboards</a>
+    <a href="virtual-cfo-services-in-india.html">Cash flow &amp; budgeting</a>
+    <a href="virtual-cfo-services-in-india.html">CMA / DPR for funding</a>
+  </details>
+  <a class="m-flat" href="portal/login.html"><i class="fas fa-user-lock"></i> Client Portal Login</a>
+  <a class="m-flat" href="index.html#deck">Pricing</a>
+  <div class="m-cta">
+    <a href="tel:+919176671206" class="btn btn-primary btn-sm"><i class="fas fa-phone-alt"></i> 91766 71206</a>
+    <a href="https://wa.me/919176671206" class="btn btn-ghost btn-sm"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+  </div>
 </div>`,
 
-    mobilemenu: `<!-- Mobile menu active -->`,
-    miniBanner: ``,
+    footer: `<footer>
+  <div class="wrap">
+    <div class="fg">
+      <div>
+        <div class="logo" style="color:#fff">Accountants <b style="color:var(--gold)">Factory</b><span style="color:#8CA29E">Tech-driven accounting services</span></div>
+        <p style="margin-top:14px">Ground Floor, K S R Nilayam, Near Master Minds College, Hathiramji Colony, Annamayya Circle, Tirupati, Andhra Pradesh 517501</p>
+        <p><a href="tel:+919176671206" style="display:inline">91766 71206</a> &middot; <a href="mailto:reachus@accountantsfactory.com" style="display:inline">reachus@accountantsfactory.com</a></p>
+      </div>
+      <div>
+        <h5>Start</h5>
+        <a href="startup-services.html">Private Limited</a>
+        <a href="startup-services.html">LLP</a>
+        <a href="startup-services.html">OPC</a>
+        <a href="startup-services.html">Registrations</a>
+      </div>
+      <div>
+        <h5>Run</h5>
+        <a href="outsourced-accounting.html">Bookkeeping</a>
+        <a href="outsourced-accounting.html">GST filing</a>
+        <a href="outsourced-accounting.html">Payroll</a>
+        <a href="zoho-books-ecosystem.html">Zoho Books</a>
+      </div>
+      <div>
+        <h5>Scale</h5>
+        <a href="virtual-cfo-services-in-india.html">Virtual CFO</a>
+        <a href="zoho-books-ecosystem.html">Zoho ERP</a>
+        <a href="zoho-books-ecosystem.html">Tally migration</a>
+        <a href="virtual-cfo-services-in-india.html">Bank funding</a>
+      </div>
+    </div>
+    <p class="disc">Fees shown are professional fees, exclusive of government charges, stamp duty and applicable GST. Content on this site is general information and does not constitute legal or tax advice under the Income Tax Act, 1961.</p>
+    <div class="fbot">
+      <span>&copy; 2026 Accountants Factory LLP</span>
+      <span>Zoho Authorized Partner &middot; Certified Zoho &amp; Tally Trainer &middot; <a href="portal/login.html" style="color:#8CA29E; text-decoration: underline;">Client Portal</a></span>
+    </div>
+  </div>
+</footer>`,
 
-    form: `<form class="form p-4 rounded shadow-sm bg-white border" action="https://formsubmit.co/reachus@accountantsfactory.com" method="POST">
-  <h4 class="font-weight-bold text-dark mb-3">Get a Free Consultation</h4>
-  <p class="text-muted small mb-4">Talk to a Certified Zoho Specialist & Chartered Accountant.</p>
-  <div class="form-group">
-    <label for="form-name" class="font-weight-bold small text-muted">Your Name *</label>
-    <input type="text" class="form-control" name="name" id="form-name" placeholder="John Doe" required>
-  </div>
-  <div class="form-group">
-    <label for="form-email" class="font-weight-bold small text-muted">Business Email *</label>
-    <input type="email" class="form-control" name="email" id="form-email" placeholder="john@company.com" required>
-  </div>
-  <div class="form-group">
-    <label for="form-mobile" class="font-weight-bold small text-muted">Phone Number *</label>
-    <input type="tel" class="form-control" name="mobile" id="form-mobile" placeholder="+91 98765 43210" required>
-  </div>
-  <div class="form-group">
-    <label for="form-service" class="font-weight-bold small text-muted">Service Needed *</label>
-    <select class="form-control" id="form-service" name="service" required>
-      <option value="" disabled selected>Choose a service...</option>
-      <option value="Zoho Suite Implementation">Zoho Suite Implementation (Books/CRM/People/ERP)</option>
-      <option value="Tally to Zoho Migration">Tally / QuickBooks to Zoho Migration</option>
-      <option value="Startup Incorporation">Startup Company Registration (Pvt Ltd / LLP / OPC)</option>
-      <option value="Startup India DPIIT">Startup India DPIIT Recognition & Tax Exemption</option>
-      <option value="Virtual CFO Services">Virtual CFO Advisory & MIS</option>
-      <option value="Outsourced Bookkeeping">Outsourced Accounting & Bookkeeping</option>
-      <option value="GST & Tax Filings">GST, TDS & Income Tax Filings</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="form-message" class="font-weight-bold small text-muted">Message / Project Details</label>
-    <textarea class="form-control" id="form-message" name="message" rows="3" placeholder="Tell us about your requirements..."></textarea>
-  </div>
-  <button type="submit" class="btn btn-modern-primary btn-block py-2 mt-3 font-weight-bold">
-    <i class="fas fa-paper-plane mr-2"></i> Submit Inquiry
-  </button>
-</form>`
+    init: function() {
+        // Load Header
+        const headerContainer = document.getElementById('header-container');
+        if (headerContainer) {
+            headerContainer.innerHTML = this.header;
+            
+            // Attach mobile burger listener
+            const b = headerContainer.querySelector('.burger');
+            const m = headerContainer.querySelector('#mnav');
+            if (b && m) {
+                b.setAttribute('aria-expanded', 'false');
+                b.addEventListener('click', function() {
+                    const on = m.classList.toggle('open');
+                    b.setAttribute('aria-expanded', on ? 'true' : 'false');
+                    b.innerHTML = '<i class="fas fa-' + (on ? 'times' : 'bars') + '"></i>';
+                });
+                m.addEventListener('click', function(e) {
+                    if (e.target.closest('a')) {
+                        m.classList.remove('open');
+                        b.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                });
+            }
+        }
+
+        // Load Footer
+        const footerContainer = document.getElementById('footer-container');
+        if (footerContainer) {
+            footerContainer.innerHTML = this.footer;
+        }
+    }
 };
 
-// Component loader class
-class ComponentLoader {
-    loadComponent(componentName, targetElementId) {
-        const component = Components[componentName];
-        if (!component) {
-            console.error(`Component ${componentName} not found`);
-            return;
-        }
-
-        const targetElement = document.getElementById(targetElementId);
-        if (targetElement) {
-            targetElement.innerHTML = component;
-            if (componentName === 'header') {
-                this.resolveHeaderLogo();
-                this.fixPortalHeaderLinks();
-            }
-            if (componentName === 'footer') this.fixPortalFooterLinks();
-            setTimeout(() => {
-                this.initComponentScripts();
-                if (typeof initializeForms === 'function') {
-                    setTimeout(initializeForms, 100);
-                }
-            }, 0);
-        }
-    }
-
-    pathToRoot() {
-        if (this._cachedPathToRoot !== undefined) return this._cachedPathToRoot;
-        const path = (window.location.pathname || '/').replace(/\\/g, '/');
-        const hasTrailingSlash = path.endsWith('/');
-        const segments = path.split('/').filter(s => s.length > 0);
-        if (!hasTrailingSlash && segments.length > 0) segments.pop();
-        this._cachedPathToRoot = '../'.repeat(segments.length);
-        return this._cachedPathToRoot;
-    }
-
-    resolveHeaderLogo() {
-        const logo = document.querySelector('.site-logo');
-        if (!logo) return;
-        const rel = logo.getAttribute('data-logo');
-        if (!rel) return;
-        logo.src = this.pathToRoot() + 'images/' + rel;
-    }
-
-    fixPortalHeaderLinks() {
-        const root = this.pathToRoot();
-        if (!root) return;
-        document.querySelectorAll('#header-container a').forEach(a => {
-            const href = a.getAttribute('href');
-            if (!href || href.startsWith('http') || href.startsWith('#') || href.startsWith('tel:') || href.startsWith('mailto:') || href.startsWith('javascript:')) return;
-            a.setAttribute('href', root + href);
-        });
-    }
-
-    fixPortalFooterLinks() {
-        const root = this.pathToRoot();
-        if (!root) return;
-        document.querySelectorAll('#footer-container a').forEach(a => {
-            const href = a.getAttribute('href');
-            if (!href || href.startsWith('http') || href.startsWith('#') || href.startsWith('tel:') || href.startsWith('mailto:') || href.startsWith('javascript:')) return;
-            a.setAttribute('href', root + href);
-        });
-    }
-
-    initComponentScripts() {}
-}
-
-const componentLoader = new ComponentLoader();
-document.addEventListener('DOMContentLoaded', () => {
-    componentLoader.loadComponent('header', 'header-container');
-    componentLoader.loadComponent('footer', 'footer-container');
-    componentLoader.loadComponent('miniBanner', 'mini-banner-container');
-    componentLoader.loadComponent('mobilemenu', 'mobilemenu-container');
-    componentLoader.loadComponent('whatsapp', 'whatsapp-container');
-    componentLoader.loadComponent('form', 'form-container');
+// Initialize when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    Components.init();
 });
