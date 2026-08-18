@@ -5,6 +5,8 @@ package-lock.json
 # Binaries and archives
 tools/
 _archive/
+zoho-client/
+.github/
 *.zip
 *.tar.gz
 *.rar
