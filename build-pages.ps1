@@ -1,4 +1,4 @@
-# Build Script for Accountants Factory Portal - New Unified Design System
+# Build Script for Accountants Factory Portal - New Unified Design System with Original Brand Logo
 $webDir = "c:\Users\RAMA\Downloads\accountantsfactory-portal-main\accountantsfactory-portal-main\web"
 
 $pages = @(
@@ -485,50 +485,6 @@ $pages = @(
         )
         price = "Free Consultation"
         priceNote = "custom template provided with CFO Retainer"
-    },
-    @{
-        filename = "incometax-cal.html"
-        title = "Income Tax Calculator FY 2025-26 | Accountants Factory"
-        badge = "Interactive Tax Tool"
-        h1 = "Income Tax <span class='mark'>Calculator (FY 2025-26)</span>"
-        sub = "Compare tax liability under the Old Regime vs the New Simplified Tax Regime (Section 115BAC) with standard deductions and rebate allowances."
-        micro1 = "Updated for FY 2025-26"
-        micro2 = "Section 87A Rebate Computed"
-        micro3 = "Old vs New Comparison"
-        cards = @(
-            @{ ic = "fas fa-balance-scale"; title = "Instant Regime Comparison"; desc = "See exact rupee difference between claiming chapter VI-A deductions vs lower new slab rates." },
-            @{ ic = "fas fa-percentage"; title = "Standard Deduction Included"; desc = "Automatic ₹75,000 standard deduction under New Regime and ₹50,000 under Old Regime." },
-            @{ ic = "fas fa-calculator"; title = "Marginal Relief Calculated"; desc = "Precise surcharge and Section 87A rebate calculation for income up to ₹7.75 Lakhs." }
-        )
-        steps = @(
-            @{ title = "1. Enter Annual Income"; desc = "Input gross salary, business income, house property income, or other sources." },
-            @{ title = "2. Add Deductions"; desc = "Declare 80C (PPF, ELSS), 80D (Health Insurance), and Home Loan Interest for Old Regime." },
-            @{ title = "3. Compare & File"; desc = "Get clear recommendation and connect with our CA team to file your ITR smoothly." }
-        )
-        price = "100% Free"
-        priceNote = "no signup required to compute tax"
-    },
-    @{
-        filename = "new-gst-rates.html"
-        title = "GST Rates Directory 2025-26 | Accountants Factory"
-        badge = "GST Reference Library"
-        h1 = "GST Rates <span class='mark'>& HSN Finder</span>"
-        sub = "Quick reference guide for Goods and Services Tax rates in India across standard slab categories: 0% (Exempt), 5%, 12%, 18%, and 28%."
-        micro1 = "Search by HSN / Product"
-        micro2 = "Goods & Services Covered"
-        micro3 = "Updated for Current FY"
-        cards = @(
-            @{ ic = "fas fa-percentage"; title = "0% (Exempt Goods)"; desc = "Fresh agricultural produce, unpacked grains, milk, salt, curd, health and basic education services." },
-            @{ ic = "fas fa-percentage"; title = "5% & 12% Slabs"; desc = "Packaged food items, apparel below ₹1000, medicines, transport services, processed foods." },
-            @{ ic = "fas fa-percentage"; title = "18% & 28% Slabs"; desc = "IT software, accounting services, consulting, electronics, automobiles, and luxury goods." }
-        )
-        steps = @(
-            @{ title = "1. Search Goods or Service"; desc = "Type your product or industry name to view prevailing CGST, SGST, and IGST rates." },
-            @{ title = "2. Check HSN/SAC Code"; desc = "Identify the mandatory 4 to 8 digit Harmonized System of Nomenclature code for invoices." },
-            @{ title = "3. Consult on Classifications"; desc = "Need help classifying complex multi-service contracts? Talk to our GST experts." }
-        )
-        price = "Free Reference"
-        priceNote = "maintained by our indirect tax desk"
     }
 )
 
@@ -580,10 +536,8 @@ a{color:var(--teal);text-decoration:none}
 .strip .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
 .strip a{color:#fff;font-weight:600}.strip i{color:var(--gold)}
 nav{position:sticky;top:0;z-index:80;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid #EAF1F0}
-.nav-in{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 0}
-.logo{font-weight:800;font-size:1.18rem;color:var(--ink);letter-spacing:-.03em}
-.logo b{color:var(--teal)}
-.logo span{display:block;font-size:.6rem;font-weight:700;color:var(--grey);letter-spacing:.14em;text-transform:uppercase}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:12px 0}
+.logo-img{height:46px;width:auto;display:block;object-fit:contain}
 .menu{display:flex;gap:6px;align-items:center}
 .mi{position:relative}
 .mi>a{display:flex;align-items:center;gap:6px;color:var(--ink);font-weight:600;font-size:.9rem;padding:10px 14px;border-radius:999px;transition:.2s}
@@ -679,7 +633,9 @@ footer a:hover{color:var(--gold)}
 
 <nav>
   <div class="wrap nav-in">
-    <a href="index.html" class="logo">Accountants <b>Factory</b><span>Tech-driven accounting services</span></a>
+    <a href="index.html" class="logo">
+      <img src="images/logo1.png" alt="Accountants Factory" class="logo-img">
+    </a>
     <div class="menu">
       <div class="mi">
         <a href="start-a-business.html">Start a Business <i class="fas fa-chevron-down"></i></a>
@@ -810,9 +766,11 @@ __STEPS__
   <div class="wrap">
     <div class="fg">
       <div>
-        <div class="logo" style="color:#fff">Accountants <b style="color:var(--gold)">Factory</b><span style="color:#8CA29E">Tech-driven accounting services</span></div>
-        <p style="margin-top:14px">Ground Floor, K S R Nilayam, Near Master Minds College, Hathiramji Colony, Annamayya Circle, Tirupati, Andhra Pradesh 517501</p>
-        <p><a href="tel:+919176671206" style="display:inline">91766 71206</a> &middot; <a href="mailto:reachus@accountantsfactory.com" style="display:inline">reachus@accountantsfactory.com</a></p>
+        <a href="index.html" style="display:inline-block;margin-bottom:14px;background:#fff;padding:6px 14px;border-radius:10px;">
+          <img src="images/logo1.png" alt="Accountant's Factory" style="height:44px;width:auto;display:block;">
+        </a>
+        <p style="margin-top:8px;font-size:14px;line-height:1.7;">Ground Floor, K S R Nilayam, Near Master Minds College, Hathiramji Colony, Annamayya Circle, Tirupati, Andhra Pradesh - 517501</p>
+        <p style="font-size:14px;line-height:1.8;"><a href="tel:+919176671206" style="display:inline;color:#fff;">+91 91766 71206</a> &middot; <a href="mailto:reachus@accountantsfactory.com" style="display:inline;color:#fff;">reachus@accountantsfactory.com</a></p>
       </div>
       <div>
         <h5>Start</h5>
@@ -836,7 +794,7 @@ __STEPS__
         <a href="portal/login.html">Client Portal</a>
       </div>
     </div>
-    <p class="disc">Fees shown are professional fees, exclusive of government charges, stamp duty and applicable GST.</p>
+    <p class="disc">Fees shown are professional fees, exclusive of government charges, stamp duty and applicable GST. Content on this site is general information and does not constitute legal or tax advice under the Income Tax Act, 1961.</p>
     <div class="fbot">
       <span>&copy; 2026 Accountants Factory LLP</span>
       <span>Zoho Authorized Partner &middot; Certified Zoho &amp; Tally Trainer</span>

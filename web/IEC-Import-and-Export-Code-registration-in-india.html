@@ -45,10 +45,8 @@ a{color:var(--teal);text-decoration:none}
 .strip .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
 .strip a{color:#fff;font-weight:600}.strip i{color:var(--gold)}
 nav{position:sticky;top:0;z-index:80;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid #EAF1F0}
-.nav-in{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 0}
-.logo{font-weight:800;font-size:1.18rem;color:var(--ink);letter-spacing:-.03em}
-.logo b{color:var(--teal)}
-.logo span{display:block;font-size:.6rem;font-weight:700;color:var(--grey);letter-spacing:.14em;text-transform:uppercase}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:12px 0}
+.logo-img{height:46px;width:auto;display:block;object-fit:contain}
 .menu{display:flex;gap:6px;align-items:center}
 .mi{position:relative}
 .mi>a{display:flex;align-items:center;gap:6px;color:var(--ink);font-weight:600;font-size:.9rem;padding:10px 14px;border-radius:999px;transition:.2s}
@@ -144,7 +142,9 @@ footer a:hover{color:var(--gold)}
 
 <nav>
   <div class="wrap nav-in">
-    <a href="index.html" class="logo">Accountants <b>Factory</b><span>Tech-driven accounting services</span></a>
+    <a href="index.html" class="logo">
+      <img src="images/logo1.png" alt="Accountants Factory" class="logo-img">
+    </a>
     <div class="menu">
       <div class="mi">
         <a href="start-a-business.html">Start a Business <i class="fas fa-chevron-down"></i></a>
@@ -299,9 +299,11 @@ footer a:hover{color:var(--gold)}
   <div class="wrap">
     <div class="fg">
       <div>
-        <div class="logo" style="color:#fff">Accountants <b style="color:var(--gold)">Factory</b><span style="color:#8CA29E">Tech-driven accounting services</span></div>
-        <p style="margin-top:14px">Ground Floor, K S R Nilayam, Near Master Minds College, Hathiramji Colony, Annamayya Circle, Tirupati, Andhra Pradesh 517501</p>
-        <p><a href="tel:+919176671206" style="display:inline">91766 71206</a> &middot; <a href="mailto:reachus@accountantsfactory.com" style="display:inline">reachus@accountantsfactory.com</a></p>
+        <a href="index.html" style="display:inline-block;margin-bottom:14px;background:#fff;padding:6px 14px;border-radius:10px;">
+          <img src="images/logo1.png" alt="Accountant's Factory" style="height:44px;width:auto;display:block;">
+        </a>
+        <p style="margin-top:8px;font-size:14px;line-height:1.7;">Ground Floor, K S R Nilayam, Near Master Minds College, Hathiramji Colony, Annamayya Circle, Tirupati, Andhra Pradesh - 517501</p>
+        <p style="font-size:14px;line-height:1.8;"><a href="tel:+919176671206" style="display:inline;color:#fff;">+91 91766 71206</a> &middot; <a href="mailto:reachus@accountantsfactory.com" style="display:inline;color:#fff;">reachus@accountantsfactory.com</a></p>
       </div>
       <div>
         <h5>Start</h5>
@@ -325,7 +327,7 @@ footer a:hover{color:var(--gold)}
         <a href="portal/login.html">Client Portal</a>
       </div>
     </div>
-    <p class="disc">Fees shown are professional fees, exclusive of government charges, stamp duty and applicable GST.</p>
+    <p class="disc">Fees shown are professional fees, exclusive of government charges, stamp duty and applicable GST. Content on this site is general information and does not constitute legal or tax advice under the Income Tax Act, 1961.</p>
     <div class="fbot">
       <span>&copy; 2026 Accountants Factory LLP</span>
       <span>Zoho Authorized Partner &middot; Certified Zoho &amp; Tally Trainer</span>
