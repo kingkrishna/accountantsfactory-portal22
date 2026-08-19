@@ -1,766 +1,358 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Income Tax Calculator AY 2026-27 | Old vs New Regime</title>
-    <meta name="description" content="Free income tax calculator by Accountants Factory LLP. Compare Old vs New regime, capital gains. Latest FY 2025-26 / AY 2026-27. Call +91 91766 71206.">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style-v2.css?v=87">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>if (typeof tailwind !== 'undefined') { tailwind.config = { corePlugins: { preflight: false } }; }</script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --brand: #0a8574;
-            --brand-dark: #076b5d;
-            --brand-light: #e6f7f5;
-            --charcoal: #1e293b;
-            --slate: #64748b;
-            --bg: #f1f5f9;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Income Tax Calculator FY 2025-26 | Accountants Factory</title>
+<meta name="description" content="Compare tax liability under Old vs New Tax Regime for FY 2025-26 with standard deduction and 87A rebate.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet">
+<style>
+:root{
+  --teal:#016F69; --teal-dark:#015C57; --teal-deep:#01423F;
+  --tint:#E9F2F1; --line:#CFE2E0; --gold:#C79A2E;
+  --ink:#132420; --body:#4A5B57; --grey:#6E807C;
+  --cream:#FBF7EF; --soft:#F4F8F7;
+  --r:46px; --r-md:34px; --r-sm:22px;
+  --sh:0 4px 10px rgba(19,36,32,.04), 0 20px 46px rgba(19,36,32,.09);
+  --sh-lg:0 10px 22px rgba(19,36,32,.07), 0 34px 70px rgba(19,36,32,.14);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--body);background:#fff;line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{color:var(--ink);margin:0 0 .5em;letter-spacing:-.03em;font-weight:800;line-height:1.15}
+p{margin:0 0 1em}
+a{color:var(--teal);text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 22px}
+.hand{font-family:'Caveat',cursive;font-weight:700}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:8px}
 
-        body {
-            font-family: 'DM Sans', sans-serif;
-            background: var(--bg);
-            color: var(--charcoal);
-        }
+.btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:.94rem;padding:15px 30px;border-radius:999px;border:1.5px solid transparent;cursor:pointer;transition:.22s;font-family:inherit}
+.btn-primary{background:var(--teal);color:#fff;box-shadow:0 10px 26px rgba(1,111,105,.3)}
+.btn-primary:hover{background:var(--teal-dark);transform:translateY(-2px)}
+.btn-ghost{background:#fff;color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--teal);color:var(--teal)}
+.btn-gold{background:var(--gold);color:#2B2B2B}
+.btn-gold:hover{transform:translateY(-2px)}
+.btn-outline-light{background:transparent;color:#fff;border-color:rgba(255,255,255,.45)}
+.btn-outline-light:hover{background:rgba(255,255,255,.14)}
+.btn-sm{padding:11px 22px;font-size:.85rem}
 
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 600px;
-            margin: 0 auto;
-            height: 300px;
-            max-height: 400px;
-        }
+/* strip + nav */
+.strip{background:var(--teal-deep);color:#CFE4E2;font-size:.79rem;padding:9px 0}
+.strip .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.strip a{color:#fff;font-weight:600}.strip i{color:var(--gold)}
+nav{position:sticky;top:0;z-index:80;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid #EAF1F0}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 0}
+.logo{font-weight:800;font-size:1.18rem;color:var(--ink);letter-spacing:-.03em}
+.logo b{color:var(--teal)}
+.logo span{display:block;font-size:.6rem;font-weight:700;color:var(--grey);letter-spacing:.14em;text-transform:uppercase}
+.menu{display:flex;gap:6px;align-items:center}
+.mi{position:relative}
+.mi>a{display:flex;align-items:center;gap:6px;color:var(--ink);font-weight:600;font-size:.9rem;padding:10px 14px;border-radius:999px;transition:.2s}
+.mi>a:hover{background:var(--tint);color:var(--teal)}
+.mi>a i{font-size:.58rem;opacity:.55}
+.drop{position:absolute;top:calc(100% + 10px);left:0;min-width:280px;background:#fff;border:1px solid #E7EFEE;border-radius:var(--r-sm);box-shadow:var(--sh);padding:10px;opacity:0;visibility:hidden;transform:translateY(-6px);transition:.2s}
+.mi:hover .drop,.mi:focus-within .drop{opacity:1;visibility:visible;transform:none}
+.drop a{display:flex;gap:11px;align-items:center;padding:10px 12px;border-radius:16px;color:var(--body);font-size:.87rem;font-weight:600;transition:.15s}
+.drop a:hover{background:var(--soft);color:var(--teal)}
+.drop a i{width:28px;height:28px;border-radius:10px;background:var(--tint);color:var(--teal);display:grid;place-items:center;font-size:.72rem;flex:0 0 26px}
+.burger{display:none;background:none;border:0;font-size:1.3rem;color:var(--ink);cursor:pointer}
+@media(max-width:1080px){.menu{display:none}.burger{display:block}}
 
-        @media (min-width: 768px) {
-            .chart-container {
-                height: 350px;
-            }
-        }
+/* hero */
+.svc-hero{padding:54px 0 34px;text-align:center;background:#fff;position:relative;overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(46px);z-index:0}
+.b1{width:400px;height:400px;background:rgba(1,111,105,.12);top:-120px;left:-100px}
+.b2{width:360px;height:360px;background:rgba(199,154,46,.12);top:-80px;right:-80px}
+.svc-hero-in{position:relative;z-index:2;max-width:880px;margin:0 auto}
+.badge{display:inline-flex;align-items:center;gap:7px;background:var(--tint);color:var(--teal);font-size:.82rem;font-weight:700;padding:8px 18px;border-radius:999px;margin-bottom:14px;letter-spacing:.04em;text-transform:uppercase}
+.mark{position:relative;display:inline-block;padding:0 .22em;z-index:1;color:#fff;white-space:nowrap}
+.mark:before{content:"";position:absolute;left:0;right:0;top:.1em;bottom:.08em;background:var(--teal);border-radius:10px 18px 12px 20px;transform:rotate(-.8deg);z-index:-1}
+h1.hero-title{font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:10px}
+.sub{font-size:1.02rem;max-width:680px;margin:0 auto 14px;color:var(--body)}
 
-        .section-card {
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-            border: none;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
+/* calculator box */
+.calc-card{background:#fff;border-radius:var(--r);padding:36px;border:1.5px solid #E2ECEB;box-shadow:var(--sh-lg);max-width:900px;margin:20px auto 60px}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+@media(max-width:760px){.calc-grid{grid-template-columns:1fr}}
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-weight:700;font-size:.88rem;color:var(--ink);margin-bottom:6px}
+.form-control{width:100%;padding:12px 16px;border-radius:14px;border:1.5px solid var(--line);font-size:1rem;font-family:inherit;color:var(--ink);transition:.2s}
+.form-control:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px var(--tint)}
+.res-box{background:var(--soft);border-radius:var(--r-md);padding:24px;border:1.5px solid #E2ECEB;display:flex;flex-direction:column;justify-content:center}
+.res-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px dashed var(--line)}
+.res-row:last-child{border-bottom:none}
+.res-val{font-weight:800;font-size:1.25rem;color:var(--teal)}
+.winner-tag{background:var(--tint);color:var(--teal-dark);font-weight:700;font-size:.85rem;padding:6px 14px;border-radius:99px;display:inline-block;margin-top:14px;text-align:center}
 
-        .section-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-        }
+/* footer */
+footer{background:#0D1A17;color:#8CA29E;font-size:.88rem;padding:54px 0 24px}
+.fg{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:32px}
+footer h5{color:#fff;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;margin:0 0 14px}
+footer a{color:#8CA29E;display:block;padding:5px 0}
+footer a:hover{color:var(--gold)}
+.fbot{border-top:1px solid rgba(255,255,255,.09);margin-top:34px;padding-top:18px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.79rem}
+.disc{font-size:.75rem;color:#6B807C;margin-top:12px}
+@media(max-width:880px){.fg{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.fg{grid-template-columns:1fr}}
 
-        .tab-active {
-            background: var(--brand) !important;
-            color: white !important;
-            border-color: var(--brand) !important;
-        }
-
-        .tab-inactive {
-            background: white;
-            color: var(--slate);
-            border-color: #e2e8f0;
-        }
-
-        .tab-inactive:hover {
-            background: var(--brand-light);
-            color: var(--brand-dark);
-        }
-
-        .input-group-label {
-            font-size: 0.75rem;
-            color: var(--slate);
-            margin-top: 0.25rem;
-        }
-
-        /* Force nav always visible - override Bootstrap collapse + Tailwind */
-        .navbar .collapse.navbar-collapse,
-        .navbar #navbarNavDropdown,
-        .navbar-collapse {
-            display: flex !important;
-            visibility: visible !important;
-            height: auto !important;
-            overflow: visible !important;
-        }
-
-        .navbar .navbar-nav {
-            display: flex !important;
-            flex-direction: row !important;
-        }
-
-        .tax-hero {
-            background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%);
-            color: white;
-            padding: 3rem 0;
-            margin-bottom: 2rem;
-            border-radius: 0 0 24px 24px;
-        }
-
-        .tax-hero h1 {
-            font-weight: 700;
-            font-size: 2rem;
-            letter-spacing: -0.02em;
-        }
-
-        .tax-hero p {
-            opacity: 0.95;
-            font-size: 1rem;
-        }
-
-        .calc-card {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-            overflow: hidden;
-        }
-
-        .calc-btn {
-            background: var(--brand) !important;
-            border: none !important;
-            padding: 14px 24px !important;
-            font-weight: 600 !important;
-            border-radius: 12px !important;
-        }
-
-        .calc-btn:hover {
-            background: var(--brand-dark) !important;
-            transform: translateY(-1px);
-        }
-
-        .result-old {
-            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-            border-left: 4px solid #2563eb;
-        }
-
-        .result-new {
-            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
-            border-left: 4px solid var(--brand);
-        }
-
-        .verdict-box {
-            border-radius: 12px;
-            padding: 1rem 1.5rem;
-            font-weight: 600;
-        }
-
-        .regime-card {
-            border-radius: 16px;
-            padding: 1.5rem;
-        }
-
-        .regime-old {
-            background: #eff6ff;
-            border: 1px solid #bfdbfe;
-        }
-
-        .regime-new {
-            background: #f0fdf4;
-            border: 1px solid #bbf7d0;
-        }
-
-        .mini-banner {
-            background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%) !important;
-        }
-
-        .tax-disclaimer {
-            background: var(--brand-light);
-            border: 2px solid var(--brand);
-            border-radius: 12px;
-            padding: 16px 24px;
-            text-align: center;
-            color: var(--brand-dark);
-            font-weight: 600;
-            margin: 2rem auto 0;
-            max-width: 900px;
-        }
-    </style>
-    <style id="nav-fix">
-        /* Load last - override Tailwind */
-        .navbar .navbar-collapse,
-        .navbar #navbarNavDropdown {
-            display: flex !important;
-            visibility: visible !important;
-            height: auto !important;
-            overflow: visible !important
-        }
-
-        .navbar .navbar-nav {
-            display: flex !important;
-            flex-direction: row !important
-        }
-    </style>
-  <meta name="keywords" content="income tax calculator, old vs new regime, tax calculator india, ay 2026-27">
-  <meta name="author" content="Accountants Factory LLP">
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
-  <link rel="canonical" href="https://accountantsfactory.com/incometax-cal.html">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Accountants Factory LLP">
-  <meta property="og:title" content="Income Tax Calculator AY 2026-27 | Old vs New Regime">
-  <meta property="og:description" content="Free income tax calculator by Accountants Factory LLP. Compare Old vs New regime, capital gains. Latest FY 2025-26 / AY 2026-27. Call +91 91766 71206.">
-  <meta property="og:url" content="https://accountantsfactory.com/incometax-cal.html">
-  <meta property="og:image" content="https://accountantsfactory.com/images/logo-new.png">
-  <meta property="og:locale" content="en_IN">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@Accntantfactory">
-  <meta name="twitter:title" content="Income Tax Calculator AY 2026-27 | Old vs New Regime">
-  <meta name="twitter:description" content="Free income tax calculator by Accountants Factory LLP. Compare Old vs New regime, capital gains. Latest FY 2025-26 / AY 2026-27. Call +91 91766 71206.">
-  <meta name="twitter:image" content="https://accountantsfactory.com/images/logo-new.png">
+/* mobile drawer */
+.mnav{display:none;position:fixed;inset:0;background:#fff;z-index:90;padding:24px;overflow-y:auto}
+.mnav.open{display:block}
+.mnav details summary{font-weight:700;padding:12px 0;cursor:pointer;list-style:none;display:flex;justify-content:space-between;border-bottom:1px solid var(--line)}
+.mnav a{display:block;padding:10px 0 10px 16px;font-size:.9rem;color:var(--body);border-bottom:1px solid #f0f0f0}
+.mnav-close{float:right;background:none;border:0;font-size:1.4rem;color:var(--ink);cursor:pointer}
+</style>
 </head>
-
 <body>
 
-    <div id="header-container"></div>
-    <div id="mobilemenu-container"></div>
-    <div class="clearfix"></div>
-    <div id="mini-banner-container"></div>
+<div class="strip">
+  <div class="wrap">
+    <span><i class="fas fa-certificate"></i> Zoho Authorized Partner &middot; Tirupati, Andhra Pradesh</span>
+    <span><i class="fas fa-phone-alt"></i> <a href="tel:+919176671206">91766 71206</a></span>
+  </div>
+</div>
 
-    <div class="tax-hero text-center">
-        <div class="container">
-            <h1 class="mb-2">Income Tax Calculator FY 2025-26</h1>
-            <p class="mb-0">Updated for AY 2026-27. Compare Old vs New regime. Equity (20%/12.5%) & Property/Gold rates
-                included.</p>
+<nav>
+  <div class="wrap nav-in">
+    <a href="index.html" class="logo">Accountants <b>Factory</b><span>Tech-driven accounting services</span></a>
+    <div class="menu">
+      <div class="mi">
+        <a href="start-a-business.html">Start a Business <i class="fas fa-chevron-down"></i></a>
+        <div class="drop">
+          <a href="private-limited-company-registration-in-india.html"><i class="fas fa-building"></i> Private Limited Company</a>
+          <a href="llp-registration-in-india.html"><i class="fas fa-handshake"></i> LLP Registration</a>
+          <a href="one-person-company-registration-in-india.html"><i class="fas fa-user"></i> OPC &amp; Proprietorship</a>
+          <a href="partnership-firm-registrations-in-india.html"><i class="fas fa-users"></i> Partnership Firm</a>
+          <a href="start-up-india-registrations-in-india.html"><i class="fas fa-rocket"></i> Startup India (DPIIT)</a>
+          <a href="msme-registrations-in-india.html"><i class="fas fa-industry"></i> MSME / Udyam</a>
+          <a href="gst-registrations-in-india.html"><i class="fas fa-file-invoice"></i> GST Registration</a>
+          <a href="IEC-Import-and-Export-Code-registration-in-india.html"><i class="fas fa-ship"></i> IEC Registration</a>
+          <a href="rera-andhra-pradesh-registration-in-india.html"><i class="fas fa-hard-hat"></i> RERA (AP)</a>
         </div>
-    </div>
-
-    <main class="container py-5 py-md-6" style="max-width: 1200px;">
-        <section id="calculator-tax" class="calc-card mb-5 p-5 p-md-6">
-            <div class="flex justify-center mb-8">
-                <div class="inline-flex rounded-md shadow-sm" role="group">
-                    <button type="button" id="tab-basic"
-                        class="tab-active px-6 py-3 text-sm font-medium border border-r-0 rounded-l-lg focus:z-10 focus:ring-2 focus:ring-teal-500 transition-colors">Basic
-                        Calculator</button>
-                    <button type="button" id="tab-advanced"
-                        class="tab-inactive px-6 py-3 text-sm font-medium border rounded-r-lg focus:z-10 focus:ring-2 focus:ring-teal-500 transition-colors">Advanced
-                        Breakdown</button>
-                </div>
-            </div>
-
-            <div class="text-center mb-6">
-                <h2 class="text-2xl font-bold text-slate-800" id="calculator-title">Quick Estimation</h2>
-                <p class="text-slate-600 mt-2 text-sm" id="calculator-desc">Enter your total income to get a quick
-                    comparison.</p>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-                <div class="space-y-4">
-                    <div id="input-basic">
-                        <label for="grossIncome" class="block text-sm font-medium text-slate-700">Gross Annual Income
-                            (₹)</label>
-                        <input type="number" id="grossIncome"
-                            class="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-3 border"
-                            placeholder="e.g., 1250000">
-                    </div>
-
-                    <div id="input-advanced"
-                        class="hidden space-y-5 bg-slate-50 p-4 rounded-lg border border-slate-200">
-                        <h4 class="font-bold text-teal-700 border-b border-teal-100 pb-2">Income Sources</h4>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div>
-                                <label for="incomeSalary" class="block text-sm font-medium text-slate-700">Salary /
-                                    Pension</label>
-                                <input type="number" id="incomeSalary"
-                                    class="income-input mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 border"
-                                    placeholder="Gross Salary">
-                                <p class="input-group-label">Eligible for Std. Deduction</p>
-                            </div>
-                            <div>
-                                <label for="incomeBusiness" class="block text-sm font-medium text-slate-700">Business /
-                                    Profession</label>
-                                <input type="number" id="incomeBusiness"
-                                    class="income-input mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 border"
-                                    placeholder="Net Profit">
-                                <p class="input-group-label">Income - Expenses</p>
-                            </div>
-                        </div>
-
-                        <div class="bg-white p-3 rounded border border-slate-200">
-                            <h5 class="font-semibold text-slate-700 mb-3 text-sm">Capital Gains Breakdown (Profit Only)
-                            </h5>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                                <div>
-                                    <label for="stcgEquity" class="block text-sm font-medium text-slate-700">STCG
-                                        (Equity/MFs)</label>
-                                    <input type="number" id="stcgEquity"
-                                        class="income-input mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 border"
-                                        placeholder="Rate: 20%">
-                                    <p class="input-group-label">Sold < 12 months. Ex: Stocks, Equity MFs.</p>
-                                </div>
-                                <div>
-                                    <label for="stcgOther" class="block text-sm font-medium text-slate-700">STCG
-                                        (Other/Slab)</label>
-                                    <input type="number" id="stcgOther"
-                                        class="income-input mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 border"
-                                        placeholder="Rate: Slab">
-                                    <p class="input-group-label">Sold < 24/36 months. Ex: Gold, Property, Debt.</p>
-                                </div>
-                            </div>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div>
-                                    <label for="ltcgEquity" class="block text-sm font-medium text-slate-700">LTCG
-                                        (Equity/MFs)</label>
-                                    <input type="number" id="ltcgEquity"
-                                        class="income-input mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 border"
-                                        placeholder="Rate: 12.5%">
-                                    <p class="input-group-label">Sold > 12 months. Exempt up to ₹1.25L.</p>
-                                </div>
-                                <div>
-                                    <label for="ltcgOther" class="block text-sm font-medium text-slate-700">LTCG
-                                        (Other/Prop)</label>
-                                    <input type="number" id="ltcgOther"
-                                        class="income-input mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 border"
-                                        placeholder="Rate: 12.5%">
-                                    <p class="input-group-label">Sold > 24 months. Ex: Property, Gold.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <label for="incomeOther" class="block text-sm font-medium text-slate-700">Other
-                                Sources</label>
-                            <input type="number" id="incomeOther"
-                                class="income-input mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 border"
-                                placeholder="Interest, Dividend, Rental, etc.">
-                        </div>
-
-                        <div class="pt-2 border-t border-slate-200 flex justify-between items-center">
-                            <span class="font-bold text-slate-700">Total Gross Income:</span>
-                            <span id="totalGrossDisplay" class="font-bold" style="color: var(--brand);">₹0</span>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700">Your Age</label>
-                        <select id="age"
-                            class="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-3 border">
-                            <option value="below60">Below 60 years</option>
-                            <option value="60to80">60 to 80 years (Senior Citizen)</option>
-                            <option value="above80">Above 80 years (Super Senior Citizen)</option>
-                        </select>
-                    </div>
-
-                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
-                        <h4 class="font-semibold text-slate-700 mb-2 flex items-center justify-between">Deductions (Old
-                            Regime)</h4>
-                        <div class="space-y-3">
-                            <div><label for="deduction80C" class="block text-sm font-medium text-slate-600">80C (PPF,
-                                    ELSS, LIC) - Max 1.5L</label><input type="number" id="deduction80C"
-                                    class="mt-1 block w-full rounded-md border-slate-300 shadow-sm p-2 border"
-                                    placeholder="0" max="150000"></div>
-                            <div><label for="deduction80D" class="block text-sm font-medium text-slate-600">80D (Health
-                                    Insurance)</label><input type="number" id="deduction80D"
-                                    class="mt-1 block w-full rounded-md border-slate-300 shadow-sm p-2 border"
-                                    placeholder="0"></div>
-                            <div><label for="homeLoanInterest" class="block text-sm font-medium text-slate-600">Home
-                                    Loan Interest (Self-Occupied)</label><input type="number" id="homeLoanInterest"
-                                    class="mt-1 block w-full rounded-md border-slate-300 shadow-sm p-2 border"
-                                    placeholder="0" max="200000"></div>
-                            <div><label for="otherDeductions" class="block text-sm font-medium text-slate-600">Others
-                                    (HRA, 80E, 80CCD(1B))</label><input type="number" id="otherDeductions"
-                                    class="mt-1 block w-full rounded-md border-slate-300 shadow-sm p-2 border"
-                                    placeholder="0"></div>
-                        </div>
-                    </div>
-                    <button id="calculateBtn"
-                        class="calc-btn w-full text-white font-bold py-3 px-4 rounded-lg transition-colors shadow-md">Calculate
-                        Tax</button>
-                </div>
-
-                <div class="bg-slate-50 p-4 md:p-6 rounded-lg min-h-[400px] flex flex-col">
-                    <div id="result" class="text-center mb-4">
-                        <div
-                            class="h-full flex items-center justify-center text-slate-400 border-2 border-dashed border-slate-200 rounded-lg p-8">
-                            Select Basic or Advanced, enter details, and click Calculate.
-                        </div>
-                    </div>
-                    <div class="chart-container flex-grow"><canvas id="taxChart"></canvas></div>
-                    <div id="verdict" class="text-center mt-4 hidden"></div>
-                </div>
-            </div>
-            <p class="text-xs text-slate-500 mt-6 text-center">
-                *Standard Deduction (₹50k/₹75k) is applied ONLY to Salary Income in Advanced Mode.<br>
-                **Capital Gains Rates (AY 26-27): STCG Eq: 20%, LTCG Eq: 12.5% (>1.25L), LTCG Other: 12.5%.
-            </p>
-        </section>
-
-        <div class="space-y-12">
-            <section id="regimes"
-                class="section-card bg-white p-6 md:p-8 rounded-2xl shadow-md border border-slate-200">
-                <h2 class="text-2xl font-bold mb-4">Current Regimes at a Glance (AY 2026-27)</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="regime-old regime-card">
-                        <h3 class="text-xl font-bold mb-2" style="color: #1e40af;">Old Tax Regime</h3>
-                        <p class="text-blue-900 text-sm mb-3">Best if you have > ₹3.5 Lakhs in deductions.</p>
-                        <ul class="space-y-2 text-sm">
-                            <li class="flex items-start"><span
-                                    class="text-blue-600 font-bold mr-2">•</span><span>Standard Deduction:
-                                    <strong>₹50,000</strong></span></li>
-                            <li class="flex items-start"><span
-                                    class="text-blue-600 font-bold mr-2">•</span><span>Tax-Free Limit: <strong>₹5
-                                        Lakh</strong> (u/s 87A)</span></li>
-                            <li class="flex items-start"><span class="text-blue-600 font-bold mr-2">•</span><span>Allows
-                                    HRA, LTA, 80C, 80D, Home Loan interest.</span></li>
-                        </ul>
-                    </div>
-                    <div class="regime-new regime-card">
-                        <h3 class="text-xl font-bold mb-2" style="color: var(--brand-dark);">New Tax Regime</h3>
-                        <p class="text-green-900 text-sm mb-3">Default & Simple. Lower rates, fewer deductions.</p>
-                        <ul class="space-y-2 text-sm">
-                            <li class="flex items-start"><span
-                                    class="text-green-600 font-bold mr-2">•</span><span>Standard Deduction:
-                                    <strong>₹75,000</strong></span></li>
-                            <li class="flex items-start"><span
-                                    class="text-green-600 font-bold mr-2">•</span><span>Tax-Free Limit: <strong>₹12
-                                        Lakh</strong> (u/s 87A)</span></li>
-                            <li class="flex items-start"><span
-                                    class="text-green-600 font-bold mr-2">•</span><span>Includes Marginal Relief for
-                                    income > ₹12L.</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <section id="filing" class="section-card bg-white p-6 md:p-8 rounded-2xl shadow-md border border-slate-200">
-                <h2 class="text-2xl font-bold mb-4">Quick ITR Form Finder</h2>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <div>
-                        <div class="space-y-3 text-sm">
-                            <div><label class="font-medium">1. Business/Profession Income?</label><select id="q1"
-                                    class="mt-1 block w-full rounded-md border-slate-300 text-sm p-2 border">
-                                    <option value="">Select...</option>
-                                    <option value="yes">Yes</option>
-                                    <option value="no">No</option>
-                                </select></div>
-                            <div id="q2_container" class="hidden"><label class="font-medium">2. Presumptive Scheme
-                                    (44AD/ADA)?</label><select id="q2"
-                                    class="mt-1 block w-full rounded-md border-slate-300 text-sm p-2 border">
-                                    <option value="">Select...</option>
-                                    <option value="yes">Yes</option>
-                                    <option value="no">No</option>
-                                </select></div>
-                            <div id="q3_container" class="hidden"><label class="font-medium">3. Capital Gains
-                                    Income?</label><select id="q3"
-                                    class="mt-1 block w-full rounded-md border-slate-300 text-sm p-2 border">
-                                    <option value="">Select...</option>
-                                    <option value="yes">Yes</option>
-                                    <option value="no">No</option>
-                                </select></div>
-                        </div>
-                        <div id="formResult" class="mt-4 font-bold text-center p-3 rounded-lg min-h-[3rem]"
-                            style="background: var(--brand-light); color: var(--brand-dark);"></div>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold text-lg mb-3">Critical Dates</h3>
-                        <ul class="list-disc pl-5 text-sm space-y-2 text-slate-700">
-                            <li><strong>July 31:</strong> Due date for Non-Audit cases (Salaried).</li>
-                            <li><strong>Oct 31:</strong> Due date for Audit cases.</li>
-                            <li><strong>Dec 31:</strong> Deadline for Belated/Revised returns.</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
+      </div>
+      <div class="mi">
+        <a href="outsourced-accounting.html">Accounting <i class="fas fa-chevron-down"></i></a>
+        <div class="drop">
+          <a href="outsourced-accounting.html"><i class="fas fa-book"></i> Outsourced Bookkeeping</a>
+          <a href="gst-filing-in-india.html"><i class="fas fa-receipt"></i> GST Returns &amp; Filing</a>
+          <a href="tds-return-filing-in-india.html"><i class="fas fa-users"></i> TDS &amp; Payroll</a>
+          <a href="itr-in-india.html"><i class="fas fa-calendar-check"></i> Income Tax / ITR</a>
+          <a href="aoc4-mgt-7-in-india.html"><i class="fas fa-stamp"></i> ROC / AOC-4 / MGT-7</a>
+          <a href="form11-llp-in-india.html"><i class="fas fa-file-alt"></i> LLP Form 11</a>
+          <a href="form8-llp-in-india.html"><i class="fas fa-file-alt"></i> LLP Form 8</a>
+          <a href="provident-fund-in-india.html"><i class="fas fa-piggy-bank"></i> Provident Fund (PF)</a>
+          <a href="esic-in-india.html"><i class="fas fa-heartbeat"></i> ESIC</a>
+          <a href="professional-tax-in-india.html"><i class="fas fa-money-check-alt"></i> Professional Tax</a>
         </div>
-    </main>
-
-    <div class="container" style="max-width: 1200px;">
-        <p class="tax-disclaimer"><i class="fas fa-info-circle"></i> This is only for educational purposes and doesn't
-            include any interest calculations. For more details, please consult a tax practitioner.</p>
+      </div>
+      <div class="mi">
+        <a href="zoho-books-ecosystem.html">Zoho Solutions <i class="fas fa-chevron-down"></i></a>
+        <div class="drop">
+          <a href="zoho-books-ecosystem.html"><i class="fas fa-calculator"></i> Zoho Books &amp; GST</a>
+          <a href="zoho-books-ecosystem.html"><i class="fas fa-bullseye"></i> Zoho CRM</a>
+          <a href="zoho-books-ecosystem.html"><i class="fas fa-user-tie"></i> Zoho People &amp; Payroll</a>
+        </div>
+      </div>
+      <div class="mi">
+        <a href="virtual-cfo-services-in-india.html">Virtual CFO <i class="fas fa-chevron-down"></i></a>
+        <div class="drop">
+          <a href="virtual-cfo-services-in-india.html"><i class="fas fa-chart-line"></i> Virtual CFO Retainer</a>
+          <a href="cashflow-tool.html"><i class="fas fa-water"></i> Cash Flow &amp; Budgeting</a>
+        </div>
+      </div>
+      <div class="mi"><a href="pricing.html">Pricing</a></div>
     </div>
+    <div style="display:flex;gap:10px;align-items:center">
+      <a href="portal/login.html" class="btn btn-ghost btn-sm"><i class="fas fa-user-lock"></i> Client Portal</a>
+      <a href="contact.html" class="btn btn-primary btn-sm">Book a free call</a>
+      <button class="burger" aria-label="Menu"><i class="fas fa-bars"></i></button>
+    </div>
+  </div>
+</nav>
 
-    <div id="footer-container"></div>
+<header class="svc-hero">
+  <span class="blob b1"></span><span class="blob b2"></span>
+  <div class="wrap svc-hero-in">
+    <div class="badge"><i class="fas fa-calculator"></i> Interactive Free Tool</div>
+    <h1 class="hero-title">Income Tax <span class="mark">Calculator FY 2025-26</span></h1>
+    <p class="sub">Compare New vs Old Tax Regime instantly with standard deduction, 80C, 80D and Section 87A rebate.</p>
+  </div>
+</header>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const tabBasic = document.getElementById('tab-basic');
-            const tabAdvanced = document.getElementById('tab-advanced');
-            const inputBasic = document.getElementById('input-basic');
-            const inputAdvanced = document.getElementById('input-advanced');
-            const titleEl = document.getElementById('calculator-title');
-            const descEl = document.getElementById('calculator-desc');
-            let currentMode = 'basic';
+<div class="wrap">
+  <div class="calc-card">
+    <div class="calc-grid">
+      <div>
+        <div class="form-group">
+          <label>Gross Annual Income (₹)</label>
+          <input type="number" id="income" class="form-control" value="1200000" step="50000">
+        </div>
+        <div class="form-group">
+          <label>Section 80C Deductions (PPF, EPF, ELSS) [Max 1.5L]</label>
+          <input type="number" id="sec80c" class="form-control" value="150000" max="150000">
+        </div>
+        <div class="form-group">
+          <label>Section 80D (Health Insurance)</label>
+          <input type="number" id="sec80d" class="form-control" value="25000">
+        </div>
+        <div class="form-group">
+          <label>Home Loan Interest (Sec 24b) [Max 2L]</label>
+          <input type="number" id="sec24" class="form-control" value="0">
+        </div>
+      </div>
+      <div class="res-box">
+        <div class="res-row">
+          <div><b>New Regime Tax:</b><br><small style="color:var(--grey)">Std. Deduction: ₹75,000</small></div>
+          <div class="res-val" id="newTax">₹0</div>
+        </div>
+        <div class="res-row">
+          <div><b>Old Regime Tax:</b><br><small style="color:var(--grey)">Std. Deduction: ₹50,000</small></div>
+          <div class="res-val" id="oldTax">₹0</div>
+        </div>
+        <div class="winner-tag" id="recommendation">Calculating best option...</div>
+        <div style="margin-top:20px;text-align:center">
+          <a href="contact.html" class="btn btn-primary btn-sm" style="width:100%;justify-content:center">File Your ITR With Our CAs <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-            function switchTab(mode) {
-                currentMode = mode;
-                if (mode === 'basic') {
-                    tabBasic.className = 'tab-active px-6 py-3 text-sm font-medium border border-r-0 rounded-l-lg focus:z-10 focus:ring-2 focus:ring-teal-500 transition-colors';
-                    tabAdvanced.className = 'tab-inactive px-6 py-3 text-sm font-medium border rounded-r-lg focus:z-10 focus:ring-2 focus:ring-teal-500 transition-colors';
-                    inputBasic.classList.remove('hidden');
-                    inputAdvanced.classList.add('hidden');
-                    titleEl.textContent = "Quick Estimation";
-                    descEl.textContent = "Enter your total income to get a quick comparison.";
-                } else {
-                    tabBasic.className = 'tab-inactive px-6 py-3 text-sm font-medium border border-r-0 rounded-l-lg focus:z-10 focus:ring-2 focus:ring-teal-500 transition-colors';
-                    tabAdvanced.className = 'tab-active px-6 py-3 text-sm font-medium border rounded-r-lg focus:z-10 focus:ring-2 focus:ring-teal-500 transition-colors';
-                    inputBasic.classList.add('hidden');
-                    inputAdvanced.classList.remove('hidden');
-                    titleEl.textContent = "Detailed Breakdown";
-                    descEl.textContent = "Enter details for specific rates (Capital Gains, etc).";
-                }
-            }
+<footer>
+  <div class="wrap">
+    <div class="fg">
+      <div>
+        <div class="logo" style="color:#fff">Accountants <b style="color:var(--gold)">Factory</b><span style="color:#8CA29E">Tech-driven accounting services</span></div>
+        <p style="margin-top:14px">Ground Floor, K S R Nilayam, Near Master Minds College, Hathiramji Colony, Annamayya Circle, Tirupati, Andhra Pradesh 517501</p>
+        <p><a href="tel:+919176671206" style="display:inline">91766 71206</a> &middot; <a href="mailto:reachus@accountantsfactory.com" style="display:inline">reachus@accountantsfactory.com</a></p>
+      </div>
+      <div>
+        <h5>Start</h5>
+        <a href="private-limited-company-registration-in-india.html">Private Limited</a>
+        <a href="llp-registration-in-india.html">LLP</a>
+        <a href="one-person-company-registration-in-india.html">OPC</a>
+        <a href="gst-registrations-in-india.html">GST Registration</a>
+      </div>
+      <div>
+        <h5>Run</h5>
+        <a href="outsourced-accounting.html">Bookkeeping</a>
+        <a href="gst-filing-in-india.html">GST Filing</a>
+        <a href="tds-return-filing-in-india.html">Payroll / TDS</a>
+        <a href="zoho-books-ecosystem.html">Zoho Books</a>
+      </div>
+      <div>
+        <h5>Scale</h5>
+        <a href="virtual-cfo-services-in-india.html">Virtual CFO</a>
+        <a href="cashflow-tool.html">Cash Flow Tool</a>
+        <a href="incometax-cal.html">Tax Calculator</a>
+        <a href="portal/login.html">Client Portal</a>
+      </div>
+    </div>
+    <p class="disc">Fees shown are professional fees, exclusive of government charges, stamp duty and applicable GST.</p>
+    <div class="fbot">
+      <span>&copy; 2026 Accountants Factory LLP</span>
+      <span>Zoho Authorized Partner &middot; Certified Zoho &amp; Tally Trainer</span>
+    </div>
+  </div>
+</footer>
 
-            tabBasic.addEventListener('click', () => switchTab('basic'));
-            tabAdvanced.addEventListener('click', () => switchTab('advanced'));
+<div class="mnav" id="mnav">
+  <button class="mnav-close" id="mnav-close"><i class="fas fa-times"></i></button>
+  <details><summary>Start a Business <i class="fas fa-chevron-down"></i></summary>
+    <a href="private-limited-company-registration-in-india.html">Private Limited Company</a>
+    <a href="llp-registration-in-india.html">LLP Registration</a>
+    <a href="one-person-company-registration-in-india.html">OPC</a>
+    <a href="partnership-firm-registrations-in-india.html">Partnership Firm</a>
+    <a href="start-up-india-registrations-in-india.html">Startup India</a>
+    <a href="msme-registrations-in-india.html">MSME</a>
+    <a href="gst-registrations-in-india.html">GST Registration</a>
+    <a href="IEC-Import-and-Export-Code-registration-in-india.html">IEC</a>
+    <a href="rera-andhra-pradesh-registration-in-india.html">RERA AP</a>
+  </details>
+  <details><summary>Accounting <i class="fas fa-chevron-down"></i></summary>
+    <a href="outsourced-accounting.html">Outsourced Bookkeeping</a>
+    <a href="gst-filing-in-india.html">GST Filing</a>
+    <a href="tds-return-filing-in-india.html">TDS &amp; Payroll</a>
+    <a href="itr-in-india.html">Income Tax / ITR</a>
+    <a href="aoc4-mgt-7-in-india.html">ROC / AOC-4 / MGT-7</a>
+    <a href="form11-llp-in-india.html">LLP Form 11</a>
+    <a href="form8-llp-in-india.html">LLP Form 8</a>
+    <a href="provident-fund-in-india.html">Provident Fund</a>
+    <a href="esic-in-india.html">ESIC</a>
+    <a href="professional-tax-in-india.html">Professional Tax</a>
+  </details>
+  <details><summary>Zoho Solutions <i class="fas fa-chevron-down"></i></summary>
+    <a href="zoho-books-ecosystem.html">Zoho Books &amp; GST</a>
+    <a href="zoho-books-ecosystem.html">Zoho CRM</a>
+    <a href="zoho-books-ecosystem.html">Zoho People</a>
+  </details>
+  <details><summary>Virtual CFO <i class="fas fa-chevron-down"></i></summary>
+    <a href="virtual-cfo-services-in-india.html">Virtual CFO Retainer</a>
+    <a href="cashflow-tool.html">Cash Flow &amp; Budgeting</a>
+  </details>
+  <a href="pricing.html">Pricing</a>
+  <a href="portal/login.html">Client Portal</a>
+  <a href="contact.html">Book a free call</a>
+</div>
 
-            const advInputs = document.querySelectorAll('.income-input');
-            const totalGrossDisplay = document.getElementById('totalGrossDisplay');
-            function updateAdvancedTotal() {
-                let total = 0;
-                advInputs.forEach(input => { total += parseFloat(input.value) || 0; });
-                totalGrossDisplay.textContent = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(total);
-            }
-            advInputs.forEach(input => input.addEventListener('input', updateAdvancedTotal));
+<script>
+function computeTax() {
+  const inc = parseFloat(document.getElementById('income').value) || 0;
+  const c80 = Math.min(parseFloat(document.getElementById('sec80c').value) || 0, 150000);
+  const d80 = parseFloat(document.getElementById('sec80d').value) || 0;
+  const h24 = Math.min(parseFloat(document.getElementById('sec24').value) || 0, 200000);
 
-            const calculateBtn = document.getElementById('calculateBtn');
-            const grossIncomeEl = document.getElementById('grossIncome');
-            const ageEl = document.getElementById('age');
-            const deduction80CEl = document.getElementById('deduction80C');
-            const deduction80DEl = document.getElementById('deduction80D');
-            const homeLoanInterestEl = document.getElementById('homeLoanInterest');
-            const otherDeductionsEl = document.getElementById('otherDeductions');
-            const resultEl = document.getElementById('result');
-            const verdictEl = document.getElementById('verdict');
-            const incomeSalaryEl = document.getElementById('incomeSalary');
-            const incomeBusinessEl = document.getElementById('incomeBusiness');
-            const stcgEquityEl = document.getElementById('stcgEquity');
-            const stcgOtherEl = document.getElementById('stcgOther');
-            const ltcgEquityEl = document.getElementById('ltcgEquity');
-            const ltcgOtherEl = document.getElementById('ltcgOther');
-            const incomeOtherEl = document.getElementById('incomeOther');
-            let taxChart = null;
-            const formatCurrency = (value) => new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(value);
+  // New Regime FY 2025-26
+  const newNet = Math.max(0, inc - 75000);
+  let nTax = 0;
+  if (newNet <= 700000) {
+    nTax = 0; // 87A rebate
+  } else {
+    if (newNet > 300000) nTax += Math.min(newNet - 300000, 400000) * 0.05;
+    if (newNet > 700000) nTax += Math.min(newNet - 700000, 300000) * 0.10;
+    if (newNet > 1000000) nTax += Math.min(newNet - 1000000, 200000) * 0.15;
+    if (newNet > 1200000) nTax += Math.min(newNet - 1200000, 300000) * 0.20;
+    if (newNet > 1500000) nTax += (newNet - 1500000) * 0.30;
+    nTax *= 1.04; // Cess
+  }
 
-            const calculateOldRegimeSlabTax = (taxableIncome, age) => {
-                let tax = 0;
-                let exemptionLimit = 250000;
-                if (age === '60to80') exemptionLimit = 300000;
-                if (age === 'above80') exemptionLimit = 500000;
-                if (taxableIncome <= exemptionLimit) return 0;
-                if (taxableIncome > 1000000) {
-                    tax += (taxableIncome - 1000000) * 0.30;
-                    tax += 100000;
-                    tax += (500000 - exemptionLimit) * 0.05;
-                } else if (taxableIncome > 500000) {
-                    tax += (taxableIncome - 500000) * 0.20;
-                    tax += (500000 - exemptionLimit) * 0.05;
-                } else {
-                    tax += (taxableIncome - exemptionLimit) * 0.05;
-                }
-                return tax;
-            };
+  // Old Regime
+  const oldNet = Math.max(0, inc - 50000 - c80 - d80 - h24);
+  let oTax = 0;
+  if (oldNet <= 500000) {
+    oTax = 0; // 87A rebate
+  } else {
+    if (oldNet > 250000) oTax += Math.min(oldNet - 250000, 250000) * 0.05;
+    if (oldNet > 500000) oTax += Math.min(oldNet - 500000, 500000) * 0.20;
+    if (oldNet > 1000000) oTax += (oldNet - 1000000) * 0.30;
+    oTax *= 1.04; // Cess
+  }
 
-            const calculateNewRegimeSlabTax = (taxableIncome) => {
-                if (taxableIncome <= 400000) return 0;
-                let tax = 0;
-                if (taxableIncome > 2400000) {
-                    tax += (taxableIncome - 2400000) * 0.30;
-                    tax += 100000 + 80000 + 60000 + 40000 + 20000;
-                } else if (taxableIncome > 2000000) {
-                    tax += (taxableIncome - 2000000) * 0.25;
-                    tax += 80000 + 60000 + 40000 + 20000;
-                } else if (taxableIncome > 1600000) {
-                    tax += (taxableIncome - 1600000) * 0.20;
-                    tax += 60000 + 40000 + 20000;
-                } else if (taxableIncome > 1200000) {
-                    tax += (taxableIncome - 1200000) * 0.15;
-                    tax += 40000 + 20000;
-                } else if (taxableIncome > 800000) {
-                    tax += (taxableIncome - 800000) * 0.10;
-                    tax += 20000;
-                } else {
-                    tax += (taxableIncome - 400000) * 0.05;
-                }
-                return tax;
-            };
+  document.getElementById('newTax').innerText = '₹' + Math.round(nTax).toLocaleString('en-IN');
+  document.getElementById('oldTax').innerText = '₹' + Math.round(oTax).toLocaleString('en-IN');
 
-            const applySurchargeAndRelief = (baseTax, taxableIncome, regime) => {
-                let surchargeRate = 0;
-                let threshold = 0;
-                if (taxableIncome > 5000000 && taxableIncome <= 10000000) { surchargeRate = 0.10; threshold = 5000000; }
-                else if (taxableIncome > 10000000 && taxableIncome <= 20000000) { surchargeRate = 0.15; threshold = 10000000; }
-                else if (taxableIncome > 20000000) {
-                    surchargeRate = (taxableIncome > 50000000 && regime === 'new') ? 0.25 : (taxableIncome > 50000000 ? 0.37 : 0.25);
-                    threshold = taxableIncome > 50000000 ? 50000000 : 20000000;
-                }
-                let taxWithSurcharge = baseTax + (baseTax * surchargeRate);
-                if (threshold > 0) {
-                    let thresholdBaseTax = regime === 'new' ? (threshold === 5000000 ? 1080000 : threshold === 10000000 ? 2580000 : 5580000) : (threshold === 5000000 ? 1312500 : threshold === 10000000 ? 2812500 : 5812500);
-                    let prevSurchargeRate = threshold === 10000000 ? 0.10 : threshold === 20000000 ? 0.15 : 0.25;
-                    let taxAtThreshold = thresholdBaseTax + (thresholdBaseTax * prevSurchargeRate);
-                    let excessIncome = taxableIncome - threshold;
-                    let maxTaxPayable = taxAtThreshold + excessIncome;
-                    if (taxWithSurcharge > maxTaxPayable) taxWithSurcharge = maxTaxPayable;
-                }
-                return taxWithSurcharge;
-            };
+  const diff = Math.abs(Math.round(oTax - nTax));
+  if (nTax < oTax) {
+    document.getElementById('recommendation').innerText = '🎉 New Regime saves you ₹' + diff.toLocaleString('en-IN');
+  } else if (oTax < nTax) {
+    document.getElementById('recommendation').innerText = '🎉 Old Regime saves you ₹' + diff.toLocaleString('en-IN');
+  } else {
+    document.getElementById('recommendation').innerText = 'Both regimes yield equal tax';
+  }
+}
 
-            if (calculateBtn) {
-                calculateBtn.addEventListener('click', () => {
-                    let grossIncome = 0, salaryIncome = 0, slabIncome = 0, stcgEquity = 0, ltcgEquity = 0, ltcgOther = 0;
-                    if (currentMode === 'basic') {
-                        grossIncome = parseFloat(grossIncomeEl.value) || 0;
-                        salaryIncome = grossIncome;
-                        slabIncome = grossIncome;
-                    } else {
-                        salaryIncome = parseFloat(incomeSalaryEl.value) || 0;
-                        const business = parseFloat(incomeBusinessEl.value) || 0;
-                        const stcgOther = parseFloat(stcgOtherEl.value) || 0;
-                        const other = parseFloat(incomeOtherEl.value) || 0;
-                        stcgEquity = parseFloat(stcgEquityEl.value) || 0;
-                        ltcgEquity = parseFloat(ltcgEquityEl.value) || 0;
-                        ltcgOther = parseFloat(ltcgOtherEl.value) || 0;
-                        slabIncome = salaryIncome + business + stcgOther + other;
-                        grossIncome = slabIncome + stcgEquity + ltcgEquity + ltcgOther;
-                    }
+document.querySelectorAll('input').forEach(el => el.addEventListener('input', computeTax));
+computeTax();
 
-                    if (grossIncome <= 0) {
-                        resultEl.innerHTML = '<p class="text-red-500 font-semibold p-4">Please enter a valid income.</p>';
-                        verdictEl.classList.add('hidden');
-                        if (taxChart) taxChart.destroy();
-                        return;
-                    }
-
-                    const age = ageEl.value;
-                    const deduction80C = Math.min(parseFloat(deduction80CEl.value) || 0, 150000);
-                    const deduction80D = parseFloat(deduction80DEl.value) || 0;
-                    const homeLoanInterest = Math.min(parseFloat(homeLoanInterestEl.value) || 0, 200000);
-                    const otherDeductions = parseFloat(otherDeductionsEl.value) || 0;
-
-                    const stdDedOld = (salaryIncome > 50000) ? 50000 : salaryIncome;
-                    const totalDedOld = stdDedOld + deduction80C + deduction80D + homeLoanInterest + otherDeductions;
-                    const oldTaxableSlab = Math.max(0, slabIncome - totalDedOld);
-                    let oldSlabTax = calculateOldRegimeSlabTax(oldTaxableSlab, age);
-                    let taxStcgEquity = stcgEquity * 0.20;
-                    let taxableLtcgEq = Math.max(0, ltcgEquity - 125000);
-                    let taxLtcgEquity = taxableLtcgEq * 0.125;
-                    let taxLtcgOther = ltcgOther * 0.125;
-                    let totalOldTax = oldSlabTax + taxStcgEquity + taxLtcgEquity + taxLtcgOther;
-                    if ((oldTaxableSlab + stcgEquity + ltcgEquity + ltcgOther) <= 500000) totalOldTax = 0;
-                    totalOldTax = applySurchargeAndRelief(totalOldTax, grossIncome, 'old');
-                    let finalOldTax = Math.round(totalOldTax * 1.04);
-
-                    const stdDedNew = (salaryIncome > 75000) ? 75000 : salaryIncome;
-                    const newTaxableSlab = Math.max(0, slabIncome - stdDedNew);
-                    let newSlabTax = calculateNewRegimeSlabTax(newTaxableSlab);
-                    const totalTaxableIncomeNew = newTaxableSlab + stcgEquity + ltcgEquity + ltcgOther;
-                    let totalNewTax = 0;
-                    if (totalTaxableIncomeNew <= 1200000) {
-                        totalNewTax = ltcgEquity > 0 ? taxLtcgEquity : 0;
-                    } else {
-                        if (newTaxableSlab > 1200000) {
-                            let excessSlabIncome = newTaxableSlab - 1200000;
-                            if (newSlabTax > excessSlabIncome) newSlabTax = excessSlabIncome;
-                        }
-                        totalNewTax = newSlabTax + taxStcgEquity + taxLtcgEquity + taxLtcgOther;
-                    }
-                    totalNewTax = applySurchargeAndRelief(totalNewTax, grossIncome, 'new');
-                    let finalNewTax = Math.round(totalNewTax * 1.04);
-
-                    resultEl.innerHTML = `
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left h-full">
-            <div class="result-old p-4 rounded-lg flex flex-col justify-between">
-                <div>
-                    <h4 class="font-bold text-lg" style="color: #1e40af;">Old Regime</h4>
-                    <div class="text-xs text-blue-600 mt-1">Slab Income: ${formatCurrency(oldTaxableSlab)}</div>
-                    <div class="text-xs text-blue-600">Special Rate Tax: ${formatCurrency(taxStcgEquity + taxLtcgEquity + taxLtcgOther)}</div>
-                    <div class="text-xs text-blue-500 mt-1">(Deductions: ${formatCurrency(totalDedOld)})</div>
-                </div>
-                <div class="mt-4">
-                    <p class="text-xs text-slate-500">Net Tax Payable</p>
-                    <p class="text-2xl font-extrabold text-blue-900">${formatCurrency(finalOldTax)}</p>
-                </div>
-            </div>
-            <div class="result-new p-4 rounded-lg flex flex-col justify-between relative overflow-hidden">
-                <div class="absolute top-0 right-0 px-2 py-1 rounded-bl text-[10px] font-bold" style="background: var(--brand-light); color: var(--brand-dark);">AY 26-27</div>
-                <div>
-                    <h4 class="font-bold text-lg" style="color: var(--brand-dark);">New Regime</h4>
-                    <div class="text-xs text-green-600 mt-1">Slab Income: ${formatCurrency(newTaxableSlab)}</div>
-                    <div class="text-xs text-green-600">Special Rate Tax: ${formatCurrency(taxStcgEquity + taxLtcgEquity + taxLtcgOther)}</div>
-                    <div class="text-xs text-green-500 mt-1">(Std Ded: ${formatCurrency(stdDedNew)})</div>
-                </div>
-                <div class="mt-4">
-                    <p class="text-xs text-slate-500">Net Tax Payable</p>
-                    <p class="text-2xl font-extrabold text-green-900">${formatCurrency(finalNewTax)}</p>
-                </div>
-            </div>
-        </div>`;
-
-                    const savings = Math.abs(finalOldTax - finalNewTax);
-                    verdictEl.classList.remove('hidden');
-                    verdictEl.className = 'text-center mt-4 font-bold text-lg p-3 rounded-md border block verdict-box';
-                    if (finalNewTax < finalOldTax) {
-                        verdictEl.innerHTML = 'Use New Regime. Save ' + formatCurrency(savings);
-                        verdictEl.style.background = 'var(--brand-light)'; verdictEl.style.color = 'var(--brand-dark)'; verdictEl.style.borderColor = '#0a8574';
-                    } else if (finalOldTax < finalNewTax) {
-                        verdictEl.innerHTML = 'Use Old Regime. Save ' + formatCurrency(savings);
-                        verdictEl.style.background = '#eff6ff'; verdictEl.style.color = '#1e40af'; verdictEl.style.borderColor = '#93c5fd';
-                    } else {
-                        verdictEl.innerHTML = 'Tax is same in both regimes.';
-                        verdictEl.style.background = '#f1f5f9'; verdictEl.style.color = '#334155'; verdictEl.style.borderColor = '#cbd5e1';
-                    }
-
-                    const ctx = document.getElementById('taxChart').getContext('2d');
-                    if (taxChart) taxChart.destroy();
-                    taxChart = new Chart(ctx, {
-                        type: 'bar',
-                        data: {
-                            labels: ['Old Regime', 'New Regime'],
-                            datasets: [{
-                                label: 'Tax Liability',
-                                data: [finalOldTax, finalNewTax],
-                                backgroundColor: ['rgba(59, 130, 246, 0.7)', 'rgba(10, 133, 116, 0.7)'],
-                                borderColor: ['rgba(59, 130, 246, 1)', 'rgba(10, 133, 116, 1)'],
-                                borderWidth: 1,
-                                borderRadius: 4,
-                                barThickness: 50
-                            }]
-                        },
-                        options: {
-                            responsive: true,
-                            maintainAspectRatio: false,
-                            plugins: { legend: { display: false }, tooltip: { callbacks: { label: (c) => 'Tax: ' + formatCurrency(c.raw) } } },
-                            scales: { y: { beginAtZero: true, ticks: { callback: (v) => formatCurrency(v).replace('₹', '') } } }
-                        }
-                    });
-                });
-            }
-
-            const q1 = document.getElementById('q1'), q2 = document.getElementById('q2'), q3 = document.getElementById('q3');
-            const q2_container = document.getElementById('q2_container'), q3_container = document.getElementById('q3_container');
-            const formResult = document.getElementById('formResult');
-            function updateFormFinder() {
-                if (!q1) return;
-                const hasBusiness = q1.value, isPresumptive = q2.value, hasCapitalGains = q3.value;
-                q2_container.classList.add('hidden'); q3_container.classList.add('hidden');
-                formResult.textContent = '';
-                if (hasBusiness === 'yes') {
-                    q2_container.classList.remove('hidden');
-                    if (isPresumptive === 'yes') formResult.textContent = 'Result: ITR-4 (Sugam)';
-                    else if (isPresumptive === 'no') formResult.textContent = 'Result: ITR-3';
-                } else if (hasBusiness === 'no') {
-                    q3_container.classList.remove('hidden');
-                    if (hasCapitalGains === 'yes') formResult.textContent = 'Result: ITR-2';
-                    else if (hasCapitalGains === 'no') formResult.textContent = 'Result: ITR-1 (Sahaj)';
-                }
-            }
-            if (q1 && q2 && q3) {
-                [q1, q2, q3].forEach(el => el.addEventListener('change', updateFormFinder));
-            }
-        });
-    </script>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-    <script src="js/components.js?v=87"></script>
+(function(){
+  var b=document.querySelector('.burger'), m=document.getElementById('mnav'), c=document.getElementById('mnav-close');
+  if(b) b.addEventListener('click',function(){m.classList.toggle('open')});
+  if(c) c.addEventListener('click',function(){m.classList.remove('open')});
+})();
+</script>
 </body>
-
 </html>
