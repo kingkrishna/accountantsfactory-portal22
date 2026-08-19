@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Become a Franchise Partner — AccountantsFactory</title>
+  <meta name="description" content="Apply to open an AccountantsFactory branch in your city. Run your own franchise with full portal access, client management, and revenue share.">
+  <meta name="app-version" content="87">
+  <script src="portal/js/cache-buster.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style-v2.css?v=87">
+  <style>
+    .franchise-hero {
+      background: linear-gradient(135deg, #0a8574 0%, #076b5d 100%);
+      color: #fff;
+      padding: 80px 20px 60px;
+      text-align: center;
+    }
+    .franchise-hero h1 { font-size: 40px; font-weight: 700; margin-bottom: 12px; }
+    .franchise-hero p { font-size: 18px; max-width: 640px; margin: 0 auto; opacity: 0.9; }
+    .franchise-benefits {
+      max-width: 1080px; margin: 60px auto; padding: 0 20px;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .franchise-benefit {
+      background: #fff; border: 1px solid #e8e6e3; border-radius: 12px;
+      padding: 28px 20px; text-align: center;
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+    .franchise-benefit:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.05); }
+    .franchise-benefit i { font-size: 32px; color: #0a8574; margin-bottom: 12px; }
+    .franchise-benefit h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .franchise-benefit p { font-size: 14px; color: #5a5a5a; line-height: 1.5; }
+    .franchise-form-wrap { max-width: 620px; margin: 40px auto 80px; padding: 0 20px; }
+    .franchise-form-card {
+      background: #fff; border: 1px solid #e8e6e3; border-radius: 16px;
+      padding: 36px 32px; box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    }
+    .franchise-form-card h2 { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+    .franchise-form-card > p { color: #5a5a5a; font-size: 14px; margin-bottom: 24px; }
+    .franchise-form-card .form-group label { font-weight: 600; font-size: 13px; }
+    .franchise-form-card .btn-submit {
+      background: #0a8574; border: none; color: #fff; padding: 12px 28px;
+      border-radius: 8px; font-weight: 600; font-size: 15px; width: 100%;
+      transition: background .12s;
+    }
+    .franchise-form-card .btn-submit:hover:not(:disabled) { background: #076b5d; }
+    .franchise-form-card .btn-submit:disabled { background: #9ac; cursor: not-allowed; }
+    .franchise-alert-success {
+      background: #e8f5e9; color: #2e7d32; padding: 14px 18px; border-radius: 8px;
+      margin-bottom: 16px; display: none; font-size: 14px;
+    }
+    .franchise-alert-error {
+      background: #ffebee; color: #c62828; padding: 14px 18px; border-radius: 8px;
+      margin-bottom: 16px; display: none; font-size: 14px;
+    }
+    @media (max-width: 720px) {
+      .franchise-benefits { grid-template-columns: 1fr; gap: 12px; margin: 40px auto; }
+      .franchise-hero { padding: 60px 20px 40px; }
+      .franchise-hero h1 { font-size: 28px; }
+      .franchise-form-card { padding: 24px 20px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="header-container"></div>
+
+  <section class="franchise-hero">
+    <h1><i class="fas fa-store"></i> Become a Franchise Partner</h1>
+    <p>Run your own AccountantsFactory branch. Full portal access, client management tools, employee onboarding, and shared national brand.</p>
+  </section>
+
+  <section class="franchise-benefits">
+    <div class="franchise-benefit">
+      <i class="fas fa-users"></i>
+      <h3>Your own clients, your own team</h3>
+      <p>Full data isolation. Only YOU see your franchise's clients and employees. Head office aggregates the numbers.</p>
+    </div>
+    <div class="franchise-benefit">
+      <i class="fas fa-cogs"></i>
+      <h3>Complete portal & tooling</h3>
+      <p>Compliance tracker, document generator, order kanban, analytics dashboard — day-one access to the same tools head office uses.</p>
+    </div>
+    <div class="franchise-benefit">
+      <i class="fas fa-rupee-sign"></i>
+      <h3>Referral bonuses + revenue share</h3>
+      <p>Earn on every client you sign up and refer within the network. Transparent, auto-tracked in the portal.</p>
+    </div>
+  </section>
+
+  <section class="franchise-form-wrap">
+    <div class="franchise-form-card">
+      <h2>Apply Now</h2>
+      <p>Fill in the form and our team will review your application within 2 business days.</p>
+
+      <div class="franchise-alert-success" id="franchise-alert-success"></div>
+      <div class="franchise-alert-error" id="franchise-alert-error"></div>
+
+      <form id="franchise-form" onsubmit="return false;">
+        <div class="form-group">
+          <label for="fs-name">Full Name <span class="text-danger">*</span></label>
+          <input type="text" id="fs-name" name="name" class="form-control" required maxlength="200" autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label for="fs-email">Email <span class="text-danger">*</span></label>
+          <input type="email" id="fs-email" name="email" class="form-control" required maxlength="200" autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label for="fs-mobile">Mobile <span class="text-danger">*</span></label>
+          <input type="tel" id="fs-mobile" name="mobile" class="form-control" required maxlength="20" autocomplete="tel" placeholder="e.g. 9876543210">
+        </div>
+        <div class="row">
+          <div class="col-md-6 form-group">
+            <label for="fs-city">City <span class="text-danger">*</span></label>
+            <input type="text" id="fs-city" name="city" class="form-control" required maxlength="100" placeholder="e.g. Vijayawada">
+          </div>
+          <div class="col-md-6 form-group">
+            <label for="fs-branch">Preferred Branch Code</label>
+            <input type="text" id="fs-branch" name="branchCode" class="form-control" maxlength="40" placeholder="e.g. VIJAYAWADA">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="fs-message">Tell us about your background</label>
+          <textarea id="fs-message" name="message" class="form-control" rows="4" maxlength="2000" placeholder="Optional: accounting experience, city coverage plan, team size..."></textarea>
+        </div>
+        <button type="submit" id="fs-submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Submit Application</button>
+      </form>
+    </div>
+  </section>
+
+  <div id="footer-container"></div>
+
+  <script src="js/components.js?v=87"></script>
+  <script>
+    (function () {
+      var form = document.getElementById('franchise-form');
+      var btn = document.getElementById('fs-submit');
+      var okBox = document.getElementById('franchise-alert-success');
+      var errBox = document.getElementById('franchise-alert-error');
+      if (!form) return;
+
+      function getApiBase() {
+        var h = window.location.hostname;
+        if (h === 'localhost' || h === '127.0.0.1') return 'http://localhost:3000/api';
+        return 'https://accountantsfactory-api-50040008732.development.catalystappsail.in/api';
+      }
+
+      form.addEventListener('submit', async function () {
+        okBox.style.display = 'none';
+        errBox.style.display = 'none';
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+
+        var payload = {
+          name: document.getElementById('fs-name').value.trim(),
+          email: document.getElementById('fs-email').value.trim(),
+          mobile: document.getElementById('fs-mobile').value.trim(),
+          city: document.getElementById('fs-city').value.trim(),
+          branchCode: document.getElementById('fs-branch').value.trim(),
+          message: document.getElementById('fs-message').value.trim()
+        };
+
+        try {
+          var res = await fetch(getApiBase() + '/public/franchise-signup', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          var data = await res.json().catch(function () { return {}; });
+          if (res.ok && data.success) {
+            okBox.textContent = data.message + ' Ticket: ' + (data.ticketId || 'N/A');
+            okBox.style.display = 'block';
+            form.reset();
+          } else {
+            errBox.textContent = data.message || 'Submission failed. Please try again.';
+            errBox.style.display = 'block';
+          }
+        } catch (e) {
+          errBox.textContent = 'Network error. Please check your connection and try again.';
+          errBox.style.display = 'block';
+        } finally {
+          btn.disabled = false;
+          btn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Application';
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
