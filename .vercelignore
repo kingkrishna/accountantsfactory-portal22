@@ -1,30 +1,4 @@
-﻿# Exclude backend completely - it runs on Zoho Catalyst, NOT Vercel
+﻿api
 api/**
-api/
-
-# Root-level scripts and config
+node_modules
 server.js
-render.yaml
-netlify.toml
-app-config.json
-catalyst.json
-.catalystrc
-.catalystignore
-.catalyst-token
-.env.example
-generate.ps1
-pages-data.json
-audit_css.js
-check_portal.js
-deploy.bat
-zoho-deploy.bat
-zoho-deploy.sh
-start-dev.bat
-start-dev.ps1
-push-to-github.bat
-serve.ps1
-
-# Other folders not needed
-docs/
-tools/
-zoho-client/
