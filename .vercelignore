@@ -1,7 +1,17 @@
-﻿# Backend - NOT deployed to Vercel (runs on Zoho Catalyst AppSail)
+﻿# Exclude backend completely - it runs on Zoho Catalyst, NOT Vercel
+api/**
 api/
 
-# Build tools and config files
+# Root-level scripts and config
+server.js
+render.yaml
+netlify.toml
+app-config.json
+catalyst.json
+.catalystrc
+.catalystignore
+.catalyst-token
+.env.example
 generate.ps1
 pages-data.json
 audit_css.js
@@ -13,15 +23,8 @@ start-dev.bat
 start-dev.ps1
 push-to-github.bat
 serve.ps1
-server.js
-render.yaml
-netlify.toml
-app-config.json
-catalyst.json
-.catalystrc
-.catalystignore
-.catalyst-token
-.env.example
+
+# Other folders not needed
 docs/
 tools/
 zoho-client/
