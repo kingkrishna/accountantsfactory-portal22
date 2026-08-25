@@ -5,7 +5,7 @@ const Components = {
     header: `<nav class="navbar navbar-expand-xl navbar-light bg-white border-bottom shadow-sm">
   <div class="container" style="max-width: 1320px; padding: 0 15px;">
     <a class="navbar-brand py-2" href="index.html">
-      <img data-logo="logo-new.png" src="images/logo-new.png" alt="Accountants Factory — Tech-Driven Accounting Services" class="site-logo" style="height: 54px; width: auto; display: block;">
+      <img data-logo="logo1.png" src="images/logo1.png" alt="Accountants Factory — Tech-Driven Accounting Services" class="site-logo" style="height: 54px; width: auto; display: block;">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
