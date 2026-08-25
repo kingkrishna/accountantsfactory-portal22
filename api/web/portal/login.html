@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -8,102 +8,188 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <meta name="app-version" content="87">
+  <meta name="app-version" content="88">
   <script src="js/cache-buster.js"></script>
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet">
-  <link rel="stylesheet" href="../css/style-v2.css?v=87">
-  <link rel="stylesheet" href="css/portal.css?v=87">
+  <link rel="stylesheet" href="../css/style-v2.css?v=88">
+  <link rel="stylesheet" href="css/portal.css?v=88">
+  <style>
+    body { margin:0; padding:0; font-family:"Plus Jakarta Sans",sans-serif; }
+    nav { position:sticky;top:0;z-index:999;background:#fff;border-bottom:1px solid #CFE2E0;box-shadow:0 2px 12px rgba(1,111,105,.07); }
+    .nav-in { display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:68px;max-width:1200px;margin:0 auto; }
+    .logo img { height:46px;width:auto;display:block;object-fit:contain; }
+    .menu { display:flex;gap:4px;align-items:center; }
+    .mi { position:relative; }
+    .mi > a { display:flex;align-items:center;gap:5px;padding:8px 13px;border-radius:8px;font-size:.88rem;font-weight:600;color:#132420;text-decoration:none;transition:background .18s; }
+    .mi > a:hover,.mi:hover > a { background:#E9F2F1;color:#016F69; }
+    .drop { display:none;position:absolute;top:calc(100% + 6px);left:0;background:#fff;border:1px solid #CFE2E0;border-radius:14px;box-shadow:0 8px 32px rgba(1,111,105,.13);min-width:220px;padding:8px 0;z-index:200; }
+    .mi:hover .drop { display:block; }
+    .drop a { display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:.84rem;font-weight:500;color:#132420;text-decoration:none;transition:background .15s; }
+    .drop a:hover { background:#E9F2F1;color:#016F69; }
+    .drop a i { width:16px;color:#016F69; }
+    .btn { display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:50px;font-size:.84rem;font-weight:700;text-decoration:none;border:none;cursor:pointer;transition:all .18s; }
+    .btn-primary { background:#016F69;color:#fff; }
+    .btn-primary:hover { background:#015C57;color:#fff; }
+    .btn-ghost { background:transparent;color:#016F69; }
+    .btn-ghost:hover { background:#E9F2F1; }
+    .btn-sm { padding:7px 16px;font-size:.82rem; }
+    .burger { display:none;background:none;border:none;cursor:pointer;font-size:1.3rem;color:#016F69; }
+    @media(max-width:900px){ .menu,.nav-in > div { display:none; } .burger { display:block; } }
+    .portal-login-section { min-height:calc(100vh - 68px);display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#E9F2F1 0%,#f4f8f7 100%);padding:40px 20px; }
+    .login-card { background:#fff;border-radius:20px;padding:40px 36px;box-shadow:0 8px 40px rgba(1,111,105,.12);width:100%;max-width:420px; }
+    .login-header { text-align:center;margin-bottom:28px; }
+    .login-header h2 { font-size:1.5rem;font-weight:800;color:#016F69;margin-bottom:6px; }
+    .login-header p { color:#6E807C;font-size:.9rem;margin:0; }
+    .form-group { margin-bottom:18px; }
+    .form-group label { display:block;font-weight:600;font-size:.85rem;color:#132420;margin-bottom:6px; }
+    .input-group { display:flex;border:1.5px solid #CFE2E0;border-radius:10px;overflow:hidden; }
+    .input-group-text { background:#E9F2F1;padding:10px 14px;color:#016F69;border:none; }
+    .form-control { flex:1;padding:10px 14px;border:none;outline:none;font-size:.9rem;font-family:inherit; }
+    .btn-login { width:100%;background:#016F69;color:#fff;border:none;padding:12px;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;margin-top:6px;transition:background .18s;display:flex;align-items:center;justify-content:center;gap:8px; }
+    .btn-login:hover { background:#015C57; }
+    .btn-link-plain { background:none;border:none;color:#016F69;cursor:pointer;font-size:.85rem;text-decoration:underline;width:100%;text-align:center;margin-top:10px;display:block; }
+    .alert-danger { background:#fff0f0;border:1px solid #f5c6cb;color:#721c24;border-radius:10px;padding:10px 14px;font-size:.87rem;margin-bottom:16px; }
+    .form-check { display:flex;align-items:center;gap:8px;margin-bottom:4px; }
+    .form-check-input { width:16px;height:16px;accent-color:#016F69; }
+    .form-check-label { font-size:.85rem;color:#4A5B57; }
+    .login-footer { text-align:center;margin-top:20px; }
+    .login-footer a { color:#016F69;font-size:.85rem;text-decoration:none;font-weight:600; }
+    .btn-eye { background:#f4f8f7;border:none;padding:10px 14px;color:#6E807C;cursor:pointer; }
+    .btn-eye:hover { background:#E9F2F1;color:#016F69; }
+  </style>
 </head>
 <body>
-  <div id="header-container"></div>
 
-  <div class="container-fluid portal-login-section">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-5 col-lg-4">
-          <div class="login-card glass-effect">
-            <div class="login-header">
-              <h2><i class="fas fa-lock"></i> Portal Login</h2>
-              <p>Secure access for clients and administrators</p>
-            </div>
-            
-            <div id="login-error" class="alert alert-danger" style="display: none;"></div>
-
-            <div id="login-2fa-step" style="display: none;">
-              <p class="text-muted small mb-3">Enter the 6-digit code from your authenticator app.</p>
-              <form id="login-2fa-form">
-                <div class="form-group">
-                <label for="totp-code">Authentication code <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="totp-code" name="code" placeholder="000000" maxlength="8" autocomplete="one-time-code" inputmode="numeric" pattern="[0-9]*" aria-label="6-digit authenticator code">
-                </div>
-                <button type="submit" class="btn btn-primary btn-block btn-login">
-                  <i class="fas fa-check"></i> Verify
-                </button>
-                <button type="button" class="btn btn-link btn-block mt-2" id="login-2fa-back">← Back to login</button>
-              </form>
-            </div>
-            
-            <form id="login-form">
-              <div class="form-group">
-                <label for="email">Email Address <span class="text-danger">*</span></label>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                  </div>
-                  <input type="email" class="form-control" id="email" name="email" required placeholder="your.email@example.com">
-                </div>
-              </div>
-              
-              <div class="form-group">
-                <label for="password">Password <span class="text-danger">*</span></label>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fas fa-key"></i></span>
-                  </div>
-                  <input type="password" class="form-control" id="password" name="password" required placeholder="Enter your password" autocomplete="current-password">
-                  <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button" id="toggle-password" aria-label="Toggle password visibility">
-                      <i class="fas fa-eye"></i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="remember-me">
-                <label class="form-check-label" for="remember-me">Remember me</label>
-              </div>
-              
-              <button type="submit" class="btn btn-primary btn-block btn-login">
-                <i class="fas fa-sign-in-alt"></i> Login
-              </button>
-              
-              <!-- Forgot password removed per Phase 2 specification -->
-            </form>
-            
-            <div class="login-footer text-center">
-              <p class="text-muted small">
-                <a href="../index.html" id="back-to-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
-              </p>
-            </div>
+  <nav>
+    <div class="wrap nav-in">
+      <a href="../index.html" class="logo">
+        <img src="../images/logo1.png" alt="Accountant's Factory" style="height:46px;width:auto;display:block;object-fit:contain;">
+      </a>
+      <div class="menu">
+        <div class="mi">
+          <a href="../start-a-business.html">Start a Business <i class="fas fa-chevron-down"></i></a>
+          <div class="drop">
+            <a href="../private-limited-company-registration-in-india.html"><i class="fas fa-building"></i> Private Limited Company</a>
+            <a href="../llp-registration-in-india.html"><i class="fas fa-handshake"></i> LLP Registration</a>
+            <a href="../one-person-company-registration-in-india.html"><i class="fas fa-user"></i> OPC &amp; Proprietorship</a>
+            <a href="../partnership-firm-registrations-in-india.html"><i class="fas fa-users"></i> Partnership Firm</a>
+            <a href="../start-up-india-registrations-in-india.html"><i class="fas fa-rocket"></i> Startup India (DPIIT)</a>
+            <a href="../gst-registrations-in-india.html"><i class="fas fa-file-signature"></i> GST, MSME, IEC, Trademark</a>
           </div>
         </div>
+        <div class="mi">
+          <a href="../outsourced-accounting.html">Accounting <i class="fas fa-chevron-down"></i></a>
+          <div class="drop">
+            <a href="../outsourced-accounting.html"><i class="fas fa-book"></i> Outsourced bookkeeping</a>
+            <a href="../gst-filing-in-india.html"><i class="fas fa-receipt"></i> GST returns &amp; reconciliation</a>
+            <a href="../tds-return-filing-in-india.html"><i class="fas fa-users"></i> TDS &amp; payroll</a>
+            <a href="../itr-in-india.html"><i class="fas fa-calendar-check"></i> Year-end &amp; income tax</a>
+            <a href="../aoc4-mgt-7-in-india.html"><i class="fas fa-stamp"></i> Annual ROC compliance</a>
+          </div>
+        </div>
+        <div class="mi">
+          <a href="../zoho-books-ecosystem.html">Zoho Solutions <i class="fas fa-chevron-down"></i></a>
+          <div class="drop">
+            <a href="../zoho-books-ecosystem.html"><i class="fas fa-calculator"></i> Zoho Books &amp; GST</a>
+            <a href="../zoho-books-ecosystem.html#zoho-crm"><i class="fas fa-bullseye"></i> Zoho CRM</a>
+            <a href="../zoho-books-ecosystem.html#zoho-people"><i class="fas fa-user-tie"></i> Zoho People &amp; Payroll</a>
+            <a href="../zoho-books-ecosystem.html#zoho-erp"><i class="fas fa-cogs"></i> Zoho Creator &amp; ERP</a>
+            <a href="../zoho-books-ecosystem.html#migration"><i class="fas fa-exchange-alt"></i> Tally to Zoho migration</a>
+            <a href="../zoho-books-ecosystem.html#training"><i class="fas fa-chalkboard-teacher"></i> Zoho training</a>
+          </div>
+        </div>
+        <div class="mi">
+          <a href="../virtual-cfo-services-in-india.html">Virtual CFO <i class="fas fa-chevron-down"></i></a>
+          <div class="drop">
+            <a href="../virtual-cfo-services-in-india.html"><i class="fas fa-chart-line"></i> Virtual CFO retainer</a>
+            <a href="../virtual-cfo-services-in-india.html#mis"><i class="fas fa-tachometer-alt"></i> MIS &amp; dashboards</a>
+            <a href="../cashflow-tool.html"><i class="fas fa-water"></i> Cash flow &amp; budgeting</a>
+            <a href="../virtual-cfo-services-in-india.html#funding"><i class="fas fa-university"></i> CMA / DPR for funding</a>
+          </div>
+        </div>
+        <div class="mi">
+          <a href="../incometax-cal.html">Tools <i class="fas fa-chevron-down"></i></a>
+          <div class="drop">
+            <a href="../incometax-cal.html"><i class="fas fa-calculator"></i> Income Tax Calculator</a>
+            <a href="../new-gst-rates.html"><i class="fas fa-percent"></i> GST Rates Directory</a>
+            <a href="../cashflow-tool.html"><i class="fas fa-chart-pie"></i> Cash Flow Planner</a>
+          </div>
+        </div>
+        <div class="mi"><a href="../pricing.html">Pricing</a></div>
+      </div>
+      <div style="display:flex;gap:10px;align-items:center">
+        <a href="login.html" class="btn btn-ghost btn-sm" style="border:1.5px solid #CFE2E0;"><i class="fas fa-user-lock"></i> Client Portal</a>
+        <a href="../contact.html" class="btn btn-primary btn-sm">Book a free call</a>
+        <button class="burger" aria-label="Menu"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="portal-login-section">
+    <div class="login-card">
+      <div class="login-header">
+        <h2><i class="fas fa-lock"></i> Portal Login</h2>
+        <p>Secure access for clients and administrators</p>
+      </div>
+
+      <div id="login-error" class="alert-danger" style="display: none;"></div>
+
+      <div id="login-2fa-step" style="display: none;">
+        <p style="color:#6E807C;font-size:.87rem;margin-bottom:14px;">Enter the 6-digit code from your authenticator app.</p>
+        <form id="login-2fa-form">
+          <div class="form-group">
+            <label for="totp-code">Authentication code <span style="color:#e74c3c">*</span></label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="fas fa-shield-alt"></i></span>
+              <input type="text" class="form-control" id="totp-code" name="code" placeholder="000000" maxlength="8" autocomplete="one-time-code" inputmode="numeric" pattern="[0-9]*" aria-label="6-digit authenticator code">
+            </div>
+          </div>
+          <button type="submit" class="btn-login"><i class="fas fa-check"></i> Verify</button>
+          <button type="button" class="btn-link-plain" id="login-2fa-back">← Back to login</button>
+        </form>
+      </div>
+
+      <form id="login-form">
+        <div class="form-group">
+          <label for="email">Email Address <span style="color:#e74c3c">*</span></label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+            <input type="email" class="form-control" id="email" name="email" required placeholder="your.email@example.com">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password <span style="color:#e74c3c">*</span></label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="fas fa-key"></i></span>
+            <input type="password" class="form-control" id="password" name="password" required placeholder="Enter your password" autocomplete="current-password">
+            <button class="btn-eye" type="button" id="toggle-password" aria-label="Toggle password visibility">
+              <i class="fas fa-eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="remember-me">
+          <label class="form-check-label" for="remember-me">Remember me</label>
+        </div>
+
+        <button type="submit" class="btn-login" style="margin-top:18px;">
+          <i class="fas fa-sign-in-alt"></i> Login
+        </button>
+      </form>
+
+      <div class="login-footer">
+        <a href="../index.html" id="back-to-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
       </div>
     </div>
   </div>
 
-  <div id="footer-container"></div>
-
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-  <script src="../js/components.js?v=87"></script>
-  <!-- Set API base URL for production (uncomment and update for deployment) -->
-  <script src="js/api-url.js?v=87"></script>
-  <script src="js/config.js?v=87"></script>
-  <script src="js/auth.js?v=87"></script>
-  <script src="js/api.js?v=87"></script>
-  <script src="js/login.js?v=87"></script>
+  <script src="js/api-url.js?v=88"></script>
+  <script src="js/config.js?v=88"></script>
+  <script src="js/auth.js?v=88"></script>
+  <script src="js/api.js?v=88"></script>
+  <script src="js/login.js?v=88"></script>
 </body>
 </html>
