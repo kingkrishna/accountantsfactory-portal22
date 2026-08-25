@@ -1,10 +1,10 @@
-services:
+﻿services:
   - type: web
     name: accountantsfactory-portal
     env: node
     plan: free
-    buildCommand: cd api && npm install && npx prisma generate && npx prisma db push --accept-data-loss
-    startCommand: node api/server.js
+    buildCommand: cd backend && npm install && npx prisma generate && npx prisma db push --accept-data-loss
+    startCommand: node backend/server.js
     envVars:
       - key: NODE_ENV
         value: production
@@ -32,3 +32,4 @@ services:
 databases:
   - name: accountantsfactory-db
     plan: free
+

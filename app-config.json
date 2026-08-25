@@ -1,6 +1,6 @@
-{
+﻿{
   "command": "node startup.js",
-  "build_path": "api",
+  "build_path": "backend",
   "stack": "node18",
   "env_variables": {
     "CATALYST_CONFIG": "{\"project_id\":\"18944000000044043\",\"project_key\":\"50040008732\",\"environment\":\"development\"}",
@@ -19,3 +19,4 @@
   "memory": 1024,
   "scripts": {}
 }
+
