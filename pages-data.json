@@ -1,0 +1,618 @@
+[
+  {
+    "filename": "private-limited-company-registration-in-india.html",
+    "title": "Private Limited Company Registration in India | Accountants Factory",
+    "badge": "Company Incorporation",
+    "h1": "Register a <span class=\"mark\">Private Limited</span> Company",
+    "sub": "End-to-end incorporation with MCA name reservation, DSC, DIN, MOA/AOA, PAN, TAN and GST. Fixed fee, completed in 7-10 working days.",
+    "micro1": "Fixed Rs. 9,999 All-Inclusive",
+    "micro2": "7-10 Working Days",
+    "micro3": "Bank Account & GST Included",
+    "cards": [
+      { "ic": "fas fa-signature", "title": "DSC & DIN Allotment", "desc": "Digital Signature Certificates for all directors and Director Identification Numbers issued seamlessly." },
+      { "ic": "fas fa-shield-alt", "title": "Name Reservation & SPICe+", "desc": "MCA RUN name approval and complete SPICe+ Part A & B electronic filing with ROC." },
+      { "ic": "fas fa-file-invoice-dollar", "title": "PAN, TAN & GST Registration", "desc": "Company PAN, TAN, standard MOA/AOA drafting, and automatic GSTIN enrollment upon incorporation." }
+    ],
+    "steps": [
+      { "title": "1. Document Collection", "desc": "Submit PAN, Aadhaar, address proof and photos of proposed directors via our secure portal." },
+      { "title": "2. Name Approval & Filing", "desc": "We check MCA availability, file RUN application, draft custom MOA/AOA, and submit SPICe+." },
+      { "title": "3. Certificate of Incorporation", "desc": "ROC approves the application and issues CIN, Certificate of Incorporation, PAN and TAN." }
+    ],
+    "price": "Rs. 9,999",
+    "priceNote": "all-inclusive professional & MCA filing fee"
+  },
+  {
+    "filename": "llp-registration-in-india.html",
+    "title": "LLP Registration in India | Accountants Factory",
+    "badge": "Partnership Structuring",
+    "h1": "Limited Liability <span class=\"mark\">Partnership (LLP)</span>",
+    "sub": "Combine the operational flexibility of a partnership with the limited liability benefits of a corporate structure. Zero audit requirement up to Rs. 40 Lakhs turnover.",
+    "micro1": "From Rs. 7,999",
+    "micro2": "Zero Minimum Capital",
+    "micro3": "No Mandatory Audit < Rs. 40L",
+    "cards": [
+      { "ic": "fas fa-handshake", "title": "DPIN & Digital Signatures", "desc": "Designated Partner Identification Numbers and Class 3 DSCs issued for all designated partners." },
+      { "ic": "fas fa-file-contract", "title": "Custom LLP Agreement", "desc": "Professional drafting of the LLP Agreement defining profit ratios, rights, and dispute mechanisms." },
+      { "ic": "fas fa-certificate", "title": "FiLLiP & MCA Incorporation", "desc": "Electronic submission on MCA21 portal and prompt receipt of Certificate of Incorporation." }
+    ],
+    "steps": [
+      { "title": "1. Partner Onboarding", "desc": "Provide KYC documents, address proofs, and registered office utility bills." },
+      { "title": "2. Name Reservation & Filing", "desc": "RUN-LLP name approval and electronic filing of Form FiLLiP with the ROC." },
+      { "title": "3. Agreement Filing (Form 3)", "desc": "Drafting, execution on state stamp paper, and filing Form 3 within 30 days of incorporation." }
+    ],
+    "price": "Rs. 7,999",
+    "priceNote": "complete registration + agreement drafting"
+  },
+  {
+    "filename": "one-person-company-registration-in-india.html",
+    "title": "One Person Company (OPC) Registration | Accountants Factory",
+    "badge": "Solo Entrepreneur",
+    "h1": "One Person <span class=\"mark\">Company (OPC)</span> Registration",
+    "sub": "100% sole ownership with complete corporate limited liability protection. The ideal corporate entity for solo founders, freelancers, and solopreneurs.",
+    "micro1": "From Rs. 6,999",
+    "micro2": "Single Director Structure",
+    "micro3": "Limited Liability Protection",
+    "cards": [
+      { "ic": "fas fa-user-shield", "title": "Sole Shareholder Control", "desc": "Retain 100% equity and operational control while safeguarding personal wealth from business debts." },
+      { "ic": "fas fa-file-alt", "title": "Nominee Documentation", "desc": "Smooth nomination compliance as mandated by the Companies Act 2013 with digital consent filings." },
+      { "ic": "fas fa-chart-line", "title": "Conversion Flexibility", "desc": "Easily convert into a full Private Limited company as your business scales and brings in co-founders." }
+    ],
+    "steps": [
+      { "title": "1. KYC & Nominee Details", "desc": "Submit founder KYC, nominee consent form INC-3, and registered business address proofs." },
+      { "title": "2. SPICe+ OPC Filing", "desc": "Draft MOA/AOA with nominee clause, obtain DSC, and file SPICe+ with the Registrar of Companies." },
+      { "title": "3. Incorporation & Banking", "desc": "Receive Certificate of Incorporation, PAN, TAN, and instant bank account opening assistance." }
+    ],
+    "price": "Rs. 6,999",
+    "priceNote": "incorporation, nominee filing & PAN/TAN"
+  },
+  {
+    "filename": "partnership-firm-registrations-in-india.html",
+    "title": "Partnership Firm Registration in India | Accountants Factory",
+    "badge": "Traditional Business",
+    "h1": "Partnership <span class=\"mark\">Firm Registration</span>",
+    "sub": "Fast, cost-effective structure for 2 to 20 partners. Full legal drafting of Partnership Deed, notary attestation, and Registrar of Firms (ROF) filing.",
+    "micro1": "From Rs. 3,999",
+    "micro2": "Minimal Compliance",
+    "micro3": "Done in 3-5 Days",
+    "cards": [
+      { "ic": "fas fa-balance-scale", "title": "Deed Drafting & Notary", "desc": "Custom deed outlining capital sharing, profit/loss distribution, interest on capital, and dissolution terms." },
+      { "ic": "fas fa-university", "title": "Firm PAN & Bank Account", "desc": "Separate legal entity PAN allotment under Indian Partnership Act, 1932." },
+      { "ic": "fas fa-stamp", "title": "Registrar of Firms (ROF)", "desc": "Optional registration with the state Registrar of Firms for legal dispute enforceability." }
+    ],
+    "steps": [
+      { "title": "1. Drafting Terms", "desc": "Discuss terms with our legal advisors to formulate an airtight partnership agreement." },
+      { "title": "2. Stamp Duty & Notary", "desc": "Execution on requisite non-judicial stamp paper and notarization." },
+      { "title": "3. PAN & GST Enrollment", "desc": "Apply for Partnership Firm PAN card, current account resolution, and GST registration." }
+    ],
+    "price": "Rs. 3,999",
+    "priceNote": "deed drafting, notary & PAN"
+  },
+  {
+    "filename": "start-up-india-registrations-in-india.html",
+    "title": "Startup India DPIIT Recognition & 80-IAC | Accountants Factory",
+    "badge": "Govt Benefits & Tax Holiday",
+    "h1": "Startup India <span class=\"mark\">DPIIT Recognition</span>",
+    "sub": "Unlock 3-year 100% tax holiday under Section 80-IAC, Angel Tax exemption (Section 56), fast-tracked 80% patent rebate, and government tender priority.",
+    "micro1": "Section 80-IAC Tax Exemption",
+    "micro2": "Angel Tax Exemption",
+    "micro3": "Govt Tender & EMD Waivers",
+    "cards": [
+      { "ic": "fas fa-rocket", "title": "DPIIT Certificate", "desc": "Official recognition certificate from Department for Promotion of Industry and Internal Trade." },
+      { "ic": "fas fa-percentage", "title": "Tax Holiday (80-IAC)", "desc": "Preparation of innovation pitch deck, business model review, and application to IMB." },
+      { "ic": "fas fa-award", "title": "Fast-Track IP & Tenders", "desc": "80% rebate on patent filings and exemption from prior turnover/experience criteria in government tenders." }
+    ],
+    "steps": [
+      { "title": "1. Eligibility Audit", "desc": "Evaluate innovation criteria, scalable business model, and incorporation date." },
+      { "title": "2. Pitch Deck & Documentation", "desc": "Draft proof-of-concept summary, uniqueness write-up, and pitch deck for DPIIT examiners." },
+      { "title": "3. Portal Submission & Certificate", "desc": "Submit on the National Startup Portal and track query resolution until certificate is granted." }
+    ],
+    "price": "Rs. 4,999",
+    "priceNote": "complete DPIIT recognition filing"
+  },
+  {
+    "filename": "msme-registrations-in-india.html",
+    "title": "MSME Udyam Registration | Accountants Factory",
+    "badge": "Government Subsidies",
+    "h1": "MSME / <span class=\"mark\">Udyam Registration</span>",
+    "sub": "Get your official Udyam Certificate for Micro, Small and Medium Enterprises. Access collateral-free bank loans (CGTMSE), lower electricity tariffs, and 45-day MSME payment protection.",
+    "micro1": "Same-Day Issuance",
+    "micro2": "45-Day Payment Rule",
+    "micro3": "Collateral-Free Loan Access",
+    "cards": [
+      { "ic": "fas fa-industry", "title": "Udyam Certificate", "desc": "Permanent 19-digit Udyam Registration Number with QR code issued by the Ministry of MSME." },
+      { "ic": "fas fa-shield-virus", "title": "Delayed Payment Protection", "desc": "Mandatory 45-day payment enforcement under Section 43B(h) of the Income Tax Act." },
+      { "ic": "fas fa-coins", "title": "Bank Interest Subsidies", "desc": "1% to 2% interest subvention on business overdrafts and priority sector lending benefits." }
+    ],
+    "steps": [
+      { "title": "1. Share Aadhaar & PAN", "desc": "Provide proprietor/director Aadhaar linked to mobile number and business PAN." },
+      { "title": "2. NIC Classification", "desc": "We classify your business under exact National Industrial Classification (NIC) codes." },
+      { "title": "3. Instant Certificate Download", "desc": "Receive your verified Government of India Udyam Certificate directly in your email." }
+    ],
+    "price": "Rs. 999",
+    "priceNote": "fast-track Udyam filing"
+  },
+  {
+    "filename": "gst-registrations-in-india.html",
+    "title": "GST Registration in India | Accountants Factory",
+    "badge": "Tax Compliance",
+    "h1": "Online <span class=\"mark\">GST Registration</span>",
+    "sub": "Mandatory for sales exceeding threshold limits, e-commerce sellers, and interstate trade. Accurate filing, zero query delays, and quick GSTIN generation.",
+    "micro1": "ARN in 24 Hours",
+    "micro2": "Aadhaar Authentication",
+    "micro3": "E-Commerce & Interstate Ready",
+    "cards": [
+      { "ic": "fas fa-file-invoice", "title": "GST Application (REG-01)", "desc": "Detailed drafting of business principal place of business, HSN/SAC codes, and bank authorizations." },
+      { "ic": "fas fa-fingerprint", "title": "Biometric / Aadhaar OTP", "desc": "Fast-track approval pathway using Aadhaar biometric authentication without physical site inspection." },
+      { "ic": "fas fa-check-double", "title": "GSTIN Certificate (REG-06)", "desc": "Final 15-digit GSTIN Certificate with login credentials and ledger setups." }
+    ],
+    "steps": [
+      { "title": "1. Document Upload", "desc": "Upload electricity bill, rent agreement/NOC, PAN, Aadhaar, and cancelled cheque." },
+      { "title": "2. Portal Submission", "desc": "We submit Form GST REG-01 and guide you through the 1-click Aadhaar OTP verification." },
+      { "title": "3. GSTIN Issued", "desc": "GST officer approves within 3 to 7 working days, delivering your certificate." }
+    ],
+    "price": "Rs. 1,499",
+    "priceNote": "complete registration + ARN tracking"
+  },
+  {
+    "filename": "IEC-Import-and-Export-Code-registration-in-india.html",
+    "title": "IEC Code Registration in India | Accountants Factory",
+    "badge": "Global Trade",
+    "h1": "Import Export <span class=\"mark\">Code (IEC)</span>",
+    "sub": "Mandatory 10-digit license issued by DGFT for importing or exporting goods and services from India. One-time registration with lifetime validity.",
+    "micro1": "Lifetime Validity",
+    "micro2": "Issued in 24-48 Hours",
+    "micro3": "DGFT & Customs Integrated",
+    "cards": [
+      { "ic": "fas fa-ship", "title": "DGFT Direct Filing", "desc": "Electronic application on the DGFT digital platform integrated with ICEGATE customs network." },
+      { "ic": "fas fa-globe", "title": "Export Remittance Ready", "desc": "Allows receiving foreign inwards remittances (USD, EUR, GBP) legally in your current account." },
+      { "ic": "fas fa-infinity", "title": "No Renewal Required", "desc": "Valid for the life of the firm with mandatory annual online confirmation in April-June." }
+    ],
+    "steps": [
+      { "title": "1. Basic KYC", "desc": "Submit business PAN, entity bank certificate or pre-printed cancelled cheque, and address proof." },
+      { "title": "2. DGFT Submission", "desc": "We pay the official government fee and process the application with Class 3 DSC." },
+      { "title": "3. IEC Certificate Download", "desc": "Instant download of your official e-IEC certificate." }
+    ],
+    "price": "Rs. 1,999",
+    "priceNote": "all-inclusive DGFT registration"
+  },
+  {
+    "filename": "rera-andhra-pradesh-registration-in-india.html",
+    "title": "AP RERA Registration for Projects & Agents | Accountants Factory",
+    "badge": "Real Estate Compliance",
+    "h1": "Andhra Pradesh <span class=\"mark\">RERA Registration</span>",
+    "sub": "Comprehensive regulatory clearance for builders, real estate layout developers, and commercial agents under AP Real Estate Regulatory Authority.",
+    "micro1": "Project & Agent Licensing",
+    "micro2": "Legal Title Verification",
+    "micro3": "Quarterly RERA Compliance",
+    "cards": [
+      { "ic": "fas fa-building", "title": "Project Registration", "desc": "Mandatory for layouts and apartments > 500 sq. meters or > 8 apartments prior to marketing or booking." },
+      { "ic": "fas fa-user-tie", "title": "Real Estate Agent License", "desc": "5-year valid RERA Agent Registration certificate for property consultants and brokers." },
+      { "ic": "fas fa-book", "title": "RERA Escrow Account Audit", "desc": "Form 1, Form 2, and Form 3 CA certification for 70% project escrow fund utilization." }
+    ],
+    "steps": [
+      { "title": "1. Project Documentation", "desc": "Gather approved building plan, land title deed, encumbrance certificate, and NOCs." },
+      { "title": "2. AP-RERA Submission", "desc": "Prepare financial forecasts, promoter affidavits, and file on AP-RERA portal." },
+      { "title": "3. Approval & Unique ID", "desc": "Obtain official RERA Project Registration Number for all marketing materials." }
+    ],
+    "price": "Rs. 14,999",
+    "priceNote": "professional drafting & documentation"
+  },
+  {
+    "filename": "outsourced-accounting.html",
+    "title": "Outsourced Bookkeeping & Accounting Services | Accountants Factory",
+    "badge": "Accounting Excellence",
+    "h1": "Outsourced <span class=\"mark\">Accounting & Books</span>",
+    "sub": "Cloud-powered bookkeeping on Zoho Books, Tally, or QuickBooks. Dedicated accountant + CA supervision for reconciled ledgers, daily transactions, and monthly MIS.",
+    "micro1": "From Rs. 2,000 / Month",
+    "micro2": "Zoho Certified Experts",
+    "micro3": "Monthly MIS & Profit/Loss",
+    "cards": [
+      { "ic": "fas fa-book-reader", "title": "Transaction Processing", "desc": "Daily/weekly recording of sales invoices, vendor bills, expense vouchers, and payroll entries." },
+      { "ic": "fas fa-university", "title": "Multi-Bank Reconciliation", "desc": "Automated bank feeds, payment gateway reconciliations (Razorpay, Stripe) and zero variance." },
+      { "ic": "fas fa-chart-pie", "title": "Executive MIS Reports", "desc": "Monthly P&L, Balance Sheet, Accounts Receivable/Payable aging analysis delivered by the 7th." }
+    ],
+    "steps": [
+      { "title": "1. Setup & Migration", "desc": "We review your Chart of Accounts, migrate opening balances, and configure cloud accounting software." },
+      { "title": "2. Ongoing Bookkeeping", "desc": "Share bills via email, WhatsApp, or cloud drive; our team reconciles entries weekly." },
+      { "title": "3. Monthly Review & Close", "desc": "Receive finalized financial statements and a structured review call with our senior CA team." }
+    ],
+    "price": "Rs. 2,500/mo",
+    "priceNote": "billed quarterly or annually"
+  },
+  {
+    "filename": "gst-filing-in-india.html",
+    "title": "GST Return Filing & GSTR-2B Reconciliation | Accountants Factory",
+    "badge": "Tax Filings",
+    "h1": "Monthly & Annual <span class=\"mark\">GST Return Filing</span>",
+    "sub": "Error-free GSTR-1, GSTR-3B, GSTR-9, and 9C filing. Automated GSTR-2B matching to maximize your Input Tax Credit (ITC) and prevent departmental notices.",
+    "micro1": "100% On-Time Filing",
+    "micro2": "Zero ITC Leakage",
+    "micro3": "Notice Representation",
+    "cards": [
+      { "ic": "fas fa-receipt", "title": "GSTR-1 & Invoice Matching", "desc": "Outward supplies filing with HSN summaries, e-way bill validations, and B2B invoice uploads." },
+      { "ic": "fas fa-file-invoice-dollar", "title": "GSTR-3B & Tax Optimization", "desc": "Accurate ITC claim based on GSTR-2B reconciliation and optimal cash ledger tax offsets." },
+      { "ic": "fas fa-balance-scale-right", "title": "GSTR-9 Annual Audit", "desc": "Comprehensive annual return compilation and CA-certified reconciliation statement (GSTR-9C)." }
+    ],
+    "steps": [
+      { "title": "1. Data Collection", "desc": "Provide sales registers and purchase invoices by the 5th of each month." },
+      { "title": "2. 2B vs Purchase Matching", "desc": "We run advanced automated comparison algorithms to identify missing vendor invoices." },
+      { "title": "3. Portal Filing & Challan", "desc": "Challan generation for net tax payable and timely filing before the 20th." }
+    ],
+    "price": "Rs. 999/mo",
+    "priceNote": "includes GSTR-1, 3B & 2B recon"
+  },
+  {
+    "filename": "tds-return-filing-in-india.html",
+    "title": "TDS Return Filing (24Q, 26Q, 27Q) & Form 16 | Accountants Factory",
+    "badge": "Withholding Tax",
+    "h1": "Quarterly <span class=\"mark\">TDS Return Filing</span>",
+    "sub": "Calculate correct withholding tax under sections 194C, 194J, 194I, 192, and 194Q. Timely quarterly 24Q/26Q filings and automatic TRACES Form 16 generation.",
+    "micro1": "Form 16 & 16A Issuance",
+    "micro2": "TRACES Portal Integration",
+    "micro3": "Zero Late Fee Penalty (234E)",
+    "cards": [
+      { "ic": "fas fa-users-cog", "title": "Form 24Q (Salary TDS)", "desc": "Monthly payroll tax deduction computation, chapter VI-A deductions, and quarterly 24Q filing." },
+      { "ic": "fas fa-building", "title": "Form 26Q (Vendor Payments)", "desc": "TDS on contractor payments, professional fees, commercial rent, commission, and purchase of goods." },
+      { "ic": "fas fa-file-download", "title": "Form 16/16A Downloads", "desc": "Direct bulk generation and digital signing of Form 16 for employees and 16A for vendors." }
+    ],
+    "steps": [
+      { "title": "1. Monthly Challan Payment", "desc": "Verify TDS deductions and deposit tax via e-tax payment before the 7th." },
+      { "title": "2. Return Preparation", "desc": "Validate PANs, link BSR codes and challan CIN numbers in RPU utility." },
+      { "title": "3. TRACES Processing", "desc": "Submit FVU file to NSDL and download digitally signed TDS certificates." }
+    ],
+    "price": "Rs. 1,499/qtr",
+    "priceNote": "includes return filing & Form 16/16A"
+  },
+  {
+    "filename": "itr-in-india.html",
+    "title": "Income Tax Return (ITR) Filing Services | Accountants Factory",
+    "badge": "Direct Tax",
+    "h1": "Income Tax Return <span class=\"mark\">(ITR-1 to ITR-7)</span>",
+    "sub": "File your Income Tax Return with experienced CAs. Complete tax planning, capital gains computation, AIS/TIS reconciliation, and refund tracking.",
+    "micro1": "Old vs New Regime Optimization",
+    "micro2": "AIS/TIS 100% Matched",
+    "micro3": "Fast-Track Refund Approval",
+    "cards": [
+      { "ic": "fas fa-user-tie", "title": "Salaried & Professionals", "desc": "ITR-1 & ITR-2 for salary earners, multiple house properties, ESOPs, and stock market capital gains." },
+      { "ic": "fas fa-store", "title": "Presumptive Tax (44AD/ADA)", "desc": "ITR-4 for small businesses and independent freelancers saving 50%+ on tax legally." },
+      { "ic": "fas fa-landmark", "title": "Corporate & LLP Tax (ITR-5/6)", "desc": "Comprehensive balance sheet audits, book profit calculation for MAT, and company tax returns." }
+    ],
+    "steps": [
+      { "title": "1. Document Review", "desc": "Share Form 16, bank statements, stock P&L statements, and home loan certificates." },
+      { "title": "2. Computation of Income", "desc": "Our CAs analyze Old vs New regime to minimize tax liability legally and maximize refunds." },
+      { "title": "3. E-Filing & Verification", "desc": "We submit the return on the Income Tax e-filing portal and complete instant e-verification." }
+    ],
+    "price": "From Rs. 999",
+    "priceNote": "varies by complexity & entity type"
+  },
+  {
+    "filename": "aoc4-mgt-7-in-india.html",
+    "title": "Annual ROC Filings AOC-4 & MGT-7 | Accountants Factory",
+    "badge": "MCA Annual Compliance",
+    "h1": "Annual ROC Filing <span class=\"mark\">(AOC-4 & MGT-7)</span>",
+    "sub": "Mandatory yearly filing for all Private Limited, OPC, and Section 8 companies. Prevent heavy Rs. 100/day penalties and director disqualification.",
+    "micro1": "Director Disqualification Protection",
+    "micro2": "Financial Statements XBRL/PDF",
+    "micro3": "AGM & Board Resolutions",
+    "cards": [
+      { "ic": "fas fa-file-invoice", "title": "Form AOC-4 (Financials)", "desc": "Filing Balance Sheet, P&L, Director Report, and Auditor Report within 30 days of AGM." },
+      { "ic": "fas fa-users", "title": "Form MGT-7 / 7A (Annual Return)", "desc": "Filing shareholding pattern, board meetings summary, and director remuneration details within 60 days." },
+      { "ic": "fas fa-id-card", "title": "DIR-3 KYC & DPT-3", "desc": "Annual director KYC verification and mandatory disclosure of outstanding loans and deposits." }
+    ],
+    "steps": [
+      { "title": "1. Financials Preparation", "desc": "Compile audited balance sheet, profit and loss statement, and notes to accounts." },
+      { "title": "2. Secretarial Documentation", "desc": "Draft AGM notice, directors report, board resolutions, and extract of annual returns." },
+      { "title": "3. MCA Filing & SRN", "desc": "Upload certified forms with Director and Practicing CS/CA digital signatures." }
+    ],
+    "price": "Rs. 4,999",
+    "priceNote": "includes AOC-4, MGT-7 & Board Notes"
+  },
+  {
+    "filename": "virtual-cfo-services-in-india.html",
+    "title": "Virtual CFO Services for Growth Companies | Accountants Factory",
+    "badge": "Strategic Financial Leadership",
+    "h1": "Virtual <span class=\"mark\">CFO Retainer</span>",
+    "sub": "High-impact financial strategy, cash flow management, investor reporting, and bank funding guidance without the overhead of a full-time Rs. 40 Lakhs CFO.",
+    "micro1": "From Rs. 35,000 / Month",
+    "micro2": "Weekly Cash Flow Modeling",
+    "micro3": "Board & Investor Decks",
+    "cards": [
+      { "ic": "fas fa-chart-line", "title": "Strategic Financial Planning", "desc": "Annual budgeting, 13-week rolling cash flow forecasts, unit economics analysis, and burn rate management." },
+      { "ic": "fas fa-university", "title": "Bank Funding (CMA & DPR)", "desc": "Detailed Project Reports, CMA data preparation for CC/OD limits, term loans, and credit negotiations." },
+      { "ic": "fas fa-briefcase", "title": "Board & Investor Governance", "desc": "Monthly MIS decks, KPI tracking, cap table management, and proactive internal financial controls." }
+    ],
+    "steps": [
+      { "title": "1. Financial Diagnostic", "desc": "Deep-dive audit of historical financials, cost leakages, tax positions, and software workflows." },
+      { "title": "2. System Architecture", "desc": "Implement automated dashboards, KPI scorecards, and weekly cash control systems." },
+      { "title": "3. Executive Execution", "desc": "Weekly strategy sessions, monthly board meetings, and direct support for banking and fundraising." }
+    ],
+    "price": "Rs. 35,000/mo",
+    "priceNote": "dedicated senior finance leader"
+  },
+  {
+    "filename": "zoho-books-ecosystem.html",
+    "title": "Zoho Books & Zoho ERP Implementation | Accountants Factory",
+    "badge": "Zoho Authorized Partner",
+    "h1": "Zoho Books & <span class=\"mark\">Cloud ERP Suite</span>",
+    "sub": "Official Zoho Authorized Partner & Certified Trainers. We configure, automate, and customize Zoho Books, CRM, People, Inventory, and Creator for your exact workflows.",
+    "micro1": "Authorized Zoho Partner",
+    "micro2": "Tally to Zoho Zero-Loss Migration",
+    "micro3": "Custom ERP & Automation",
+    "cards": [
+      { "ic": "fas fa-calculator", "title": "Zoho Books & GST Automation", "desc": "E-Invoicing, automated bank reconciliation, e-way bills, and direct GST portal filing integration." },
+      { "ic": "fas fa-exchange-alt", "title": "Tally to Zoho Migration", "desc": "100% historical ledger, voucher, inventory, and opening balance transfer with zero reconciliation gaps." },
+      { "ic": "fas fa-users-cog", "title": "Zoho People & Payroll Suite", "desc": "Leave management, biometric attendance sync, automated payslips, and statutory tax calculations." }
+    ],
+    "steps": [
+      { "title": "1. Workflow Scoping", "desc": "Map your sales, procurement, inventory, and accounting flows to optimal Zoho apps." },
+      { "title": "2. Setup & Customization", "desc": "Design custom invoice templates, approval workflows, chart of accounts, and user roles." },
+      { "title": "3. Migration & Team Training", "desc": "Transfer existing data, test reconciliations, and conduct live hands-on staff training." }
+    ],
+    "price": "Custom Quote",
+    "priceNote": "based on modules & user licenses"
+  },
+  {
+    "filename": "cashflow-tool.html",
+    "title": "Cash Flow & Working Capital Planning Tool | Accountants Factory",
+    "badge": "Financial Tools",
+    "h1": "13-Week <span class=\"mark\">Cash Flow Planner</span>",
+    "sub": "Take control of your working capital. Model cash inflows, vendor outflows, payroll commitments, and tax obligations with forward-looking precision.",
+    "micro1": "13-Week Rolling Horizon",
+    "micro2": "Runway & Burn Rate Alerts",
+    "micro3": "Scenario Planning (Best/Worst)",
+    "cards": [
+      { "ic": "fas fa-tint", "title": "Liquidity Forecasting", "desc": "Predict future bank balances based on expected customer collections and scheduled vendor dues." },
+      { "ic": "fas fa-exclamation-triangle", "title": "Cash Crunch Warning", "desc": "Identify potential cash deficits 4 to 6 weeks in advance to arrange credit lines in time." },
+      { "ic": "fas fa-sliders-h", "title": "Scenario Testing", "desc": "Simulate payment delays, unexpected expenses, or rapid sales growth on your cash runway." }
+    ],
+    "steps": [
+      { "title": "1. Connect Ledgers", "desc": "Import open accounts receivable, payable schedules, and fixed operational expenses." },
+      { "title": "2. Set Collection Velocity", "desc": "Assign realistic payment collection timelines based on customer credit terms." },
+      { "title": "3. Weekly Cash Decisioning", "desc": "Review the 13-week runway weekly to prioritize vendor disbursements and preserve liquidity." }
+    ],
+    "price": "Free Consultation",
+    "priceNote": "custom template provided with CFO Retainer"
+  },
+  {
+    "filename": "form11-llp-in-india.html",
+    "title": "LLP Annual Return Form 11 Filing | Accountants Factory",
+    "badge": "LLP Compliance",
+    "h1": "LLP Annual Return <span class=\"mark\">Form 11 Filing</span>",
+    "sub": "Mandatory annual return for all LLPs due by 30th May every year. Avoid severe daily penalties of Rs. 100/day.",
+    "micro1": "Due Date: 30th May",
+    "micro2": "Partner Summary & Capital",
+    "micro3": "Zero Delay Filing",
+    "cards": [
+      { "ic": "fas fa-file-alt", "title": "Form 11 Compilation", "desc": "Summary of partners, contribution details, and body corporate partners prepared for MCA." },
+      { "ic": "fas fa-signature", "title": "DSC Verification", "desc": "Designated partner digital signatures and company secretary pre-certification." },
+      { "ic": "fas fa-check-circle", "title": "MCA Approval & SRN", "desc": "Instant challan and SRN acknowledgement receipt." }
+    ],
+    "steps": [
+      { "title": "1. Partner Information", "desc": "Submit updated designated partner contributions and residential details." },
+      { "title": "2. Form Preparation", "desc": "Draft Form 11 electronic schema and attach partner disclosures." },
+      { "title": "3. ROC Submission", "desc": "Upload form on MCA portal and secure compliance acknowledgement." }
+    ],
+    "price": "Rs. 2,999",
+    "priceNote": "all-inclusive annual return filing"
+  },
+  {
+    "filename": "form8-llp-in-india.html",
+    "title": "LLP Statement of Account & Solvency Form 8 | Accountants Factory",
+    "badge": "LLP Compliance",
+    "h1": "LLP Form 8 <span class=\"mark\">Statement of Accounts</span>",
+    "sub": "Mandatory Statement of Account & Solvency for LLPs due by 30th October. Balance sheet and P&L disclosure.",
+    "micro1": "Due Date: 30th October",
+    "micro2": "Balance Sheet & P&L",
+    "micro3": "CA Certified",
+    "cards": [
+      { "ic": "fas fa-file-invoice", "title": "Statement of Solvency", "desc": "Declaration of solvency signed by designated partners confirming financial standing." },
+      { "ic": "fas fa-calculator", "title": "Financial Disclosure", "desc": "Statement of assets and liabilities, turnover, and expense schedules." },
+      { "ic": "fas fa-stamp", "title": "Auditor Certification", "desc": "CA certification as required under the LLP Act 2008." }
+    ],
+    "steps": [
+      { "title": "1. Share Accounts", "desc": "Provide finalized books of accounts and trial balance for the financial year." },
+      { "title": "2. Prepare Form 8", "desc": "Draft Statement of Account & Solvency with required attachments." },
+      { "title": "3. File on MCA", "desc": "Submit Form 8 with DSCs before the 30th October statutory deadline." }
+    ],
+    "price": "Rs. 2,999",
+    "priceNote": "financial statement filing"
+  },
+  {
+    "filename": "provident-fund-in-india.html",
+    "title": "Provident Fund (PF) Registration & Monthly ECR | Accountants Factory",
+    "badge": "Labor Law Compliance",
+    "h1": "Employee <span class=\"mark\">Provident Fund (EPF)</span>",
+    "sub": "Mandatory for firms with 20+ employees. Online EPFO registration, monthly ECR challan filing, and UAN generation.",
+    "micro1": "EPFO Unified Portal",
+    "micro2": "Monthly ECR by 15th",
+    "micro3": "New Employee UAN Linking",
+    "cards": [
+      { "ic": "fas fa-piggy-bank", "title": "EPFO Code Registration", "desc": "100% online establishment registration with EPFO and allotment of PF code." },
+      { "ic": "fas fa-file-upload", "title": "Monthly ECR Filing", "desc": "Electronic Challan cum Return (ECR) generation, wages computation, and challan payment." },
+      { "ic": "fas fa-user-plus", "title": "UAN Generation & KYC", "desc": "Universal Account Number generation and Aadhaar/bank KYC linking for staff." }
+    ],
+    "steps": [
+      { "title": "1. Payroll Register", "desc": "Submit monthly salary statement with basic pay and DA components." },
+      { "title": "2. ECR Generation", "desc": "Calculate employee (12%) and employer (12%) contributions and upload text file." },
+      { "title": "3. Payment Challan", "desc": "Generate bank payment challan and confirm receipt before the 15th." }
+    ],
+    "price": "Rs. 1,499/mo",
+    "priceNote": "monthly ECR & compliance"
+  },
+  {
+    "filename": "esic-in-india.html",
+    "title": "ESIC Registration & Monthly Return Filing | Accountants Factory",
+    "badge": "Labor Law Compliance",
+    "h1": "Employee State <span class=\"mark\">Insurance (ESIC)</span>",
+    "sub": "Medical and social security coverage for employees earning up to Rs. 21,000/month in establishments with 10+ employees.",
+    "micro1": "0.75% Employee / 3.25% Employer",
+    "micro2": "Monthly Challan by 15th",
+    "micro3": "Pehchan Card Issuance",
+    "cards": [
+      { "ic": "fas fa-heartbeat", "title": "ESIC Code Allotment", "desc": "Online registration of business entity on the ESIC unified portal." },
+      { "ic": "fas fa-file-invoice-dollar", "title": "Monthly Contribution", "desc": "Wages calculation and monthly contribution filing before the 15th." },
+      { "ic": "fas fa-id-card", "title": "IP Registration (TIC)", "desc": "Temporary Identity Certificate (TIC) and insurance number generation for workers." }
+    ],
+    "steps": [
+      { "title": "1. Staff Data", "desc": "Submit employee details, family KYC, and monthly wage breakout." },
+      { "title": "2. File Monthly Return", "desc": "Upload monthly employee days worked and gross salary on ESIC portal." },
+      { "title": "3. Challan Confirmation", "desc": "Generate challan and remit payment seamlessly." }
+    ],
+    "price": "Rs. 1,499/mo",
+    "priceNote": "monthly filing & IP support"
+  },
+  {
+    "filename": "professional-tax-in-india.html",
+    "title": "Professional Tax (PT) Registration & Filing | Accountants Factory",
+    "badge": "State Compliance",
+    "h1": "Professional Tax <span class=\"mark\">(PT) Registration</span>",
+    "sub": "State government tax levied on salaried individuals and businesses. State-specific PT registration and return filings for AP, Telangana, Karnataka and more.",
+    "micro1": "PTEC & PTRC Enrollment",
+    "micro2": "Monthly / Annual Returns",
+    "micro3": "Multi-State Coverage",
+    "cards": [
+      { "ic": "fas fa-money-check-alt", "title": "PTRC & PTEC Registration", "desc": "Certificate of Enrollment (PTEC) for company and Certificate of Registration (PTRC) for employees." },
+      { "ic": "fas fa-receipt", "title": "Salary PT Deductions", "desc": "Accurate state slab deduction from monthly payroll based on salary thresholds." },
+      { "ic": "fas fa-calendar-check", "title": "Periodical PT Returns", "desc": "Timely filing of monthly or annual PT returns with state commercial tax departments." }
+    ],
+    "steps": [
+      { "title": "1. Business Location", "desc": "Specify state locations, office lease deeds, and employee headcounts." },
+      { "title": "2. Registration Certificate", "desc": "Submit online application to obtain state PT Registration Number." },
+      { "title": "3. Monthly Deductions", "desc": "Deduct PT from payroll and deposit via state treasury portals." }
+    ],
+    "price": "Rs. 999/mo",
+    "priceNote": "state PT filing & enrollment"
+  },
+  {
+    "filename": "about.html",
+    "title": "About Accountants Factory LLP | Tech-Driven CA Firm in Tirupati",
+    "badge": "About Us",
+    "h1": "Empowering Startups & SMEs with <span class=\"mark\">Smart Finance</span>",
+    "sub": "Accountants Factory LLP is a premier financial advisory firm and Zoho Authorized Partner based in Tirupati, Andhra Pradesh, serving 500+ clients across India, UAE, and USA.",
+    "micro1": "500+ Businesses Served",
+    "micro2": "Zoho Authorized Partner",
+    "micro3": "Certified Chartered Accountants",
+    "cards": [
+      { "ic": "fas fa-award", "title": "Excellence & Precision", "desc": "Delivering compliant, audit-proof, and technology-driven financial management for modern enterprises." },
+      { "ic": "fas fa-cloud", "title": "100% Cloud-First", "desc": "Pioneering paperless accounting, automated GST reconciliations, and real-time CFO dashboards." },
+      { "ic": "fas fa-hand-holding-usd", "title": "Transparent Fixed Pricing", "desc": "Upfront, predictable fee structures with zero hidden surprises or billing ambiguity." }
+    ],
+    "steps": [
+      { "title": "1. Our Heritage", "desc": "Founded by experienced financial professionals committed to simplifying complex Indian regulatory frameworks." },
+      { "title": "2. Our Expertise", "desc": "Full-spectrum capability spanning corporate incorporation, outsourced bookkeeping, Zoho ERP, and Virtual CFO leadership." },
+      { "title": "3. Our Mission", "desc": "To be the single trusted desk for all your accounting, taxation, compliance, and growth funding needs." }
+    ],
+    "price": "Meet Our Team",
+    "priceNote": "dedicated financial advisors"
+  },
+  {
+    "filename": "contact.html",
+    "title": "Contact Accountants Factory LLP | Tirupati Office | +91 91766 71206",
+    "badge": "Get in Touch",
+    "h1": "Let us Discuss Your <span class=\"mark\">Business Goals</span>",
+    "sub": "Whether incorporating a new startup, streamlining messy accounting, or scaling with Virtual CFO insights, our senior advisors are ready to assist you.",
+    "micro1": "Phone: +91 91766 71206",
+    "micro2": "WhatsApp Support",
+    "micro3": "Office: Tirupati, AP",
+    "cards": [
+      { "ic": "fas fa-phone-alt", "title": "Direct Call Support", "desc": "Speak directly with a senior consultant: +91 91766 71206 (Mon - Sat, 9:30 AM to 6:30 PM)." },
+      { "ic": "fas fa-envelope-open-text", "title": "Email Desk", "desc": "Drop your requirements at reachus@accountantsfactory.com for a formal quote within 24 hours." },
+      { "ic": "fas fa-map-marked-alt", "title": "Tirupati Registered Office", "desc": "Ground Floor, K S R Nilayam, Near Master Minds College, Hathiramji Colony, Annamayya Circle, Tirupati, AP 517501." }
+    ],
+    "steps": [
+      { "title": "1. Connect With Us", "desc": "Call, email, or fill out our online consultation booking form." },
+      { "title": "2. Discovery Call", "desc": "A 30-minute structured discussion to evaluate your exact compliance and software needs." },
+      { "title": "3. Clear Proposal", "desc": "Receive an itemized scope of work with guaranteed timelines and upfront pricing." }
+    ],
+    "price": "Free Call",
+    "priceNote": "no obligation pre-engagement consultation"
+  },
+  {
+    "filename": "start-a-business.html",
+    "title": "Start a Business in India | Company Registration Services | Accountants Factory",
+    "badge": "Business Incorporation",
+    "h1": "Launch Your Business on <span class=\"mark\">Solid Ground</span>",
+    "sub": "From Private Limited and LLP incorporation to Startup India DPIIT recognition and statutory registrations. Done right, first time.",
+    "micro1": "Pvt Ltd, LLP, OPC, Section 8",
+    "micro2": "MCA SPICe+ Integrated",
+    "micro3": "PAN, TAN & GST Included",
+    "cards": [
+      { "ic": "fas fa-building", "title": "Corporate Incorporation", "desc": "Private Limited, LLP, OPC, and Section 8 NGO incorporation with complete MCA filings." },
+      { "ic": "fas fa-rocket", "title": "Startup India DPIIT", "desc": "Tax exemptions under 80-IAC, Angel Tax exemption, and government procurement benefits." },
+      { "ic": "fas fa-file-signature", "title": "Statutory Registrations", "desc": "GSTIN, MSME Udyam, Import Export Code (IEC), and AP RERA approvals." }
+    ],
+    "steps": [
+      { "title": "1. Structure Selection", "desc": "We advise on the most tax-efficient structure (Pvt Ltd vs LLP vs OPC) for your business model." },
+      { "title": "2. Digital Filings", "desc": "Obtain director DSCs, reserve business name, draft MOA/AOA, and submit SPICe+." },
+      { "title": "3. Ready to Trade", "desc": "Receive Certificate of Incorporation, PAN, TAN, and instant bank current account opening." }
+    ],
+    "price": "From Rs. 3,999",
+    "priceNote": "all-inclusive packages available"
+  },
+  {
+    "filename": "accounting-services.html",
+    "title": "Accounting & Compliance Services | Accountants Factory",
+    "badge": "Full-Service Accounting",
+    "h1": "Hand Over the Books, <span class=\"mark\">Keep Total Control</span>",
+    "sub": "Outsourced bookkeeping, monthly GST reconciliation, quarterly TDS, and year-end ROC filings managed by certified chartered accountants.",
+    "micro1": "Dedicated Account Manager",
+    "micro2": "Monthly MIS & P&L",
+    "micro3": "Zero Tax Penalties",
+    "cards": [
+      { "ic": "fas fa-book", "title": "Cloud Bookkeeping", "desc": "Daily ledger maintenance, multi-bank reconciliations, and expense management on Zoho Books." },
+      { "ic": "fas fa-receipt", "title": "GST & TDS Filings", "desc": "Error-free GSTR-1, GSTR-3B, GSTR-9, and TDS 24Q/26Q returns with automated 2B reconciliation." },
+      { "ic": "fas fa-stamp", "title": "ROC & Annual Compliance", "desc": "AOC-4 financial filing, MGT-7 annual return, and complete secretarial documentation." }
+    ],
+    "steps": [
+      { "title": "1. Connect Systems", "desc": "Grant view access to your banking feeds, sales invoices, and vendor bills." },
+      { "title": "2. Monthly Accounting", "desc": "We reconcile accounts weekly and present finalized trial balance by the 5th." },
+      { "title": "3. Executive Review", "desc": "Receive monthly MIS reports and an executive tax review call every quarter." }
+    ],
+    "price": "From Rs. 2,000/mo",
+    "priceNote": "billed quarterly or annually"
+  },
+  {
+    "filename": "zoho.html",
+    "title": "Zoho Solutions & Cloud Implementation | Accountants Factory",
+    "badge": "Zoho Authorized Partner",
+    "h1": "Zoho Implementation by <span class=\"mark\">Real Accountants</span>",
+    "sub": "We configure, automate, and customize Zoho Books, CRM, People, Inventory, and Creator for your exact industry workflows.",
+    "micro1": "Official Partner & Certified Trainer",
+    "micro2": "Tally to Zoho Migration",
+    "micro3": "End-to-End Workflow Automation",
+    "cards": [
+      { "ic": "fas fa-calculator", "title": "Zoho Books & GST", "desc": "Complete e-invoicing, automated bank reconciliation, e-way bills, and direct tax filings." },
+      { "ic": "fas fa-bullseye", "title": "Zoho CRM & People", "desc": "Lead pipeline automation, employee leave management, and biometric payroll integrations." },
+      { "ic": "fas fa-exchange-alt", "title": "Tally Migration", "desc": "100% historical ledger, voucher, and opening balance transfer with zero reconciliation gaps." }
+    ],
+    "steps": [
+      { "title": "1. Process Mapping", "desc": "Analyze your sales, procurement, inventory, and accounting workflows." },
+      { "title": "2. Configuration & Testing", "desc": "Build custom invoice templates, approval rules, and role-based permissions." },
+      { "title": "3. Migration & Training", "desc": "Migrate historical data and conduct hands-on training sessions for your staff." }
+    ],
+    "price": "Custom Quote",
+    "priceNote": "tailored to your entity requirements"
+  },
+  {
+    "filename": "virtual-cfo.html",
+    "title": "Virtual CFO Services | Strategic Financial Leadership | Accountants Factory",
+    "badge": "CFO Advisory",
+    "h1": "Strategic CFO Leadership <span class=\"mark\">Without Full-Time Cost</span>",
+    "sub": "High-impact financial strategy, cash flow management, investor reporting, and bank funding guidance for growth-focused SMEs.",
+    "micro1": "From Rs. 35,000 / Month",
+    "micro2": "Weekly Cash Control",
+    "micro3": "CMA Data & DPR for Loans",
+    "cards": [
+      { "ic": "fas fa-chart-line", "title": "Strategic Financial Planning", "desc": "Annual budgeting, 13-week rolling cash flow forecasts, and unit economics modeling." },
+      { "ic": "fas fa-university", "title": "Bank Funding (CMA & DPR)", "desc": "Detailed Project Reports and CMA data preparation for CC/OD limits and term loans." },
+      { "ic": "fas fa-briefcase", "title": "Board & Investor Decks", "desc": "Executive MIS decks, KPI tracking, cap table management, and proactive internal controls." }
+    ],
+    "steps": [
+      { "title": "1. Diagnostic Audit", "desc": "Review past financials, margin leakages, tax positions, and software setups." },
+      { "title": "2. System Implementation", "desc": "Deploy automated dashboards, weekly cash control sheets, and KPI scorecards." },
+      { "title": "3. Executive Leadership", "desc": "Weekly strategy check-ins, monthly board meetings, and direct support for fundraising." }
+    ],
+    "price": "From Rs. 35,000/mo",
+    "priceNote": "dedicated senior finance leader"
+  }
+]
