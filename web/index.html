@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -42,9 +42,7 @@ a{color:var(--teal);text-decoration:none}
 .btn-sm{padding:11px 22px;font-size:.85rem}
 
 /* strip + nav */
-.strip{background:var(--teal-deep);color:#CFE4E2;font-size:.79rem;padding:9px 0}
-.strip .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
-.strip a{color:#fff;font-weight:600}.strip i{color:var(--gold)}
+.strip i{color:var(--gold)}
 nav{position:sticky;top:0;z-index:80;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid #EAF1F0}
 .nav-in{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 0}
 .logo{font-weight:800;font-size:1.18rem;color:var(--ink);letter-spacing:-.03em}
@@ -82,6 +80,11 @@ h1.big .l2{display:block;font-size:.7em}
 .micro i{color:var(--teal)}
 .curve{margin-top:56px;line-height:0;position:relative;z-index:2}
 .curve svg{display:block;width:100%;height:auto}
+
+.scribble{position:absolute;right:-65px;top:10px;width:190px;text-align:left;pointer-events:none;z-index:3}
+.scribble .txt{font-family:'Caveat',cursive;font-weight:600;font-size:1.35rem;color:var(--teal-dark);transform:rotate(-6deg);display:block;padding-left:26px;line-height:1.15}
+.scribble svg{position:absolute;left:-45px;top:-34px}
+@media(max-width:1320px){.scribble{display:none!important}}
 
 /* tracks */
 .tracks-sec{background:var(--soft);padding:10px 0 88px}
@@ -180,13 +183,6 @@ footer a:hover{color:var(--gold)}
 </head>
 <body>
 
-<div class="strip">
-  <div class="wrap">
-    <span><i class="fas fa-certificate"></i> Zoho Authorized Partner &amp; Certified Trainer &middot; Tirupati, Andhra Pradesh</span>
-    <span><i class="fas fa-phone-alt"></i> <a href="tel:+919176671206">91766 71206</a></span>
-  </div>
-</div>
-
 <nav>
   <div class="wrap nav-in">
     <a href="index.html" class="logo"><img src="images/logo1.png" alt="Accountants Factory" style="height:46px;width:auto;display:block;object-fit:contain;"></a>
@@ -260,6 +256,14 @@ footer a:hover{color:var(--gold)}
       <span><i class="fas fa-check-circle"></i> Fixed fees, quoted upfront</span>
       <span><i class="fas fa-check-circle"></i> Universal accounting &amp; bookkeeping</span>
       <span><i class="fas fa-check-circle"></i> India &middot; UAE &middot; USA</span>
+    </div>
+  
+    <div class="scribble" aria-hidden="true">
+      <svg width="118" height="84" viewBox="0 0 118 84" fill="none">
+        <path d="M4 6C33 3 72 15 90 45" stroke="#015C57" stroke-width="2.4" stroke-linecap="round"/>
+        <path d="M76 43l16 6 2-19" stroke="#015C57" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="txt">books from<br>₹25,000 a year</span>
     </div>
   </div>
 
