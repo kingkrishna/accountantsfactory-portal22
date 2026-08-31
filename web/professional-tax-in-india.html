@@ -15,22 +15,22 @@
   --tint:#E9F2F1; --line:#CFE2E0; --gold:#C79A2E;
   --ink:#132420; --body:#4A5B57; --grey:#6E807C;
   --cream:#FBF7EF; --soft:#F4F8F7;
-  --r:46px; --r-md:34px; --r-sm:22px;
-  --sh:0 4px 10px rgba(19,36,32,.04), 0 20px 46px rgba(19,36,32,.09);
-  --sh-lg:0 10px 22px rgba(19,36,32,.07), 0 34px 70px rgba(19,36,32,.14);
+  --r:32px; --r-md:20px; --r-sm:14px;
+  --sh:0 4px 10px rgba(19,36,32,.04), 0 14px 30px rgba(19,36,32,.07);
+  --sh-lg:0 8px 18px rgba(19,36,32,.06), 0 24px 50px rgba(19,36,32,.12);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--body);background:#fff;line-height:1.65;-webkit-font-smoothing:antialiased}
-h1,h2,h3,h4{color:var(--ink);margin:0 0 .5em;letter-spacing:-.03em;font-weight:800;line-height:1.15}
-p{margin:0 0 1em}
+body{margin:0;font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--body);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{color:var(--ink);margin:0 0 .4em;letter-spacing:-.03em;font-weight:800;line-height:1.15}
+p{margin:0 0 .85em}
 a{color:var(--teal);text-decoration:none}
-.wrap{max-width:1200px;margin:0 auto;padding:0 22px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
 .hand{font-family:'Caveat',cursive;font-weight:700}
 :focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:8px}
 
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:700;font-size:.94rem;padding:14px 28px;border-radius:999px;border:1.5px solid transparent;cursor:pointer;transition:.22s;font-family:inherit}
-.btn-primary{background:var(--teal);color:#fff;box-shadow:0 10px 26px rgba(1,111,105,.3)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;font-size:.9rem;padding:11px 24px;border-radius:999px;border:1.5px solid transparent;cursor:pointer;transition:.2s;font-family:inherit}
+.btn-primary{background:var(--teal);color:#fff;box-shadow:0 8px 20px rgba(1,111,105,.25)}
 .btn-primary:hover{background:var(--teal-dark);transform:translateY(-2px);color:#fff}
 .btn-ghost{background:#fff;color:var(--ink);border-color:var(--line)}
 .btn-ghost:hover{border-color:var(--teal);color:var(--teal);background:var(--tint)}
@@ -38,119 +38,130 @@ a{color:var(--teal);text-decoration:none}
 .btn-gold:hover{transform:translateY(-2px)}
 .btn-outline-light{background:transparent;color:#fff;border-color:rgba(255,255,255,.45)}
 .btn-outline-light:hover{background:rgba(255,255,255,.14)}
-.btn-sm{padding:10px 20px;font-size:.85rem}
+.btn-sm{padding:9px 18px;font-size:.82rem}
 
-/* nav */
-nav{position:sticky;top:0;z-index:80;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid #EAF1F0}
-.nav-in{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 0}
-.logo-img{height:46px;width:auto;display:block;object-fit:contain}
-.menu{display:flex;gap:6px;align-items:center}
+/* nav with frosted glass & dropdowns */
+nav{position:sticky;top:0;z-index:90;background:rgba(255,255,255,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid #EAF1F0}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:8px 0}
+.logo-img{height:42px;width:auto;display:block;object-fit:contain}
+.menu{display:flex;gap:4px;align-items:center}
 .mi{position:relative}
-.mi>a{display:flex;align-items:center;gap:6px;color:var(--ink);font-weight:600;font-size:.9rem;padding:10px 14px;border-radius:999px;transition:.2s}
+.mi>a{display:flex;align-items:center;gap:5px;color:var(--ink);font-weight:600;font-size:.88rem;padding:8px 12px;border-radius:999px;transition:.18s}
 .mi>a:hover{background:var(--tint);color:var(--teal)}
-.mi>a i{font-size:.58rem;opacity:.55}
-.drop{position:absolute;top:calc(100% + 10px);left:0;min-width:275px;background:#fff;border:1px solid #E7EFEE;border-radius:var(--r-sm);box-shadow:var(--sh);padding:10px;opacity:0;visibility:hidden;transform:translateY(-6px);transition:.2s}
+.mi>a i{font-size:.55rem;opacity:.55}
+.drop{position:absolute;top:calc(100% + 6px);left:0;min-width:275px;background:rgba(255,255,255,.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1.5px solid #E3EDEC;border-radius:var(--r-sm);box-shadow:var(--sh-lg);padding:8px;opacity:0;visibility:hidden;transform:translateY(-4px);transition:.18s;z-index:100}
 .mi:hover .drop,.mi:focus-within .drop{opacity:1;visibility:visible;transform:none}
-.drop a{display:flex;gap:11px;align-items:center;padding:10px 12px;border-radius:16px;color:var(--body);font-size:.87rem;font-weight:600;transition:.15s}
-.drop a:hover{background:var(--soft);color:var(--teal)}
-.drop a i{width:28px;height:28px;border-radius:10px;background:var(--tint);color:var(--teal);display:grid;place-items:center;font-size:.72rem;flex:0 0 26px}
-.burger{display:none;background:none;border:0;font-size:1.3rem;color:var(--ink);cursor:pointer}
+.drop a{display:flex;gap:10px;align-items:center;padding:8px 10px;border-radius:10px;color:var(--body);font-size:.85rem;font-weight:600;transition:.15s}
+.drop a:hover{background:var(--tint);color:var(--teal)}
+.drop a i{width:26px;height:26px;border-radius:8px;background:var(--tint);color:var(--teal);display:grid;place-items:center;font-size:.7rem;flex:0 0 26px}
+.burger{display:none;background:none;border:0;font-size:1.3rem;color:var(--ink);cursor:pointer;padding:6px 10px;border-radius:8px}
+.burger:hover{background:var(--tint)}
 @media(max-width:1080px){.menu{display:none}.burger{display:block}}
 
+/* mobile dropdown drawer - background remains visible */
+.mnav{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(255,255,255,.94);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);z-index:89;padding:16px 20px 24px;border-bottom:2px solid var(--line);box-shadow:0 24px 50px rgba(1,111,105,.18);max-height:75vh;overflow-y:auto}
+.mnav.open{display:block}
+.mnav details{border-bottom:1px solid #EEF4F3;padding:2px 0}
+.mnav details summary{font-weight:700;padding:10px 4px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;color:var(--ink);font-size:.92rem}
+.mnav details summary i{font-size:.68rem;color:var(--teal);transition:.2s}
+.mnav details[open] summary i{transform:rotate(180deg)}
+.mnav details a{display:flex;align-items:center;gap:8px;padding:8px 8px 8px 14px;font-size:.86rem;color:var(--body);border-left:2px solid var(--tint);margin-left:4px;border-radius:0 8px 8px 0}
+.mnav details a:hover{background:var(--tint);color:var(--teal)}
+.mnav .m-link{display:block;font-weight:700;padding:11px 4px;color:var(--ink);font-size:.92rem;border-bottom:1px solid #EEF4F3}
+.mnav .m-btns{display:flex;flex-direction:column;gap:8px;margin-top:14px}
+
 /* hero */
-.hero{position:relative;padding:64px 0 0;text-align:center;overflow:hidden;background:#fff}
-.blob{position:absolute;border-radius:50%;filter:blur(46px);z-index:0;pointer-events:none}
-.b1{width:440px;height:440px;background:rgba(1,111,105,.13);top:-140px;left:-120px}
-.b2{width:380px;height:380px;background:rgba(199,154,46,.14);top:-90px;right:-100px}
-.b3{width:300px;height:300px;background:rgba(1,111,105,.08);bottom:60px;left:44%}
+.hero{position:relative;padding:36px 0 0;text-align:center;overflow:hidden;background:#fff}
+.blob{position:absolute;border-radius:50%;filter:blur(44px);z-index:0;pointer-events:none}
+.b1{width:380px;height:380px;background:rgba(1,111,105,.11);top:-120px;left:-90px}
+.b2{width:340px;height:340px;background:rgba(199,154,46,.12);top:-70px;right:-70px}
+.b3{width:260px;height:260px;background:rgba(1,111,105,.07);bottom:30px;left:45%}
 .hero-in{position:relative;z-index:2;max-width:880px;margin:0 auto}
-.badge{display:inline-flex;align-items:center;gap:7px;background:var(--tint);color:var(--teal);font-size:.82rem;font-weight:700;padding:8px 18px;border-radius:999px;margin-bottom:18px;letter-spacing:.04em;text-transform:uppercase}
-.hero h1{font-size:clamp(2rem,4.5vw,3.2rem);margin-bottom:14px;line-height:1.15;letter-spacing:-.03em}
-.hero .sub{font-size:1.05rem;max-width:620px;margin:0 auto 24px;color:var(--body);line-height:1.6}
-.hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:18px}
-.micro{font-size:.84rem;color:var(--grey);display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--tint);color:var(--teal);font-size:.78rem;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:12px;letter-spacing:.04em;text-transform:uppercase}
+h1.big{font-family:'Caveat',cursive;font-weight:700;font-size:clamp(2.4rem,5.6vw,4.2rem);line-height:1.04;letter-spacing:0;margin-bottom:4px}
+h1.big .l2{display:block;font-size:.72em}
+.mark{position:relative;display:inline-block;padding:0 .2em;z-index:1;color:#fff;white-space:nowrap}
+.mark:before{content:"";position:absolute;left:0;right:0;top:.1em;bottom:.08em;background:var(--teal);border-radius:8px 16px 10px 18px;transform:rotate(-.8deg);z-index:-1}
+.pen{position:relative;display:inline-block;white-space:nowrap}
+.pen:after{content:"";position:absolute;left:-.04em;right:-.04em;bottom:.03em;height:.08em;background:var(--line);border-radius:99px;transform:rotate(-.8deg)}
+.hero .sub{font-size:.98rem;max-width:600px;margin:8px auto 0;color:var(--body);line-height:1.55}
+.hero-cta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:16px 0 10px}
+.micro{font-size:.8rem;color:var(--grey);display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
 .micro i{color:var(--teal)}
-.curve{margin-top:48px;line-height:0;position:relative;z-index:2}
+.curve{margin-top:24px;line-height:0;position:relative;z-index:2}
 .curve svg{display:block;width:100%;height:auto}
 
 /* content sections */
-.sec{padding:64px 0}
+.sec{padding:36px 0}
 .sec-soft{background:var(--soft)}
 .sec-cream{background:var(--cream)}
-.head{text-align:center;max-width:660px;margin:0 auto 38px}
-.head .hand{font-size:1.55rem;color:var(--teal);display:block;margin-bottom:2px}
-.head h2{font-size:clamp(1.7rem,3.2vw,2.3rem)}
+.head{text-align:center;max-width:640px;margin:0 auto 22px}
+.head .hand{font-size:1.4rem;color:var(--teal);display:block;margin-bottom:2px}
+.head h2{font-size:clamp(1.55rem,2.8vw,2.1rem)}
 
 /* feature cards */
-.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 @media(max-width:920px){.card-grid{grid-template-columns:1fr}}
-.feature-card{background:#fff;border-radius:var(--r-md);padding:30px 26px;border:1.5px solid #E7EFEE;box-shadow:var(--sh);transition:.25s;display:flex;flex-direction:column}
-.feature-card:hover{transform:translateY(-4px);box-shadow:var(--sh-lg);border-color:var(--teal)}
-.feature-card .ic{width:52px;height:52px;border-radius:18px;background:var(--tint);color:var(--teal);display:grid;place-items:center;font-size:1.2rem;margin-bottom:16px}
-.feature-card h3{font-size:1.18rem;margin-bottom:8px}
-.feature-card p{font-size:.9rem;color:var(--grey);margin:0;line-height:1.6}
+.feature-card{background:#fff;border-radius:var(--r-md);padding:24px 20px;border:1.5px solid #E7EFEE;box-shadow:var(--sh);transition:.22s;display:flex;flex-direction:column}
+.feature-card:hover{transform:translateY(-3px);box-shadow:var(--sh-lg);border-color:var(--teal)}
+.feature-card .ic{width:46px;height:46px;border-radius:14px;background:var(--tint);color:var(--teal);display:grid;place-items:center;font-size:1.1rem;margin-bottom:12px}
+.feature-card h3{font-size:1.1rem;margin-bottom:6px}
+.feature-card p{font-size:.86rem;color:var(--grey);margin:0;line-height:1.55}
 
 /* steps */
-.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 @media(max-width:920px){.steps-grid{grid-template-columns:1fr}}
-.step-card{background:#fff;border-radius:var(--r-md);padding:28px 24px;border:1.5px solid #E7EFEE;box-shadow:var(--sh)}
-.step-pill{font-family:'Caveat',cursive;font-size:1.35rem;font-weight:700;color:var(--gold);margin-bottom:4px;display:block}
-.step-card h3{font-size:1.15rem;margin-bottom:8px}
-.step-card p{font-size:.88rem;color:var(--grey);margin:0;line-height:1.6}
+.step-card{background:#fff;border-radius:var(--r-md);padding:22px 20px;border:1.5px solid #E7EFEE;box-shadow:var(--sh)}
+.step-pill{font-family:'Caveat',cursive;font-size:1.25rem;font-weight:700;color:var(--gold);margin-bottom:3px;display:block}
+.step-card h3{font-size:1.08rem;margin-bottom:6px}
+.step-card p{font-size:.86rem;color:var(--grey);margin:0;line-height:1.55}
 
 /* pricing banner */
-.pricing-banner{background:#fff;border:2px solid var(--teal);border-radius:var(--r);padding:40px;box-shadow:var(--sh-lg);display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap}
-.pb-info h3{font-size:1.5rem;margin-bottom:6px}
-.pb-info p{color:var(--grey);margin:0;font-size:.92rem}
-.pb-price{font-size:2.4rem;font-weight:800;color:var(--teal);letter-spacing:-.03em}
-.pb-price span{font-size:.85rem;color:var(--grey);display:block;font-weight:600;margin-top:2px}
+.pricing-banner{background:#fff;border:2px solid var(--teal);border-radius:var(--r);padding:28px 32px;box-shadow:var(--sh-lg);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.pb-info h3{font-size:1.35rem;margin-bottom:4px}
+.pb-info p{color:var(--grey);margin:0;font-size:.88rem}
+.pb-price{font-size:2.1rem;font-weight:800;color:var(--teal);letter-spacing:-.03em}
+.pb-price span{font-size:.8rem;color:var(--grey);display:block;font-weight:600;margin-top:2px}
 
 /* proof band */
-.proof{background:var(--cream);padding:58px 0;border-radius:var(--r) var(--r) 0 0}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.stat{background:#fff;border-radius:var(--r-md);padding:28px 16px;text-align:center;box-shadow:0 6px 20px rgba(19,36,32,.05)}
-.stat b{display:block;font-size:1.95rem;color:var(--teal);letter-spacing:-.04em;font-weight:800}
-.stat small{font-size:.8rem;color:var(--grey);font-weight:700}
+.proof{background:var(--cream);padding:36px 0;border-radius:var(--r) var(--r) 0 0}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.stat{background:#fff;border-radius:var(--r-md);padding:20px 14px;text-align:center;box-shadow:0 4px 14px rgba(19,36,32,.04)}
+.stat b{display:block;font-size:1.75rem;color:var(--teal);letter-spacing:-.04em;font-weight:800}
+.stat small{font-size:.78rem;color:var(--grey);font-weight:700}
 @media(max-width:700px){.stats{grid-template-columns:repeat(2,1fr)}}
-.marq{overflow:hidden;margin-top:36px}
-.track-l{display:flex;gap:48px;width:max-content;animation:sc 36s linear infinite;align-items:center}
-.track-l img{height:46px;filter:grayscale(1);opacity:.6}
+.marq{overflow:hidden;margin-top:24px}
+.track-l{display:flex;gap:40px;width:max-content;animation:sc 36s linear infinite;align-items:center}
+.track-l img{height:42px;filter:grayscale(1);opacity:.6}
 @keyframes sc{to{transform:translateX(-50%)}}
 .mask{-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 
 /* cta */
-.cta{background:linear-gradient(140deg,var(--teal-deep),var(--teal) 140%);color:#CDE3E1;text-align:center;padding:70px 0;border-radius:var(--r) var(--r) 0 0;margin-top:-1px}
-.cta h2{color:#fff;font-size:clamp(1.7rem,3.2vw,2.3rem);margin-bottom:8px}
-.cta .hand{color:var(--gold);font-size:1.45rem;display:block;margin-bottom:4px}
-.cta p{max-width:520px;margin:0 auto 24px}
-.cta-b{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.cta{background:linear-gradient(140deg,var(--teal-deep),var(--teal) 140%);color:#CDE3E1;text-align:center;padding:46px 0;border-radius:var(--r) var(--r) 0 0;margin-top:-1px}
+.cta h2{color:#fff;font-size:clamp(1.55rem,2.8vw,2.1rem);margin-bottom:6px}
+.cta .hand{color:var(--gold);font-size:1.35rem;display:block;margin-bottom:2px}
+.cta p{max-width:500px;margin:0 auto 18px;font-size:.92rem}
+.cta-b{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
 
 /* footer */
-footer{background:#0D1A17;color:#8CA29E;font-size:.88rem;padding:50px 0 24px}
-.fg{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:30px}
-footer h5{color:#fff;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;margin:0 0 12px}
-footer a{color:#8CA29E;display:block;padding:4px 0}
+footer{background:#0D1A17;color:#8CA29E;font-size:.85rem;padding:36px 0 18px}
+.fg{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:24px}
+footer h5{color:#fff;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;margin:0 0 10px}
+footer a{color:#8CA29E;display:block;padding:3px 0}
 footer a:hover{color:var(--gold)}
-.fbot{border-top:1px solid rgba(255,255,255,.09);margin-top:32px;padding-top:16px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.78rem}
-.disc{font-size:.74rem;color:#6B807C;margin-top:12px}
+.fbot{border-top:1px solid rgba(255,255,255,.09);margin-top:24px;padding-top:14px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:.76rem}
+.disc{font-size:.72rem;color:#6B807C;margin-top:10px}
 @media(max-width:880px){.fg{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.fg{grid-template-columns:1fr}}
 
-/* mobile drawer */
-.mnav{display:none;position:fixed;inset:0;background:#fff;z-index:90;padding:24px;overflow-y:auto}
-.mnav.open{display:block}
-.mnav details summary{font-weight:700;padding:12px 0;cursor:pointer;list-style:none;display:flex;justify-content:space-between;border-bottom:1px solid var(--line)}
-.mnav a{display:block;padding:10px 0 10px 16px;font-size:.9rem;color:var(--body);border-bottom:1px solid #f0f0f0}
-.mnav-close{float:right;background:none;border:0;font-size:1.4rem;color:var(--ink);cursor:pointer}
-
 /* mobile responsive adjustments */
 @media(max-width:768px){
-  .wrap{padding:0 16px}
-  .hero{padding:40px 0 0}
-  .hero h1{font-size:1.9rem}
+  .wrap{padding:0 14px}
+  .hero{padding:26px 0 0}
+  h1.big{font-size:2.2rem}
   .hero-cta{flex-direction:column}
   .hero-cta .btn{width:100%}
-  .pricing-banner{flex-direction:column;align-items:flex-start;padding:26px 20px}
+  .pricing-banner{flex-direction:column;align-items:flex-start;padding:20px 16px}
   .pricing-banner .btn{width:100%}
   .cta-b{flex-direction:column}
   .cta-b .btn{width:100%}
@@ -161,48 +172,51 @@ footer a:hover{color:var(--gold)}
 
 <nav>
   <div class="wrap nav-in">
-    <a href="index.html" class="logo"><img src="images/logo1.png" alt="Accountants Factory" style="height:46px;width:auto;display:block;object-fit:contain;"></a>
+    <a href="index.html" class="logo"><img src="images/logo1.png" alt="Accountants Factory" class="logo-img"></a>
 
     <div class="menu">
       <div class="mi">
         <a href="start-a-business.html">Start a Business <i class="fas fa-chevron-down"></i></a>
         <div class="drop">
-          <a href="private-limited-registration.html"><i class="fas fa-building"></i> Private Limited Company</a>
-          <a href="llp-registration.html"><i class="fas fa-handshake"></i> LLP Registration</a>
-          <a href="opc-registration.html"><i class="fas fa-user"></i> OPC &amp; Proprietorship</a>
-          <a href="section-8-ngo.html"><i class="fas fa-hand-holding-heart"></i> Section 8 / NGO</a>
-          <a href="startup-india-dpiit.html"><i class="fas fa-rocket"></i> Startup India (DPIIT)</a>
-          <a href="registrations.html"><i class="fas fa-file-signature"></i> GST, MSME, IEC, Trademark</a>
+          <a href="private-limited-company-registration-in-india.html"><i class="fas fa-building"></i> Private Limited Company</a>
+          <a href="llp-registration-in-india.html"><i class="fas fa-handshake"></i> LLP Registration</a>
+          <a href="one-person-company-registration-in-india.html"><i class="fas fa-user"></i> OPC &amp; Proprietorship</a>
+          <a href="partnership-firm-registrations-in-india.html"><i class="fas fa-users"></i> Partnership Firm</a>
+          <a href="start-up-india-registrations-in-india.html"><i class="fas fa-rocket"></i> Startup India (DPIIT)</a>
+          <a href="msme-registrations-in-india.html"><i class="fas fa-industry"></i> MSME / Udyam</a>
+          <a href="gst-registrations-in-india.html"><i class="fas fa-file-invoice"></i> GST Registration</a>
+          <a href="IEC-Import-and-Export-Code-registration-in-india.html"><i class="fas fa-ship"></i> IEC Registration</a>
+          <a href="rera-andhra-pradesh-registration-in-india.html"><i class="fas fa-hard-hat"></i> RERA (AP)</a>
         </div>
       </div>
       <div class="mi">
-        <a href="accounting-services.html">Accounting <i class="fas fa-chevron-down"></i></a>
+        <a href="outsourced-accounting.html">Accounting <i class="fas fa-chevron-down"></i></a>
         <div class="drop">
-          <a href="outsourced-bookkeeping.html"><i class="fas fa-book"></i> Outsourced bookkeeping</a>
-          <a href="gst-filing.html"><i class="fas fa-receipt"></i> GST returns &amp; reconciliation</a>
-          <a href="tds-payroll.html"><i class="fas fa-users"></i> TDS &amp; payroll</a>
-          <a href="year-end-itr.html"><i class="fas fa-calendar-check"></i> Year-end &amp; income tax</a>
-          <a href="roc-compliance.html"><i class="fas fa-stamp"></i> Annual ROC compliance</a>
+          <a href="outsourced-accounting.html"><i class="fas fa-book"></i> Outsourced Bookkeeping</a>
+          <a href="gst-filing-in-india.html"><i class="fas fa-receipt"></i> GST Returns &amp; Filing</a>
+          <a href="tds-return-filing-in-india.html"><i class="fas fa-users"></i> TDS &amp; Payroll</a>
+          <a href="itr-in-india.html"><i class="fas fa-calendar-check"></i> Income Tax / ITR</a>
+          <a href="aoc4-mgt-7-in-india.html"><i class="fas fa-stamp"></i> ROC / AOC-4 / MGT-7</a>
+          <a href="form11-llp-in-india.html"><i class="fas fa-file-alt"></i> LLP Form 11</a>
+          <a href="form8-llp-in-india.html"><i class="fas fa-file-alt"></i> LLP Form 8</a>
+          <a href="provident-fund-in-india.html"><i class="fas fa-piggy-bank"></i> Provident Fund (PF)</a>
+          <a href="esic-in-india.html"><i class="fas fa-heartbeat"></i> ESIC</a>
+          <a href="professional-tax-in-india.html"><i class="fas fa-money-check-alt"></i> Professional Tax</a>
         </div>
       </div>
       <div class="mi">
-        <a href="zoho.html">Zoho Solutions <i class="fas fa-chevron-down"></i></a>
+        <a href="zoho-books-ecosystem.html">Zoho Solutions <i class="fas fa-chevron-down"></i></a>
         <div class="drop">
-          <a href="zoho-books.html"><i class="fas fa-calculator"></i> Zoho Books &amp; GST</a>
-          <a href="zoho-crm.html"><i class="fas fa-bullseye"></i> Zoho CRM</a>
-          <a href="zoho-people.html"><i class="fas fa-user-tie"></i> Zoho People &amp; Payroll</a>
-          <a href="zoho-erp.html"><i class="fas fa-cogs"></i> Zoho Creator &amp; ERP</a>
-          <a href="tally-to-zoho.html"><i class="fas fa-exchange-alt"></i> Tally to Zoho migration</a>
-          <a href="zoho-training.html"><i class="fas fa-chalkboard-teacher"></i> Zoho training</a>
+          <a href="zoho-books-ecosystem.html"><i class="fas fa-calculator"></i> Zoho Books &amp; GST</a>
+          <a href="zoho-books-ecosystem.html"><i class="fas fa-bullseye"></i> Zoho CRM</a>
+          <a href="zoho-books-ecosystem.html"><i class="fas fa-user-tie"></i> Zoho People &amp; Payroll</a>
         </div>
       </div>
       <div class="mi">
-        <a href="virtual-cfo.html">Virtual CFO <i class="fas fa-chevron-down"></i></a>
+        <a href="virtual-cfo-services-in-india.html">Virtual CFO <i class="fas fa-chevron-down"></i></a>
         <div class="drop">
-          <a href="virtual-cfo.html"><i class="fas fa-chart-line"></i> Virtual CFO retainer</a>
-          <a href="mis-dashboards.html"><i class="fas fa-tachometer-alt"></i> MIS &amp; dashboards</a>
-          <a href="cash-flow.html"><i class="fas fa-water"></i> Cash flow &amp; budgeting</a>
-          <a href="bank-funding.html"><i class="fas fa-university"></i> CMA / DPR for funding</a>
+          <a href="virtual-cfo-services-in-india.html"><i class="fas fa-chart-line"></i> Virtual CFO Retainer</a>
+          <a href="cashflow-tool.html"><i class="fas fa-water"></i> Cash Flow &amp; Budgeting</a>
         </div>
       </div>
       <div class="mi"><a href="pricing.html">Pricing</a></div>
@@ -210,18 +224,63 @@ footer a:hover{color:var(--gold)}
 
     <div style="display:flex;gap:10px;align-items:center">
       <a href="contact.html" class="btn btn-primary btn-sm">Book a free call</a>
-      <button class="burger" aria-label="Menu"><i class="fas fa-bars"></i></button>
+      <button class="burger" id="burger" aria-label="Menu"><i class="fas fa-bars"></i></button>
+    </div>
+  </div>
+
+  <div class="mnav" id="mnav">
+    <details>
+      <summary>Start a Business <i class="fas fa-chevron-down"></i></summary>
+      <a href="private-limited-company-registration-in-india.html">Private Limited Company</a>
+      <a href="llp-registration-in-india.html">LLP Registration</a>
+      <a href="one-person-company-registration-in-india.html">OPC &amp; Proprietorship</a>
+      <a href="partnership-firm-registrations-in-india.html">Partnership Firm</a>
+      <a href="start-up-india-registrations-in-india.html">Startup India (DPIIT)</a>
+      <a href="msme-registrations-in-india.html">MSME / Udyam</a>
+      <a href="gst-registrations-in-india.html">GST Registration</a>
+      <a href="IEC-Import-and-Export-Code-registration-in-india.html">IEC Registration</a>
+      <a href="rera-andhra-pradesh-registration-in-india.html">RERA (AP)</a>
+    </details>
+    <details>
+      <summary>Accounting <i class="fas fa-chevron-down"></i></summary>
+      <a href="outsourced-accounting.html">Outsourced Bookkeeping</a>
+      <a href="gst-filing-in-india.html">GST Returns &amp; Filing</a>
+      <a href="tds-return-filing-in-india.html">TDS &amp; Payroll</a>
+      <a href="itr-in-india.html">Income Tax / ITR</a>
+      <a href="aoc4-mgt-7-in-india.html">ROC / AOC-4 / MGT-7</a>
+      <a href="form11-llp-in-india.html">LLP Form 11</a>
+      <a href="form8-llp-in-india.html">LLP Form 8</a>
+      <a href="provident-fund-in-india.html">Provident Fund (PF)</a>
+      <a href="esic-in-india.html">ESIC</a>
+      <a href="professional-tax-in-india.html">Professional Tax</a>
+    </details>
+    <details>
+      <summary>Zoho Solutions <i class="fas fa-chevron-down"></i></summary>
+      <a href="zoho-books-ecosystem.html">Zoho Books &amp; GST</a>
+      <a href="zoho-books-ecosystem.html">Zoho CRM</a>
+      <a href="zoho-books-ecosystem.html">Zoho People &amp; Payroll</a>
+    </details>
+    <details>
+      <summary>Virtual CFO <i class="fas fa-chevron-down"></i></summary>
+      <a href="virtual-cfo-services-in-india.html">Virtual CFO Retainer</a>
+      <a href="cashflow-tool.html">Cash Flow &amp; Budgeting</a>
+    </details>
+    <a href="pricing.html" class="m-link">Pricing</a>
+    <div class="m-btns">
+      <a href="portal/login.html" class="btn btn-ghost btn-sm"><i class="fas fa-user-lock"></i> Client Portal</a>
+      <a href="contact.html" class="btn btn-primary btn-sm">Book a free call</a>
     </div>
   </div>
 </nav>
-
 
 <!-- HERO -->
 <header class="hero">
   <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
   <div class="wrap hero-in">
     <span class="badge"><i class="fas fa-certificate"></i> State Compliance</span>
-    <h1>Professional Tax <span class="mark">(PT) Registration</span></h1>
+    <h1 class="big">
+      Professional Tax <span class="mark">(PT) Registration</span>
+    </h1>
     <p class="sub">State government tax levied on salaried individuals and businesses. State-specific PT registration and return filings for AP, Telangana, Karnataka and more.</p>
     <div class="hero-cta">
       <a href="pricing.html" class="btn btn-primary">See pricing</a>
@@ -300,11 +359,11 @@ footer a:hover{color:var(--gold)}
   <div class="wrap">
     <div class="pricing-banner">
       <div class="pb-info">
-        <span class="hand" style="color:var(--gold);font-size:1.35rem;display:block;margin-bottom:2px;">transparent fee</span>
+        <span class="hand" style="color:var(--gold);font-size:1.25rem;display:block;margin-bottom:2px;">transparent fee</span>
         <h3>Ready to start? Get full support today.</h3>
         <p>No hidden extras. Professional fee quoted upfront with full compliance assurance.</p>
       </div>
-      <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap;">
+      <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
         <div class="pb-price">
           Rs. 999/mo
           <span>state PT filing & enrollment</span>
@@ -315,6 +374,7 @@ footer a:hover{color:var(--gold)}
   </div>
 </section>
 
+<!-- PROOF -->
 <section class="proof">
   <div class="wrap">
     <div class="stats">
@@ -358,6 +418,7 @@ footer a:hover{color:var(--gold)}
   </div>
 </section>
 
+<!-- CTA -->
 <section class="cta">
   <div class="wrap">
     <span class="hand">let's keep it simple</span>
@@ -370,34 +431,35 @@ footer a:hover{color:var(--gold)}
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <div class="wrap">
     <div class="fg">
       <div>
-        <a href="index.html" style="display:inline-block;margin-bottom:14px;background:#fff;padding:6px 14px;border-radius:10px;"><img src="images/logo1.png" alt="Accountants Factory" style="height:44px;width:auto;display:block;"></a>
-        <p style="margin-top:14px">Ground Floor, K S R Nilayam, Near Master Minds College, Hathiramji Colony, Annamayya Circle, Tirupati, Andhra Pradesh 517501</p>
-        <p><a href="tel:+919176671206" style="display:inline">91766 71206</a> &middot; <a href="mailto:reachus@accountantsfactory.com" style="display:inline">reachus@accountantsfactory.com</a></p>
+        <a href="index.html" style="display:inline-block;margin-bottom:12px;background:#fff;padding:5px 12px;border-radius:10px;"><img src="images/logo1.png" alt="Accountants Factory" style="height:38px;width:auto;display:block;"></a>
+        <p style="margin-top:10px;font-size:.85rem">Ground Floor, K S R Nilayam, Near Master Minds College, Hathiramji Colony, Annamayya Circle, Tirupati, Andhra Pradesh 517501</p>
+        <p style="font-size:.85rem"><a href="tel:+919176671206" style="display:inline">91766 71206</a> &middot; <a href="mailto:reachus@accountantsfactory.com" style="display:inline">reachus@accountantsfactory.com</a></p>
       </div>
       <div>
         <h5>Start</h5>
-        <a href="private-limited-registration.html">Private Limited</a>
-        <a href="llp-registration.html">LLP</a>
-        <a href="opc-registration.html">OPC</a>
-        <a href="registrations.html">Registrations</a>
+        <a href="private-limited-company-registration-in-india.html">Private Limited</a>
+        <a href="llp-registration-in-india.html">LLP</a>
+        <a href="one-person-company-registration-in-india.html">OPC</a>
+        <a href="gst-registrations-in-india.html">GST Registration</a>
       </div>
       <div>
         <h5>Run</h5>
-        <a href="outsourced-bookkeeping.html">Bookkeeping</a>
-        <a href="gst-filing.html">GST filing</a>
-        <a href="tds-payroll.html">Payroll</a>
-        <a href="zoho-books.html">Zoho Books</a>
+        <a href="outsourced-accounting.html">Bookkeeping</a>
+        <a href="gst-filing-in-india.html">GST Filing</a>
+        <a href="tds-return-filing-in-india.html">Payroll / TDS</a>
+        <a href="zoho-books-ecosystem.html">Zoho Books</a>
       </div>
       <div>
         <h5>Scale</h5>
-        <a href="virtual-cfo.html">Virtual CFO</a>
-        <a href="zoho-erp.html">Zoho ERP</a>
-        <a href="tally-to-zoho.html">Tally migration</a>
-        <a href="bank-funding.html">Bank funding</a>
+        <a href="virtual-cfo-services-in-india.html">Virtual CFO</a>
+        <a href="cashflow-tool.html">Cash Flow Tool</a>
+        <a href="incometax-cal.html">Tax Calculator</a>
+        <a href="portal/login.html">Client Portal</a>
       </div>
     </div>
     <p class="disc">Fees shown are professional fees, exclusive of government charges, stamp duty and applicable GST. Content on this site is general information and does not constitute legal or tax advice under the Income Tax Act, 1961.</p>
@@ -408,5 +470,23 @@ footer a:hover{color:var(--gold)}
   </div>
 </footer>
 
+<script>
+(function(){
+  var b = document.getElementById('burger'), m = document.getElementById('mnav');
+  if(b && m) {
+    b.addEventListener('click', function(e){
+      e.stopPropagation();
+      var on = m.classList.toggle('open');
+      b.innerHTML = '<i class="fas fa-' + (on ? 'times' : 'bars') + '"></i>';
+    });
+    document.addEventListener('click', function(e){
+      if(!m.contains(e.target) && !b.contains(e.target) && m.classList.contains('open')){
+        m.classList.remove('open');
+        b.innerHTML = '<i class="fas fa-bars"></i>';
+      }
+    });
+  }
+})();
+</script>
 </body>
 </html>
