@@ -57,54 +57,79 @@ nav{position:sticky;top:0;z-index:80;background:rgba(255,255,255,.94);backdrop-f
 .burger{display:none;background:none;border:0;font-size:1.3rem;color:var(--ink);cursor:pointer}
 @media(max-width:1080px){.menu{display:none}.burger{display:block}}
 
-/* service page hero */
-.svc-hero{padding:68px 0 54px;text-align:center;background:#fff;position:relative;overflow:hidden}
+/* hero */
+.hero{position:relative;padding:74px 0 0;text-align:center;overflow:hidden;background:#fff}
 .blob{position:absolute;border-radius:50%;filter:blur(46px);z-index:0}
-.b1{width:400px;height:400px;background:rgba(1,111,105,.12);top:-120px;left:-100px}
-.b2{width:360px;height:360px;background:rgba(199,154,46,.12);top:-80px;right:-80px}
-.svc-hero-in{position:relative;z-index:2;max-width:880px;margin:0 auto}
+.b1{width:440px;height:440px;background:rgba(1,111,105,.13);top:-140px;left:-120px}
+.b2{width:380px;height:380px;background:rgba(199,154,46,.14);top:-90px;right:-100px}
+.b3{width:300px;height:300px;background:rgba(1,111,105,.08);bottom:60px;left:44%}
+.hero-in{position:relative;z-index:2;max-width:940px;margin:0 auto}
 .badge{display:inline-flex;align-items:center;gap:7px;background:var(--tint);color:var(--teal);font-size:.82rem;font-weight:700;padding:8px 18px;border-radius:999px;margin-bottom:18px;letter-spacing:.04em;text-transform:uppercase}
+h1.big{font-family:'Caveat',cursive;font-weight:700;font-size:clamp(2.7rem,6.2vw,4.6rem);line-height:1.05;letter-spacing:0;margin-bottom:8px}
+h1.big .l2{display:block;font-size:.75em;color:var(--ink);font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;letter-spacing:-.03em;margin-top:6px}
 .mark{position:relative;display:inline-block;padding:0 .22em;z-index:1;color:#fff;white-space:nowrap}
 .mark:before{content:"";position:absolute;left:0;right:0;top:.1em;bottom:.08em;background:var(--teal);border-radius:10px 18px 12px 20px;transform:rotate(-.8deg);z-index:-1}
-h1.hero-title{font-size:clamp(2rem,4.5vw,3.4rem);margin-bottom:14px;letter-spacing:-.03em}
-.sub{font-size:1.08rem;max-width:680px;margin:0 auto 24px;color:var(--body)}
-.hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:18px}
-.micro{font-size:.86rem;color:var(--grey);display:flex;gap:22px;flex-wrap:wrap;justify-content:center}
+.pen{position:relative;display:inline-block;white-space:nowrap}
+.pen:after{content:"";position:absolute;left:-.04em;right:-.04em;bottom:.03em;height:.09em;background:var(--line);border-radius:99px;transform:rotate(-.8deg)}
+.hero .sub{font-size:1.06rem;max-width:640px;margin:18px auto 0;color:var(--body)}
+.hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:28px 0 14px}
+.micro{font-size:.84rem;color:var(--grey);display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
 .micro i{color:var(--teal)}
+.scribble{position:absolute;right:-40px;top:118px;width:230px;text-align:left;pointer-events:none;z-index:3}
+.scribble .txt{font-family:'Caveat',cursive;font-weight:600;font-size:1.35rem;color:var(--teal-dark);transform:rotate(-6deg);display:block;padding-left:26px;line-height:1.15}
+.scribble svg{position:absolute;left:-50px;top:-38px}
+@media(max-width:1240px){.scribble{display:none}}
+.curve{margin-top:56px;line-height:0;position:relative;z-index:2}
+.curve svg{display:block;width:100%;height:auto}
 
 /* content sections */
-.sec{padding:68px 0}
+.sec{padding:74px 0}
 .sec-soft{background:var(--soft)}
 .sec-cream{background:var(--cream)}
 .head{text-align:center;max-width:660px;margin:0 auto 44px}
 .head .hand{font-size:1.55rem;color:var(--teal);display:block;margin-bottom:2px}
 .head h2{font-size:clamp(1.7rem,3.2vw,2.3rem)}
+
+/* feature cards */
 .card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 @media(max-width:920px){.card-grid{grid-template-columns:1fr}}
-.feature-card{background:#fff;border-radius:var(--r-md);padding:30px 26px;border:1.5px solid #E7EFEE;box-shadow:var(--sh);transition:.25s;display:flex;flex-direction:column}
+.feature-card{background:#fff;border-radius:var(--r-md);padding:32px 28px;border:1.5px solid #E7EFEE;box-shadow:var(--sh);transition:.25s;display:flex;flex-direction:column}
 .feature-card:hover{transform:translateY(-5px);box-shadow:var(--sh-lg);border-color:var(--teal)}
-.feature-card .ic{width:54px;height:54px;border-radius:18px;background:var(--tint);color:var(--teal);display:grid;place-items:center;font-size:1.25rem;margin-bottom:18px}
-.feature-card h3{font-size:1.2rem;margin-bottom:8px}
-.feature-card p{font-size:.92rem;color:var(--grey);margin:0}
+.feature-card .ic{width:56px;height:56px;border-radius:20px;background:var(--tint);color:var(--teal);display:grid;place-items:center;font-size:1.25rem;margin-bottom:18px}
+.feature-card h3{font-size:1.2rem;margin-bottom:10px}
+.feature-card p{font-size:.92rem;color:var(--grey);margin:0;line-height:1.6}
 
 /* steps */
 .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 @media(max-width:920px){.steps-grid{grid-template-columns:1fr}}
-.step-card{background:#fff;border-radius:var(--r-md);padding:28px 24px;border:1.5px solid #E7EFEE;box-shadow:var(--sh)}
-.step-pill{font-family:'Caveat',cursive;font-size:1.25rem;font-weight:700;color:var(--gold);margin-bottom:6px;display:block}
-.step-card h3{font-size:1.15rem;margin-bottom:8px}
-.step-card p{font-size:.9rem;color:var(--grey);margin:0}
+.step-card{background:#fff;border-radius:var(--r-md);padding:30px 26px;border:1.5px solid #E7EFEE;box-shadow:var(--sh)}
+.step-pill{font-family:'Caveat',cursive;font-size:1.35rem;font-weight:700;color:var(--gold);margin-bottom:4px;display:block}
+.step-card h3{font-size:1.18rem;margin-bottom:8px}
+.step-card p{font-size:.9rem;color:var(--grey);margin:0;line-height:1.6}
 
 /* pricing banner */
-.pricing-banner{background:#fff;border:2px solid var(--teal);border-radius:var(--r);padding:40px;box-shadow:var(--sh-lg);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
-.pb-info h3{font-size:1.5rem;margin-bottom:6px}
-.pb-info p{color:var(--grey);margin:0}
-.pb-price{font-size:2.4rem;font-weight:800;color:var(--teal);letter-spacing:-.03em}
-.pb-price span{font-size:.9rem;color:var(--grey);display:block;font-weight:600}
+.pricing-banner{background:#fff;border:2px solid var(--teal);border-radius:var(--r);padding:44px;box-shadow:var(--sh-lg);display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap}
+.pb-info h3{font-size:1.6rem;margin-bottom:8px}
+.pb-info p{color:var(--grey);margin:0;font-size:.95rem}
+.pb-price{font-size:2.5rem;font-weight:800;color:var(--teal);letter-spacing:-.03em}
+.pb-price span{font-size:.88rem;color:var(--grey);display:block;font-weight:600;margin-top:2px}
+
+/* proof band */
+.proof{background:var(--cream);padding:64px 0;border-radius:var(--r) var(--r) 0 0}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.stat{background:#fff;border-radius:var(--r-md);padding:30px 18px;text-align:center;box-shadow:0 6px 20px rgba(19,36,32,.05)}
+.stat b{display:block;font-size:2rem;color:var(--teal);letter-spacing:-.04em;font-weight:800}
+.stat small{font-size:.82rem;color:var(--grey);font-weight:700}
+@media(max-width:700px){.stats{grid-template-columns:repeat(2,1fr)}}
+.marq{overflow:hidden;margin-top:40px}
+.track-l{display:flex;gap:52px;width:max-content;animation:sc 36s linear infinite;align-items:center}
+.track-l img{height:50px;filter:grayscale(1);opacity:.6}
+@keyframes sc{to{transform:translateX(-50%)}}
+.mask{-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 
 /* cta */
-.cta{background:linear-gradient(140deg,var(--teal-deep),var(--teal) 140%);color:#CDE3E1;text-align:center;padding:74px 0;border-radius:var(--r) var(--r) 0 0}
-.cta h2{color:#fff;font-size:clamp(1.7rem,3.2vw,2.3rem)}
+.cta{background:linear-gradient(140deg,var(--teal-deep),var(--teal) 140%);color:#CDE3E1;text-align:center;padding:78px 0;border-radius:var(--r) var(--r) 0 0;margin-top:-1px}
+.cta h2{color:#fff;font-size:clamp(1.7rem,3.2vw,2.4rem)}
 .cta .hand{color:var(--gold);font-size:1.5rem;display:block;margin-bottom:4px}
 .cta p{max-width:540px;margin:0 auto 26px}
 .cta-b{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
@@ -196,98 +221,177 @@ footer a:hover{color:var(--gold)}
     </div>
   </div>
 </nav>
+<div class="mnav" id="mnav">
+  <button class="mnav-close" id="mnav-close"><i class="fas fa-times"></i></button>
+  <details><summary>Start a Business <i class="fas fa-chevron-down"></i></summary>
+    <a href="private-limited-company-registration-in-india.html">Private Limited Company</a>
+    <a href="llp-registration-in-india.html">LLP Registration</a>
+    <a href="one-person-company-registration-in-india.html">OPC &amp; Proprietorship</a>
+    <a href="partnership-firm-registrations-in-india.html">Partnership Firm</a>
+    <a href="start-up-india-registrations-in-india.html">Startup India (DPIIT)</a>
+    <a href="gst-registrations-in-india.html">GST, MSME, IEC, Trademark</a>
+  </details>
+  <details><summary>Accounting <i class="fas fa-chevron-down"></i></summary>
+    <a href="outsourced-accounting.html">Outsourced bookkeeping</a>
+    <a href="gst-filing-in-india.html">GST returns &amp; reconciliation</a>
+    <a href="tds-return-filing-in-india.html">TDS &amp; payroll</a>
+    <a href="itr-in-india.html">Year-end &amp; income tax</a>
+    <a href="aoc4-mgt-7-in-india.html">Annual ROC compliance</a>
+  </details>
+  <details><summary>Zoho Solutions <i class="fas fa-chevron-down"></i></summary>
+    <a href="zoho-books-ecosystem.html">Zoho Books &amp; GST</a>
+    <a href="zoho-books-ecosystem.html#zoho-crm">Zoho CRM</a>
+    <a href="zoho-books-ecosystem.html#zoho-people">Zoho People &amp; Payroll</a>
+    <a href="zoho-books-ecosystem.html#zoho-erp">Zoho Creator &amp; ERP</a>
+    <a href="zoho-books-ecosystem.html#migration">Tally to Zoho migration</a>
+    <a href="zoho-books-ecosystem.html#training">Zoho training</a>
+  </details>
+  <details><summary>Virtual CFO <i class="fas fa-chevron-down"></i></summary>
+    <a href="virtual-cfo-services-in-india.html">Virtual CFO retainer</a>
+    <a href="virtual-cfo-services-in-india.html#mis">MIS &amp; dashboards</a>
+    <a href="cashflow-tool.html">Cash flow &amp; budgeting</a>
+    <a href="virtual-cfo-services-in-india.html#funding">CMA / DPR for funding</a>
+  </details>
+  <details><summary>Tools <i class="fas fa-chevron-down"></i></summary>
+    <a href="incometax-cal.html">Income Tax Calculator</a>
+    <a href="new-gst-rates.html">GST Rates Directory</a>
+    <a href="cashflow-tool.html">Cash Flow Planner</a>
+  </details>
+  <a href="pricing.html">Pricing</a>
+  <a href="portal/login.html">Client Portal</a>
+  <a href="contact.html">Book a free call</a>
+</div>
 
 <!-- HERO -->
-<header class="svc-hero">
-  <span class="blob b1"></span><span class="blob b2"></span>
-  <div class="wrap svc-hero-in">
-    <div class="badge"><i class="fas fa-check-circle"></i> Company Incorporation</div>
-    <h1 class="hero-title">Register a <span class="mark">Private Limited</span> Company</h1>
+<header class="hero">
+  <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
+  <div class="wrap hero-in">
+    <span class="badge"><i class="fas fa-certificate"></i> Company Incorporation</span>
+    <h1 class="big">
+      Register a <span class="mark">Private Limited</span> Company
+      <span class="l2">Simple, effective, <span class="pen">yet affordable.</span></span>
+    </h1>
     <p class="sub">End-to-end incorporation with MCA name reservation, DSC, DIN, MOA/AOA, PAN, TAN and GST. Fixed fee, completed in 7-10 working days.</p>
     <div class="hero-cta">
-      <a href="contact.html" class="btn btn-primary">Get Started Today <i class="fas fa-arrow-right"></i></a>
-      <a href="tel:+919176671206" class="btn btn-ghost"><i class="fas fa-phone-alt"></i> Talk to a CA</a>
+      <a href="pricing.html" class="btn btn-primary">See pricing</a>
+      <a href="contact.html" class="btn btn-ghost">Meet an advisor</a>
     </div>
     <div class="micro">
       <span><i class="fas fa-check-circle"></i> Fixed Rs. 9,999 All-Inclusive</span>
       <span><i class="fas fa-check-circle"></i> 7-10 Working Days</span>
       <span><i class="fas fa-check-circle"></i> Bank Account & GST Included</span>
     </div>
+
+    <div class="scribble" aria-hidden="true">
+      <svg width="118" height="84" viewBox="0 0 118 84" fill="none">
+        <path d="M4 6C33 3 72 15 90 45" stroke="#015C57" stroke-width="2.4" stroke-linecap="round"/>
+        <path d="M76 43l16 6 2-19" stroke="#015C57" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="txt">expert support<br>from day one</span>
+    </div>
+  </div>
+
+  <div class="curve">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,120 C380,8 1060,8 1440,120 Z" fill="#F4F8F7"/></svg>
   </div>
 </header>
 
-<!-- WHAT YOU GET -->
+<!-- SECTION 1: WHAT YOU GET -->
 <section class="sec sec-soft">
   <div class="wrap">
     <div class="head">
-      <span class="hand">complete end-to-end service</span>
-      <h2>Everything Included in the Package</h2>
+      <span class="hand">why choose us</span>
+      <h2>Everything you need, nothing you don't</h2>
     </div>
     <div class="card-grid">
-      <div class="feature-card">
+            <div class="feature-card">
         <div class="ic"><i class="fas fa-signature"></i></div>
         <h3>DSC & DIN Allotment</h3>
         <p>Digital Signature Certificates for all directors and Director Identification Numbers issued seamlessly.</p>
-      </div>      <div class="feature-card">
+      </div>
+      <div class="feature-card">
         <div class="ic"><i class="fas fa-shield-alt"></i></div>
         <h3>Name Reservation & SPICe+</h3>
         <p>MCA RUN name approval and complete SPICe+ Part A & B electronic filing with ROC.</p>
-      </div>      <div class="feature-card">
+      </div>
+      <div class="feature-card">
         <div class="ic"><i class="fas fa-file-invoice-dollar"></i></div>
         <h3>PAN, TAN & GST Registration</h3>
         <p>Company PAN, TAN, standard MOA/AOA drafting, and automatic GSTIN enrollment upon incorporation.</p>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section class="sec">
+<!-- SECTION 2: HOW IT WORKS -->
+<section class="sec sec-cream">
   <div class="wrap">
     <div class="head">
-      <span class="hand">transparent 3-step process</span>
-      <h2>How It Works</h2>
+      <span class="hand">step-by-step roadmap</span>
+      <h2>How we get it done for you</h2>
     </div>
     <div class="steps-grid">
-      <div class="step-card">
-        <span class="step-pill">Step 1</span>
+            <div class="step-card">
+        <span class="step-pill">step 01</span>
         <h3>1. Document Collection</h3>
         <p>Submit PAN, Aadhaar, address proof and photos of proposed directors via our secure portal.</p>
-      </div>      <div class="step-card">
-        <span class="step-pill">Step 2</span>
+      </div>
+      <div class="step-card">
+        <span class="step-pill">step 02</span>
         <h3>2. Name Approval & Filing</h3>
         <p>We check MCA availability, file RUN application, draft custom MOA/AOA, and submit SPICe+.</p>
-      </div>      <div class="step-card">
-        <span class="step-pill">Step 3</span>
+      </div>
+      <div class="step-card">
+        <span class="step-pill">step 03</span>
         <h3>3. Certificate of Incorporation</h3>
         <p>ROC approves the application and issues CIN, Certificate of Incorporation, PAN and TAN.</p>
       </div>
+
     </div>
-    <br><br>
+  </div>
+</section>
+
+<!-- SECTION 3: PRICING -->
+<section class="sec">
+  <div class="wrap">
     <div class="pricing-banner">
       <div class="pb-info">
-        <h3>Fixed Transparent Pricing</h3>
-        <p>No hidden fees. Free pre-filing consultation with senior chartered accountants.</p>
+        <span class="hand" style="color:var(--gold);font-size:1.35rem;display:block;margin-bottom:2px;">transparent fee</span>
+        <h3>Ready to start? Get full support today.</h3>
+        <p>No hidden extras. Professional fee quoted upfront with full compliance assurance.</p>
       </div>
-      <div>
-        <div class="pb-price">Rs. 9,999 <span>all-inclusive professional & MCA filing fee</span></div>
-      </div>
-      <div>
-        <a href="contact.html" class="btn btn-primary">Book Consultation <i class="fas fa-arrow-right"></i></a>
+      <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap;">
+        <div class="pb-price">
+          Rs. 9,999
+          <span>all-inclusive professional & MCA filing fee</span>
+        </div>
+        <a href="contact.html" class="btn btn-primary">Get Started <i class="fas fa-arrow-right"></i></a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
+<section class="proof">
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat"><b>500+</b><small>Businesses served</small></div>
+      <div class="stat"><b>20+ yrs</b><small>Professional experience</small></div>
+      <div class="stat"><b>3</b><small>Countries supported</small></div>
+      <div class="stat"><b>4.9★</b><small>Average client rating</small></div>
+    </div>
+    <div class="marq mask"><div class="track-l" id="lg"></div></div>
+  </div>
+</section>
+
 <section class="cta">
   <div class="wrap">
-    <span class="hand">ready to get started?</span>
-    <h2>Speak to Our Chartered Accountants Today</h2>
-    <p>Get your queries answered in minutes with a quick phone call or WhatsApp message.</p>
+    <span class="hand">let's keep it simple</span>
+    <h2>Tell us your stage. We'll tell you the price.</h2>
+    <p>A 30-minute call, no obligation, and a written quote within 24 hours.</p>
     <div class="cta-b">
       <a href="tel:+919176671206" class="btn btn-gold"><i class="fas fa-phone-alt"></i> Call 91766 71206</a>
-      <a href="https://wa.me/919176671206" class="btn btn-outline-light"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+      <a href="https://wa.me/919176671206" class="btn btn-outline-light"><i class="fab fa-whatsapp"></i> WhatsApp us</a>
     </div>
   </div>
 </section>
@@ -332,53 +436,6 @@ footer a:hover{color:var(--gold)}
   </div>
 </footer>
 
-<div class="mnav" id="mnav">
-  <button class="mnav-close" id="mnav-close"><i class="fas fa-times"></i></button>
-  <details><summary>Start a Business <i class="fas fa-chevron-down"></i></summary>
-    <a href="private-limited-company-registration-in-india.html">Private Limited Company</a>
-    <a href="llp-registration-in-india.html">LLP Registration</a>
-    <a href="one-person-company-registration-in-india.html">OPC &amp; Proprietorship</a>
-    <a href="partnership-firm-registrations-in-india.html">Partnership Firm</a>
-    <a href="start-up-india-registrations-in-india.html">Startup India (DPIIT)</a>
-    <a href="gst-registrations-in-india.html">GST, MSME, IEC, Trademark</a>
-  </details>
-  <details><summary>Accounting <i class="fas fa-chevron-down"></i></summary>
-    <a href="outsourced-accounting.html">Outsourced bookkeeping</a>
-    <a href="gst-filing-in-india.html">GST returns &amp; reconciliation</a>
-    <a href="tds-return-filing-in-india.html">TDS &amp; payroll</a>
-    <a href="itr-in-india.html">Year-end &amp; income tax</a>
-    <a href="aoc4-mgt-7-in-india.html">Annual ROC compliance</a>
-  </details>
-  <details><summary>Zoho Solutions <i class="fas fa-chevron-down"></i></summary>
-    <a href="zoho-books-ecosystem.html">Zoho Books &amp; GST</a>
-    <a href="zoho-books-ecosystem.html#zoho-crm">Zoho CRM</a>
-    <a href="zoho-books-ecosystem.html#zoho-people">Zoho People &amp; Payroll</a>
-    <a href="zoho-books-ecosystem.html#zoho-erp">Zoho Creator &amp; ERP</a>
-    <a href="zoho-books-ecosystem.html#migration">Tally to Zoho migration</a>
-    <a href="zoho-books-ecosystem.html#training">Zoho training</a>
-  </details>
-  <details><summary>Virtual CFO <i class="fas fa-chevron-down"></i></summary>
-    <a href="virtual-cfo-services-in-india.html">Virtual CFO retainer</a>
-    <a href="virtual-cfo-services-in-india.html#mis">MIS &amp; dashboards</a>
-    <a href="cashflow-tool.html">Cash flow &amp; budgeting</a>
-    <a href="virtual-cfo-services-in-india.html#funding">CMA / DPR for funding</a>
-  </details>
-  <details><summary>Tools <i class="fas fa-chevron-down"></i></summary>
-    <a href="incometax-cal.html">Income Tax Calculator</a>
-    <a href="new-gst-rates.html">GST Rates Directory</a>
-    <a href="cashflow-tool.html">Cash Flow Planner</a>
-  </details>
-  <a href="pricing.html">Pricing</a>
-  <a href="portal/login.html">Client Portal</a>
-  <a href="contact.html">Book a free call</a>
-</div>
-<script>
-(function(){
-  var b=document.querySelector('.burger'), m=document.getElementById('mnav'), c=document.getElementById('mnav-close');
-  if(b) b.addEventListener('click',function(){m.classList.toggle('open')});
-  if(c) c.addEventListener('click',function(){m.classList.remove('open')});
-})();
-</script>
-
 </body>
 </html>
+
